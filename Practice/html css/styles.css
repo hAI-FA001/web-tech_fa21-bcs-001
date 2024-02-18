@@ -1,0 +1,156 @@
+/* p, #id, .class, * */
+/* 
+font-family, color, background-color, text-decoration, text-align
+
+list-style-type
+
+padding, padding-top, margin,
+
+border, border-color, border-width, border-style, border-bottom
+
+width, height, min-width, max-height
+
+float, clear, overflow, position, top, bottom, left, right, z-index
+
+display, flex-direction, flex-wrap, justify-content, align-items, order, flex-grow, flex-flow, align-self, flex, flex-shrink
+
+box-sizing
+ */
+
+ nav {
+    background-color: #AABBCC;
+    padding: 0.25em 0em;
+    border: 0.1em solid #91a1b1;
+
+    position: sticky;
+    top: 0em;
+ }
+
+ nav li {
+    list-style-type: none;
+    display: inline;
+    padding: 0.5em 1em;
+    background-color: #d2e1e9;
+    border: 0.1em solid #1d68b4;
+ }
+
+ nav li:hover {
+    background-color: #acd4ea;
+    padding: 1em 1.5em;
+ }
+
+nav li a {
+    color: #0c0c68;
+    text-decoration: none;
+}
+
+
+
+
+body {
+    background-color: #0a0a3b;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 0.85em;
+}
+
+.main-div {
+    background-color: #1c375a;
+    padding: 1em 0em;
+    margin: 0.5em 0em;
+}
+
+
+
+.about {
+margin: 1em 3em;
+}
+
+.about h1 {
+    color: #b9ced3;
+}
+
+.about img {
+    float: right;
+}
+
+.about p {
+    color: #819ea4;
+}
+
+.about p::first-letter {
+    font-size: 3em;
+}
+
+
+
+.my-skills {    
+    list-style-type: none;
+    color: #a2afc5;
+    background-color: #0a0a3b;
+    margin: 0em 7em;
+}
+
+.my-skills:hover {    
+    background-color: #08084e;
+}
+
+.my-skills p {
+    text-align: center;
+    padding-top: 2em;
+    text-decoration: underline;
+    width: 25em;
+}
+
+.my-skills>li {
+    padding: 0.5em 0em;
+}
+
+.my-skills ul li {
+    list-style-type: none;
+    color: #06a2ba;
+}
+
+
+
+
+.main-div table {
+    background-color: #01304d;
+    color: #8693a5;
+    margin: 1em 0.5em;
+}
+
+.main-div table th:hover, .main-div table td:hover {
+    background-color: #043a5b;
+    color: #8693a5;
+    margin: 1em 0.5em;
+}
+
+.main-div table th, .main-div table td {
+    border: 0.1em solid #0a0a3b;
+    padding: 0.5em 0.5em;
+}
+
+.main-div table th {
+    color: #bad7db;
+}
+
+
+
+
+.my-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-footer>a {
+    margin: 0em 1em;
+    color: #4b9389;
+    text-decoration: none;
+}
+
+.my-footer>a:hover {
+    color: #86b8a5;
+}

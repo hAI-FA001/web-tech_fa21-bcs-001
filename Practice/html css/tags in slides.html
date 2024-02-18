@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- meta charset, name, content -->
+
+    <!-- character encoding -->
+    <meta charset="UTF-8" />
+
+    <!-- set values used by Google -->
+    <!-- name = application-name, author, description, generator, keywords, viewport -->
+    <meta name="description" content="testing html" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="author" content="FA21 BCS 001" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="application-name" content="My Web App" />
+
+    <!-- refresh after every 300 second -->
+    <!-- <meta http-equiv="refresh" content="300" /> -->
+
+    <!-- now image doesn't load -->
+    <!-- <meta http-equiv="content-security-policy" content="default-src 'self'" /> -->
+
+    <!-- character encoding for document -->
+    <!-- <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> -->
+
+    <!-- default style sheet -->
+    <!-- <meta http-equiv="default-style" content="./meta_test.css" /> -->
+
+    <link rel="stylesheet" href="test.css" />
+
+    <title>Some Tags in Slides</title>
+  </head>
+  <body>
+    <a href="https://en.wikipedia.org/wiki/HTML">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png"
+        alt="html image"
+        height="100em"
+        width="100em"
+      />
+    </a>
+
+    <!-- b, em, i, small, strong, sub, sup, ins, del, mark -->
+    <br />
+    <b>bold test</b> <i>italic test</i> <small>small test</small>
+    <strong>strong test</strong> <sub>sub test</sub> <sup>sup test</sup>
+    <ins>ins test</ins> <del>del test</del>
+    <mark>mark test</mark>
+
+    <!-- map inside img, but not often used -->
+
+    <!-- table, thead, tbody, tfoot, caption, tr, td, th, colgroup col -->
+    <table>
+      <caption>
+        My Table
+      </caption>
+      <thead>
+        <tr>
+          <th>Header 1</th>
+          <th>Header 2</th>
+          <th>Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- can't span tfoot or thead -->
+          <td rowspan="2" colspan="1">2 Rows, 1 Column</td>
+          <td>Row 1, Column 1</td>
+          <td>Row 1, Column 2</td>
+          <td>Row 1, Column 3</td>
+        </tr>
+        <tr>
+          <td rowspan="2" colspan="3">2 Rows, 3 Column</td>
+          <td>Row 2, Column 1</td>
+          <td>Row 2, Column 2</td>
+          <td>Row 2, Column 3</td>
+        </tr>
+        <tr>
+          <td>Row 3, Column 1</td>
+          <td>Row 3, Column 2</td>
+          <td>Row 3, Column 3</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>Footer 1</th>
+        <th>Footer 2</th>
+        <th>Footer 3</th>
+      </tfoot>
+    </table>
+
+    <table id="fancy">
+      <thead>
+        <tr>
+          <th>Col 1</th>
+          <th>Col 2</th>
+          <th>Col 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>aaa</td>
+          <td>aaa</td>
+          <td>aaa</td>
+        </tr>
+        <tr>
+          <td>bbb</td>
+          <td>bbb</td>
+          <td>bbb</td>
+        </tr>
+        <tr>
+          <td>ccc</td>
+          <td>ccc</td>
+          <td>ccc</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Foot 1</th>
+          <th>Foot 2</th>
+          <th>Foot 3</th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <br /><br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+    cumque
+    <blockquote>
+      voluptatem, enim veniam modi nobis atque, eius quae officiis ullam tenetur
+      rerum neque ratione nemo
+    </blockquote>
+    explicabo pariatur, adipisci eaque doloribus.
+
+    <br /><br />
+    <div class="pattern">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+      minus quis officiis. In illum alias architecto ullam exercitationem fugiat
+      labore sint at molestiae unde obcaecati, repudiandae amet dolores sed ea!
+    </div>
+
+    <a href="">test link</a>
+    <br />
+    <a href="a">test link</a>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
+      voluptatum cupiditate quibusdam voluptates molestiae consequatur
+      necessitatibus aliquam sunt porro nulla eaque, velit nihil, at possimus
+      rerum, deserunt suscipit! Adipisci, eum.
+    </p>
+
+    <div class="first">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate,
+      consequuntur quas similique cum numquam impedit quos a, nemo praesentium
+      sapiente consectetur. Illum officiis ducimus non veritatis ex eaque porro
+      dolore. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      Cupiditate, consequuntur quas similique cum numquam impedit quos a, nemo
+      praesentium sapiente consectetur. Illum officiis ducimus non veritatis ex
+      eaque porro dolore.
+    </div>
+
+    <br /><br />
+    <div class="pseudo-test">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate,
+      consequuntur quas similique cum numquam impedit quos a, nemo praesentium
+      sapiente consectetur. Illum officiis ducimus non veritatis ex eaque porro
+      dolore.
+
+      <li>test</li>
+    </div>
+
+    <div class="exclude-me">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit aliquam
+      quaerat aperiam nostrum earum in accusamus sequi tenetur excepturi
+      consectetur quibusdam, molestiae mollitia ad, commodi fugiat quis! Nulla,
+      distinctio quam?
+    </div>
+
+    <a href="" target="_blank">target blank</a>
+
+    <br /><br /><br />
+    <div class="border-test">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet odit autem,
+      tenetur modi velit quaerat corporis distinctio temporibus optio porro
+      veritatis libero nulla iste sint. Doloribus unde illo ipsa officiis?
+    </div>
+
+    <br /><br /><br />
+    <div class="shadow">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore porro
+      doloribus nulla consequuntur eaque dolores corporis iste cum vel vero
+      eveniet praesentium debitis, libero explicabo. Repellendus quo ratione
+      incidunt officia?
+    </div>
+
+    <br /><br /><br />
+    <div class="multi-shadow">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore porro
+      doloribus nulla consequuntur eaque dolores corporis iste cum vel vero
+      eveniet praesentium debitis, libero explicabo. Repellendus quo ratione
+      incidunt officia?
+    </div>
+
+    <br /><br /><br /><br /><br />
+    <div class="polaroid">
+      <div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png"
+          height="125px"
+          width="125px"
+          alt=""
+        />
+      </div>
+
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore porro
+      doloribus nulla consequuntur eaque dolores corporis iste cum vel vero
+      eveniet praesentium debitis, libero explicabo. Repellendus quo ratione
+      incidunt officia?
+    </div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </body>
+</html>
