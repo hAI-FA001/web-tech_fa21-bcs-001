@@ -1,0 +1,181 @@
+/* included using <meta http-equiv="default-style"> */
+
+body {
+  background-color: white;
+  color: white;
+  font-size: 1em;
+
+  background-image: url(https://media.istockphoto.com/id/170958625/photo/dark-blue-grunge-background.webp?s=2048x2048&w=is&k=20&c=7Jt0qjQa8HWGKKVOrCou1gza-E_OgQtla_CpxADR_6s=);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* can use px, em, etc */
+  /* position can be used for sprites when use px */
+  background-position: left top;
+
+  /* short form of above */
+  /* background: #000000
+    url(https://media.istockphoto.com/id/170958625/photo/dark-blue-grunge-background.webp?s=2048x2048&w=is&k=20&c=7Jt0qjQa8HWGKKVOrCou1gza-E_OgQtla_CpxADR_6s=)
+    no-repeat left top fixed; */
+}
+
+table,
+th,
+td {
+  border: 0.2em solid white;
+  border-collapse: collapse;
+}
+
+/* th,
+td {
+  background-color: #96d4d4;
+} */
+
+#fancy {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#fancy th,
+#fancy td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: black;
+}
+
+#fancy tr {
+  background-color: white;
+}
+
+#fancy tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#fancy tr:hover {
+  background-color: #ddd;
+}
+
+#fancy th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+.pattern {
+  /* use pattern instead of large image */
+  background-image: repeating-linear-gradient(
+    45deg,
+    #0000ff,
+    #ff00ff,
+    /* controls blend between colors */ 1px,
+    /* width of line */ transparent 10px,
+    /* gap between each line */ transparent 6px
+  );
+  background-size: 800px 800px;
+
+  /* opacity of content */
+  opacity: 0.7;
+}
+
+a:link {
+  color: #ffff00;
+}
+a:visited {
+  color: #00ffff;
+}
+a:hover {
+  color: #00ff00;
+}
+a:active {
+  color: #0000ff;
+}
+
+p:first-line {
+  color: #0000ff;
+}
+p:first-letter {
+  color: #ff0000;
+}
+
+div.first:first-child {
+  color: red;
+  background-color: #0000ff;
+}
+
+div.pseudo-test {
+  color: red;
+  font-size: 1em;
+}
+
+div.pseudo-test::after {
+  color: blue;
+}
+div.pseudo-test::before {
+  color: yellow;
+}
+
+div.pseudo-test::selection {
+  color: yellow;
+}
+
+div.pseudo-test::marker {
+  background-color: yellow;
+}
+
+div[class^="exclude-me"] {
+  background-color: #0000ff;
+}
+a[target="_blank"] {
+  color: yellow;
+}
+
+/* hierarchiy:
+    element (also pseudo elements) = 1
+    class (also pseudo class, attribute selector) = 10    
+    id = 100
+    inline = 1000
+    * = 0
+*/
+
+/* p {
+    overrides all previous styling
+    color: red; !important
+} */
+
+div.border-test {
+  border-left: 0.25em solid blue;
+  border-right: 0.25em solid blue;
+  border-radius: 1em;
+  padding-left: 1em;
+}
+
+div.shadow {
+  /* horizontal vertical blur spread color */
+  box-shadow: 3em 2em 4em 0.1em red;
+}
+
+div.multi-shadow {
+  box-shadow: 1em 1em red, 1.1em 1.1em 3em 1em blue,
+    1.75em 1.75em 5em 1.1em green;
+}
+
+div.polaroid {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+
+  background-color: white;
+  color: black;
+  padding: 1em;
+
+  /* centers it */
+  margin: auto;
+}
+
+div.polaroid div {
+  background-color: rgba(150, 0, 250, 0.1);
+  box-shadow: 2px 2px 5px 0px purple;
+}

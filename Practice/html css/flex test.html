@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex test</title>
+
+    <style>
+      .parent-flex {
+        /* child become inline */
+        display: flex;
+
+        /* row, column, row-reverse, column-reverse */
+        flex-direction: row;
+
+        /* wrap = move to new line, no wrap = change size */
+        flex-wrap: nowrap;
+
+        /* center, flex-start, flex-end, space-around, space-between 
+        
+        moves whole div left or right if direction = row
+        */
+        justify-content: center;
+
+        /* moves items up or down if direction = row */
+        align-items: center;
+
+        width: 100em;
+        border: 1em solid black;
+        font-size: 0.3em;
+      }
+
+      .child-flex {
+        color: white;
+        background-color: blueviolet;
+        border: 0.1em solid red;
+        width: 4em;
+
+        /* flex-shrink: 1; */
+      }
+
+      .child-1 {
+        /* override align-items */
+        align-self: flex-end;
+
+        /* increases size to take available space */
+        flex-grow: 1;
+
+        /* 0 means do not shrink */
+        flex-shrink: 0;
+
+        width: 10em;
+      }
+      .child-2 {
+        align-self: center;
+        flex-grow: 1;
+        flex-shrink: 0;
+
+        width: 25em;
+        height: 10em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent-flex">
+      <div class="child-flex child-1">
+        first one Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Reiciendis deleniti exercitationem modi reprehenderit ex quaerat non
+        itaque iure aliquam! Rerum fuga beatae sequi. Officia voluptates
+        doloribus corporis soluta, expedita molestiae. Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Numquam fugiat ab reprehenderit
+        tenetur voluptates ipsum atque, deleniti nesciunt quaerat, quasi quae
+        impedit alias itaque dicta enim consequuntur inventore nam iste!
+      </div>
+      <div class="child-flex child-2">
+        2nd Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+      <div class="child-flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        deleniti exercitationem modi reprehenderit ex quaerat non itaque iure
+        aliquam! Rerum fuga beatae sequi. Officia voluptates doloribus corporis
+        soluta, expedita molestiae.
+      </div>
+    </div>
+  </body>
+</html>
