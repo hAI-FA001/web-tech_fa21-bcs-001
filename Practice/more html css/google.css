@@ -1,0 +1,157 @@
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  background-color: rgb(61, 68, 139);
+
+  background-image: repeating-linear-gradient(
+    45deg,
+    #006aff44,
+    #cc00ff44,
+    0.025em,
+    transparent 1em,
+    transparent 1.25em
+  );
+
+  margin: 0;
+}
+
+#top-bar {
+  font-size: 0.8em;
+  background-color: rgba(65, 80, 133, 0.75);
+
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  justify-content: space-between;
+}
+
+#item-container-left {
+  margin-right: 1em;
+  margin-left: 3em;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  justify-content: space-between;
+}
+
+#item-container-right {
+  margin-right: 3em;
+  margin-left: 1em;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  justify-content: space-between;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+  padding: 0.5em 0.5em;
+  border-radius: 0.75em;
+}
+
+a:hover {
+  background-color: rgb(66, 44, 138);
+}
+
+#address-bar {
+  margin: 0em 1em;
+  flex-grow: 1;
+}
+#address-bar input {
+  width: 100%;
+
+  border: none;
+  border-radius: 0.75em;
+
+  padding: 0.5em 0.75em;
+
+  background-color: rgb(20, 27, 61);
+  color: white;
+}
+
+#bookmark {
+  float: right;
+
+  margin-right: 2em;
+  margin-top: 1em;
+
+  font-size: 0.8em;
+}
+
+#side-bar {
+  float: right;
+  clear: right;
+
+  margin-right: 2em;
+
+  font-size: 0.8em;
+}
+#side-bar li {
+  display: inline;
+  padding: 0em 0.5em;
+}
+
+#main {
+  text-align: center;
+  position: fixed;
+  bottom: 15em;
+  left: 12%;
+  right: 12%;
+}
+
+#main input {
+  width: 30em;
+  height: 2em;
+
+  border-radius: 1em;
+
+  padding: 0.5em 1em;
+  margin-top: 2.25em;
+  margin-bottom: 1em;
+}
+
+#google {
+  font-size: 5em;
+}
+
+#recent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+  margin: auto;
+  padding-top: 1em;
+
+  width: 40em;
+
+  font-size: 0.75em;
+}
+
+#recent-item {
+  padding: 0.75em 1em;
+  margin: 0.25em 0.25em;
+
+  width: 5em;
+
+  background-color: #35236f;
+
+  border-radius: 0.75em;
+
+  box-shadow: 0.25em 0.25em 10px 0em black;
+}
+
+#recent-item:hover {
+  background-color: rgb(66, 44, 138);
+}
