@@ -143,6 +143,8 @@ div#nav-items {
 
   background-color: #cffff47a;
   box-shadow: 0.5em 0.5em 3em 0em rgb(216, 212, 246);
+
+  overflow: hidden;
 }
 
 #about-me {
@@ -160,7 +162,7 @@ div#nav-items {
 }
 
 #about-me img {
-  height: 75px;
+  height: 50%;
   width: 75px;
 
   float: right;
@@ -170,6 +172,8 @@ div#nav-items {
 
   background-color: rgb(229, 255, 218);
   padding: 10px;
+
+  margin-bottom: 1em;
 }
 
 #experience {
