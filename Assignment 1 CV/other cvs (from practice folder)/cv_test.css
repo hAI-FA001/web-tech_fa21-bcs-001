@@ -1,0 +1,273 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  background-color: rgb(233, 240, 237);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #000000,
+    /* #eeaacc, */ #ccaaee,
+    0.1em,
+    transparent 0em,
+    transparent 5em
+  );
+  background-size: 100% 100%;
+  background-attachment: fixed;
+
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+#top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  padding: 0% 5%;
+
+  background-color: #5cbeb8;
+  opacity: 0.9;
+
+  border: 1px solid #112255;
+  border-top: 0px;
+
+  box-shadow: 0em 0.5em 1em 0em #105975aa;
+
+  font-size: 1.15em;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#top-bar div {
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+#top-bar div:hover {
+  border-bottom: 3px solid #ccccee;
+}
+
+#top-bar a {
+  color: #eeeeff;
+  text-decoration: none;
+}
+
+#characteristics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+#characteristics > span {
+  padding: 0.5em 1.5em;
+
+  font-size: 2.1em;
+  font-weight: bold;
+
+  color: #629a636c;
+}
+#characteristics > span:hover {
+  color: #629a63;
+}
+
+#about-div {
+  padding-top: 1em;
+  padding-bottom: 2em;
+
+  background-color: #d0e3ecde;
+
+  box-shadow: 0em 0.9em 1em 0em #2f4a56;
+}
+
+#about-text {
+  margin-left: 10%;
+  margin-bottom: 0;
+
+  border-bottom: 4px solid #277dd3;
+
+  font-size: 2.5em;
+  color: #481ba3;
+
+  width: 7em;
+}
+
+#about {
+  width: 75%;
+  margin: auto;
+  padding: 5px 0px;
+
+  padding-left: 10px;
+
+  border-left: 4px solid #277dd3;
+}
+
+#about img {
+  float: right;
+  overflow: hidden;
+
+  height: 125px;
+  width: 125px;
+
+  padding: 5px;
+
+  border: 1px solid black;
+  border-radius: 100%;
+
+  background-color: #ffffff77;
+}
+
+#about q {
+  margin: 0px 100px;
+
+  font-size: 1.2em;
+  color: #165496;
+}
+
+#experience-text {
+  margin: auto;
+  margin-top: 100px;
+
+  font-size: 2.25em;
+  color: #481ba3;
+
+  width: 7em;
+}
+
+#experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 90%;
+
+  margin: auto;
+}
+
+#experience .year {
+  overflow: hidden;
+
+  padding: 10px 20px;
+
+  font-size: 1.5em;
+  font-weight: bold;
+
+  background-color: #6f847f22;
+  color: #1f1b9c;
+
+  border-bottom: 2px solid #04648a;
+  border-radius: 1em;
+}
+
+#experience .year-html {
+  float: right;
+  margin-right: 30px;
+  padding-left: 7em;
+  padding-right: 0;
+}
+
+#experience .year-css {
+  float: left;
+  margin-left: 30px;
+  padding-right: 5em;
+  padding-left: 0;
+}
+
+#experience .year-javascript {
+  float: right;
+  margin-right: 30px;
+  padding-left: 2em;
+  padding-right: 0;
+}
+
+#experience .tech-text {
+  display: inline;
+
+  padding: 10px 20px;
+
+  font-size: 1.1em;
+  font-weight: bold;
+
+  border-radius: 1em;
+}
+
+#tech-html {
+  background-color: #a34f06;
+  color: white;
+}
+
+#tech-css {
+  background-color: #8106a3;
+  color: white;
+}
+
+#tech-javascript {
+  background-color: #a4a758;
+  color: white;
+}
+
+#experience .content {
+  font-size: 0.9em;
+  text-align: justify;
+
+  margin: 25px 0px;
+  padding: 30px;
+
+  height: 5em;
+
+  color: #04648a;
+
+  border-left: 3px solid #105975;
+  border-right: 3px solid #105975;
+  border-radius: 1em;
+}
+
+#experience .content:hover {
+  box-shadow: 0.5em 0.75em 1em 0.25em #04648a;
+}
+
+#contact-me {
+  margin-top: 4em;
+  margin-bottom: 3em;
+}
+
+#contact-me ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#contact-me li {
+  display: inline;
+
+  border: 1px solid #165496;
+  border-radius: 1em;
+
+  padding: 0.5em 1em;
+
+  background-color: #62717122;
+}
+
+#contact-me a {
+  color: rgb(21, 71, 64);
+  text-decoration: none;
+}
+
+#contact-me li:hover,
+#contact-me a:hover {
+  background-color: #7699a7;
+  color: white;
+}
