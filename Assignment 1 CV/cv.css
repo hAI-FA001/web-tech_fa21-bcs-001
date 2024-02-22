@@ -61,6 +61,18 @@ div#nav-items {
   border-bottom: 2px solid white;
 }
 
+/* #side-info {
+  float: right;
+  overflow: hidden;
+  height: 100%;
+
+  background-color: black;
+  color: white;
+}
+#side-info ul {
+  list-style-type: none;
+} */
+
 #qualities {
   display: flex;
   justify-content: center;
