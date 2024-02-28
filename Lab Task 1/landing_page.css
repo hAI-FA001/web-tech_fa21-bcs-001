@@ -118,7 +118,7 @@ nav {
 
   z-index: 10;
 
-  background-color: #d5e2f2;
+  background-color: white;
   color: #1a2440;
 }
 
@@ -477,6 +477,10 @@ h1 {
     margin: 0em 0.5em;
   }
 
+  #prod-options {
+    display: flex;
+    flex-direction: column;
+  }
   #products-grid > div {
     width: 40%;
   }
@@ -556,9 +560,6 @@ h1 {
   }
   #page li {
     font-size: 0.75em;
-  }
-  #navigate-arrow i {
-    font-size: 0.75em !important;
   }
   #products-grid > div {
     width: 75%;
