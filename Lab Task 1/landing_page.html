@@ -30,21 +30,12 @@
     </a>
     <header id="header" class="bg-dark text-white">MyCommerce</header>
 
-    <nav>
+    <nav class="bg-secondary-subtle">
       <img src="a.jpg" alt="abc" />
       <ul id="tabs" class="nav">
-        <li>
-          <a href="#product-heading">Products</a>
-          <!-- <div class="my-dropdown">
-            <ul>
-              <li>Category 1</li>
-              <li>Category 2</li>
-              <li>Category 3</li>
-            </ul>
-          </div> -->
-        </li>
+        <li><a href="#product-heading">Products</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="">Customer Support</a></li>
+        <li><a href="#support">Customer Support</a></li>
       </ul>
 
       <ul id="info-tabs" class="nav">
@@ -75,12 +66,12 @@
 
       <div id="prod-options">
         <div id="page">
-          <ul>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href="">5</a></li>
+          <ul class="pagination">
+            <li class="page-item active"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">3</a></li>
+            <li class="page-item"><a class="page-link">4</a></li>
+            <li class="page-item"><a class="page-link">5</a></li>
           </ul>
         </div>
         <div id="navigate-arrow">
@@ -90,7 +81,7 @@
       </div>
 
       <div id="products-grid">
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -100,7 +91,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -110,7 +101,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -120,7 +111,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -130,7 +121,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -140,7 +131,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -150,7 +141,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -160,7 +151,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -170,7 +161,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -180,7 +171,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="card">
           &nbsp; <img src="product.jpg" alt="product image" />
           <div class="prod-info">
             <p class="title">ABC</p>
@@ -212,7 +203,7 @@
     </div>
 
     <h1 id="reviews-heading">What others think</h1>
-    <div id="reviews">
+    <!-- <div id="reviews">
       <div class="review">
         <p>
           <q>
@@ -245,6 +236,92 @@
           </q>
           -  HAI-FA001
         </p>
+      </div>
+    </div> -->
+
+    <div id="carousel-example" class="carousel slide bg-secondary">
+      <div id="reviews" class="carousel-inner text-white">
+        <div class="carousel-item active">
+          <div class="review mx-5">
+            <p>
+              <q>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Debitis nobis quaerat, commodi recusandae aspernatur nostrum
+                corporis, soluta expedita iste dolore deleniti consequatur omnis
+                voluptas. Velit atque veritatis eligendi numquam odio?
+              </q>
+              -  HAI-FA001
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="review mx-5">
+            <p>
+              <q>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+                iure architecto itaque harum, eius atque et. Laudantium
+                assumenda aliquid harum eum earum iste? Distinctio, ea. Velit
+                dolorum atque modi distinctio? Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Iure, consequuntur. In quis vero
+                mollitia! Blanditiis molestiae, quos voluptates eveniet
+                perferendis delectus nam quidem magnam sapiente ipsa aut
+                cupiditate tenetur temporibus!
+              </q>
+              -  HAI-FA001
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="review mx-5">
+            <p>
+              <q>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Debitis nobis quaerat, commodi recusandae aspernatur nostrum
+                corporis, soluta expedita iste dolore deleniti consequatur omnis
+                voluptas. Velit atque veritatis eligendi numquam odio? Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+                rerum eos illum voluptatibus exercitationem minima ea, iste quia
+                minus molestiae eligendi fuga animi. Quos quia sapiente
+                consequuntur ut, suscipit nobis.
+              </q>
+              -  HAI-FA001
+            </p>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carousel-example"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carousel-example"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div id="support">
+      <h1 id="support-heading">Have a question?</h1>
+      <div id="form">
+        <div class="user-input">
+          <h2 class="input-title">Email</h2>
+          <div class="input-box">&nbsp;</div>
+        </div>
+        <div class="user-input">
+          <h2 class="input-title">Description</h2>
+          <div class="input-box">&nbsp;</div>
+        </div>
       </div>
     </div>
 
