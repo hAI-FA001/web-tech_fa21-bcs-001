@@ -25,16 +25,21 @@ body {
   right: 1.5em;
   border-radius: 100%;
   color: white;
-  background-color: red;
+  background-color: black;
+  padding: 0.5em 0.5em;
   text-align: center;
-  width: 3em;
-  height: 3em;
+  z-index: 10;
+}
+
+#back-to-top:hover {
+  color: red;
 }
 
 header {
   text-align: center;
   font-size: 2em;
   padding: 1em 0em;
+  /* width: 100%; */
 }
 
 ul.nav {
@@ -45,6 +50,7 @@ ul.nav {
   flex-wrap: nowrap;
   flex-direction: row;
 }
+
 ul.nav li {
   margin-top: 1em;
   padding: 0em 1em;
@@ -84,9 +90,11 @@ ul.nav li:hover .my-dropdown {
 
 ul#tabs {
   float: left;
+  width: fit-content;
 }
 ul#info-tabs {
   float: right;
+  width: fit-content;
 }
 
 nav img {
@@ -102,9 +110,12 @@ nav img {
 nav {
   overflow: hidden;
   box-shadow: 0em 0.25em 0.75em 0em #00000044;
+  background-color: white;
   position: sticky;
   top: 0;
   padding: 0.5em 0em;
+
+  z-index: 10;
 }
 
 footer {
@@ -143,6 +154,7 @@ footer p {
 
 #main-content {
   margin-top: 5em;
+  z-index: 1;
 }
 
 h1 {
@@ -168,6 +180,7 @@ h1 {
   height: 12em;
   width: 12em;
   background-color: black;
+  z-index: 1;
 }
 
 #mission p {
@@ -236,19 +249,16 @@ h1 {
 }
 
 #navigate-arrow {
-  font-size: 2em;
+  font-size: 3em;
 }
 
-#navigate-arrow > p {
-  display: inline;
-  margin: 0em 1em;
-  background-color: rgba(128, 128, 128, 0.212);
-  color: white;
+#navigate-arrow > i {
   padding: 0em 0.5em;
+  vertical-align: text-top;
 }
 
-#navigate-arrow > p:hover {
-  background-color: rgba(128, 128, 128, 1);
+#navigate-arrow > i:hover {
+  color: red;
 }
 
 #products-grid {
@@ -281,8 +291,10 @@ h1 {
 }
 
 #products-grid img {
-  height: 12em;
-  width: 10em;
+  /* height: 12em;
+  width: 10em; */
+  width: 100%;
+  height: 50%;
   border: 1px solid black;
   background-color: black;
   flex-grow: 1;
@@ -356,6 +368,114 @@ h1 {
   flex-direction: row;
   flex-wrap: nowrap;
   padding: 3em 0em;
+}
+
+@media screen and (max-width: 1000px) {
+  div.review q {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #page li a {
+    margin: 0em 0.5em;
+  }
+
+  #products-grid > div {
+    width: 40%;
+  }
+
+  #reviews {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  nav ul,
+  nav ul li {
+    display: none;
+  }
+
+  nav:hover ul {
+    display: flex;
+  }
+
+  nav:hover ul li {
+    display: block;
+  }
+
+  ul.nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  ul.nav li {
+    margin-top: 0em;
+    padding: 0.5em 1em;
+    border: none;
+    width: 50%;
+    text-align: center;
+
+    position: relative;
+  }
+
+  ul#tabs,
+  ul#info-tabs {
+    float: none;
+    width: 100%;
+  }
+
+  ul#tabs {
+    margin-bottom: 1em;
+  }
+
+  nav img {
+    float: none;
+    display: block;
+    margin: auto;
+    margin-bottom: 2em;
+    width: 5em;
+    height: 5em;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  #mission {
+    font-size: 0.8em;
+  }
+  #mission-heading {
+    font-size: 1.9em;
+  }
+  #mission img {
+    width: 10em;
+    height: 10em;
+  }
+
+  #product-filter {
+    font-size: 0.85em;
+  }
+  #page li {
+    font-size: 0.75em;
+  }
+  #navigate-arrow i {
+    font-size: 0.75em !important;
+  }
+  #products-grid > div {
+    width: 75%;
+    height: 20em;
+  }
+
+  div.review q {
+    font-size: 0.8em;
+  }
+
+  footer a {
+    font-size: 0.85em;
+  }
 }
 
 .review {
