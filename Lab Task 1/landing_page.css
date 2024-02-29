@@ -123,7 +123,6 @@ nav {
 }
 
 footer {
-  padding-top: 10em;
   background-color: #1a2440;
 }
 
@@ -158,9 +157,11 @@ footer i {
 
 footer p {
   font-size: 0.75em;
-  margin: 1em;
+  margin: 0em 1em;
   margin-top: 2em;
+  padding-bottom: 1em;
   text-align: center;
+  color: white;
 }
 
 #main-content {
@@ -178,7 +179,6 @@ h1 {
 
 #mission {
   margin: 0em auto;
-  margin-top: 10em;
   overflow: hidden;
   padding: 0em 7%;
   padding-bottom: 3em;
@@ -573,4 +573,31 @@ h1 {
   footer a {
     font-size: 0.85em;
   }
+}
+
+img[src="waves-mission.svg"] {
+  margin-top: 5em;
+  background-color: #5576d9;
+  width: 100%;
+}
+
+img[src="wavesOpacity-products.svg"] {
+  background-color: #d5e2f2;
+  width: 100%;
+}
+
+img[src="waves-stats.svg"] {
+  background-color: white;
+  width: 100%;
+}
+
+img[src="wavesOpacity-support.svg"] {
+  width: 100%;
+  background-color: #d5e2f2;
+}
+
+img[src="wavesNegative-footer.svg"] {
+  background-color: #d5e2f2;
+  width: 100%;
+  margin-bottom: 10em;
 }
