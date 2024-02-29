@@ -103,8 +103,8 @@ nav img {
   float: left;
   margin-right: 1em;
   margin-left: 1em;
-  border-radius: 100%;
-  background-color: black;
+  border-radius: 25%;
+  background-color: white;
   width: 3em;
   height: 3em;
 }
@@ -187,10 +187,11 @@ h1 {
 
 #mission img {
   float: right;
-  border-radius: 100%;
+  /* border-radius: 100%; */
   height: 12em;
   width: 12em;
-  background-color: black;
+  background-color: white;
+  padding: 1em;
   z-index: 1;
 }
 
