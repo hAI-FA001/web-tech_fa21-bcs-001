@@ -29,32 +29,10 @@ body {
   padding: 0.5em 0.5em;
   text-align: center;
   z-index: 10;
-
-  transform: scale(1);
-  transition: transform 1s, color 0.5s;
 }
 
 #back-to-top:hover {
   color: #a0bbf2;
-  transform: scale(1.2);
-}
-
-.outer-circle {
-  position: fixed;
-  bottom: 0em;
-  right: -0.15em;
-  border-radius: 100%;
-  z-index: 11;
-  width: 3em;
-  height: 3em;
-
-  transform: scale(0);
-  transition: transform 1s;
-}
-
-#back-to-top:hover .outer-circle {
-  border: 2px solid #a0bbf2;
-  transform: scale(1.2);
 }
 
 header {
@@ -64,58 +42,6 @@ header {
 
   background-color: #1a2440;
   color: white;
-
-  position: relative;
-  overflow: hidden;
-}
-
-@keyframes rotating {
-  0% {
-    transform: rotate(0deg);
-    transform: scale(1);
-  }
-  20% {
-    transform: rotate(180deg) scale(1.1);
-    left: 55%;
-  }
-  40% {
-    transform: rotate(-180deg) scale(1.1);
-    left: 60%;
-  }
-  60% {
-    transform: rotate(-180deg) scale(1.5);
-    left: 27%;
-  }
-  80% {
-    left: 22%;
-  }
-  100% {
-    transform: rotate(-90deg);
-  }
-}
-
-.rotating-box {
-  border-radius: 25%;
-  height: 1em;
-  width: 1em;
-  position: absolute;
-  top: 25%;
-  left: 30%;
-  opacity: 0.35;
-  z-index: 0;
-}
-
-.box1 {
-  background-color: #25d952;
-  animation: rotating ease-in-out 7s infinite;
-}
-.box2 {
-  background-color: #a0bbf2;
-  animation: rotating ease-in-out 8s infinite reverse;
-}
-.box3 {
-  background-color: #5576d9;
-  animation: rotating 9s ease-in-out infinite;
 }
 
 ul.nav {
@@ -143,7 +69,6 @@ ul.nav li:last-child {
 ul.nav a {
   text-decoration: none;
   color: #1a2440;
-  transition: color 200ms;
 }
 
 ul.nav a:hover {
@@ -228,8 +153,6 @@ footer i {
   background-color: #a0bbf2;
   padding: 0.25em 0.35em;
   border-radius: 100%;
-
-  transition: background-color 0.75s;
 }
 
 footer p {
@@ -254,26 +177,12 @@ h1 {
   border-bottom: 3px solid black;
 }
 
-@keyframes appear {
-  0% {
-    width: 1%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
 #mission {
   margin: 0em auto;
   overflow: hidden;
   padding: 0em 7%;
   padding-bottom: 3em;
   width: 100%;
-  animation: appear 2s;
 }
 
 #mission img {
@@ -311,14 +220,12 @@ h1 {
   font-size: 1.75em;
   font-weight: 300;
   border-bottom: 1px solid #1a2440;
-  transition: font-weight 200ms;
 }
 
 #product-filter li:hover {
   border: none;
   border-bottom: 1px solid #d5e2f2;
   font-weight: 500;
-  letter-spacing: -1px;
 }
 
 #product-filter li a {
@@ -381,17 +288,6 @@ h1 {
   align-items: center;
 }
 
-@keyframes product-anim {
-  0% {
-    background-color: #a0bbf2;
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0.75;
-    background-color: white;
-  }
-}
-
 #products-grid > div {
   height: 15em;
   width: 25%;
@@ -405,16 +301,11 @@ h1 {
 
   box-shadow: 0 4px 8px 0 #1a24403e, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   opacity: 0.75;
-
-  transition: box-shadow 0.5s, opacity 0.5s;
-
-  animation: product-anim 2s infinite alternate;
 }
 
 #products-grid > div:hover {
   border: 3px solid #d5e2f2;
   opacity: 1;
-  animation: none;
 }
 
 #products-grid img {
@@ -435,20 +326,6 @@ h1 {
   width: 100%;
 }
 
-@keyframes text-appear {
-  0% {
-    opacity: 0;
-    left: -1em;
-    color: black;
-  }
-  50%,
-  100% {
-    opacity: 1;
-    left: 1em;
-    color: #25d952;
-  }
-}
-
 .prod-info .sub-info {
   display: flex;
   flex-direction: row;
@@ -458,16 +335,6 @@ h1 {
   width: 90%;
   padding-bottom: 1em;
   margin: auto;
-
-  opacity: 0;
-}
-
-#products-grid > div:hover .sub-info {
-  animation: text-appear 2s;
-  position: relative;
-  opacity: 1;
-  left: 1em;
-  color: #25d952;
 }
 
 #products-grid p {
@@ -482,16 +349,6 @@ h1 {
   font-size: 0.9em;
   font-weight: 500;
   text-align: center;
-
-  color: #5576d9;
-  transition: color 1s, border 1s, width 1s;
-  width: 50%;
-}
-
-#products-grid > div:hover p.title {
-  color: #1a2440;
-  border-bottom: 1px solid;
-  width: 75%;
 }
 
 #products-grid p.subtitle {
@@ -522,26 +379,6 @@ h1 {
   width: 33%;
   height: 10em;
   text-align: justify;
-}
-
-@keyframes stats-appear {
-  0% {
-    color: #1a2440;
-    font-size: 1.2em;
-  }
-
-  50% {
-    color: #1a2440;
-  }
-
-  100% {
-    font-size: 1em;
-  }
-}
-
-#stats > div i,
-#stats > div p {
-  animation: stats-appear 2s infinite alternate ease-in-out;
 }
 
 #reviews-section {
@@ -628,6 +465,35 @@ h1 {
 
 .user-input:last-child .input-box {
   height: 7em;
+}
+
+input.myInput[type="text"] {
+  width: 100%;
+}
+
+input.myInput[name="description"] {
+  height: 7em;
+}
+
+#submitBtn {
+  width: 50%;
+  margin-left: 25%;
+}
+
+#support input.error {
+  border: 1px solid red;
+}
+
+#support span.error-text {
+  color: red;
+}
+
+.hide-text {
+  display: none;
+}
+
+.show-text {
+  display: block;
 }
 
 @media screen and (max-width: 1000px) {
