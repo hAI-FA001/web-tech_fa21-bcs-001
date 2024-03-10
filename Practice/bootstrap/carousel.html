@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Carousel practice</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <!-- place navbar here -->
+    </header>
+    <main class="m-2">
+      <!-- data-bs-ride is for autoplaying carousel -->
+      <!-- set to true to make it autoplay after user interaction/not on page load -->
+      <div
+        id="myCarousel"
+        class="carousel slide carousel-fade py-3 carousel-dark"
+        data-bs-ride="carousel"
+      >
+        <!-- needs to be at start -->
+        <div class="carousel-indicators">
+          <button
+            class="active"
+            data-bs-slide-to="1"
+            data-bs-target="#myCarousel"
+            type="button"
+          ></button>
+          <button
+            data-bs-slide-to="2"
+            data-bs-target="#myCarousel"
+            type="button"
+          ></button>
+          <button
+            data-bs-slide-to="3"
+            data-bs-target="#myCarousel"
+            type="button"
+          ></button>
+          <button
+            data-bs-slide-to="4"
+            data-bs-target="#myCarousel"
+            type="button"
+          ></button>
+        </div>
+
+        <div class="carousel-inner mx-auto w-50 bg-light py-5">
+          <div
+            class="carousel-item active bg-dark text-white"
+            data-bs-interval="500"
+          >
+            inside carousel-item 1
+            <!-- data-bs-interval is for autoplay (time to move to next) -->
+            <div class="carousel-caption d-md-block" data-bs-interval="500">
+              <h5>carousel heading</h5>
+              <p>my carousel caption</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item bg-secondary text-white"
+            data-bs-interval="500"
+          >
+            inside carousel-item 2
+          </div>
+          <div
+            class="carousel-item bg-secondary text-white"
+            data-bs-interval="500"
+          >
+            inside carousel-item 3
+          </div>
+          <div
+            class="carousel-item bg-success text-white"
+            data-bs-interval="500"
+          >
+            last item
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev bg-dark"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+          <span>carousel prev button</span>
+        </button>
+
+        <!-- class is not necessary (can give own style) -->
+        <!-- need both data-bs-target/slide -->
+        <button
+          class="carousel-control-next bg-dark"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+          <span>carousel next buttonn</span>
+        </button>
+      </div>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

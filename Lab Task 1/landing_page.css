@@ -630,6 +630,35 @@ h1 {
   height: 7em;
 }
 
+input.myInput[type="text"] {
+  width: 100%;
+}
+
+input.myInput[name="description"] {
+  height: 7em;
+}
+
+#submitBtn {
+  width: 50%;
+  margin-left: 25%;
+}
+
+#support input.error {
+  border: 1px solid red;
+}
+
+#support span.error-text {
+  color: red;
+}
+
+.hide-text {
+  display: none;
+}
+
+.show-text {
+  display: block;
+}
+
 @media screen and (max-width: 1000px) {
   div.review q {
     font-size: 0.8em;
