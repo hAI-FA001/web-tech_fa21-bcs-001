@@ -23,6 +23,28 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
+    <script>
+      window.onload = function () {
+        document.getElementById("submitBtn").onclick = function (event) {
+          let inputs = document.getElementsByClassName("myInput");
+          let errorTexts = document.getElementsByClassName("error-text");
+
+          for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value) {
+              inputs[i].classList.remove("error");
+              errorTexts[i].classList.remove("show-text");
+              errorTexts[i].classList.add("hide-text");
+            } else {
+              inputs[i].classList.add("error");
+              errorTexts[i].classList.add("show-text");
+              errorTexts[i].classList.remove("hide-text");
+              event.preventDefault();
+            }
+          }
+        };
+      };
+    </script>
   </head>
   <body>
     <a href="#header">
@@ -328,16 +350,27 @@
     <div id="support">
       <img src="wavesOpacity-support.svg" alt="" />
       <h1 id="support-heading">Have a question?</h1>
-      <div id="form">
+      <form id="form" action="">
+        <div class="user-input">
+          <h2 class="input-title">Name</h2>
+          <!-- <div class="input-box">&nbsp;</div> -->
+          <input class="myInput" type="text" name="username" />
+          <span class="error-text hide-text">This is required field</span>
+        </div>
         <div class="user-input">
           <h2 class="input-title">Email</h2>
-          <div class="input-box">&nbsp;</div>
+          <input class="myInput" type="text" name="email" />
+          <span class="error-text hide-text">This is required field</span>
         </div>
         <div class="user-input">
           <h2 class="input-title">Description</h2>
-          <div class="input-box">&nbsp;</div>
+          <!-- <div class="input-box">&nbsp;</div> -->
+          <input class="myInput" type="text" name="description" />
+          <span class="error-text hide-text">This is required field</span>
         </div>
-      </div>
+
+        <input id="submitBtn" class="btn btn-primary" type="submit" />
+      </form>
     </div>
 
     <footer id="contact">
