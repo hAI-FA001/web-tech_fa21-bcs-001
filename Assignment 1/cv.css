@@ -87,6 +87,8 @@ nav > ul > li#name:hover {
   border-radius: 1em;
   background-color: #e4e7c3;
 
+  position: relative;
+
   box-shadow: 0em 0.15em 0.3em 0em #1e3067;
 }
 
@@ -94,8 +96,26 @@ nav > ul > li#name:hover {
   width: 7em;
   height: 7em;
   border-radius: 100%;
-  border: 1px solid #a839d1;
   float: right;
+}
+
+#rotating-div {
+  width: 7em;
+  height: 7em;
+  border-radius: 100%;
+  border-top: 5px solid #07119c;
+  position: absolute;
+  right: 1.8em;
+  animation: rotating-border 5s infinite linear;
+}
+
+@keyframes rotating-border {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #statement > p {
