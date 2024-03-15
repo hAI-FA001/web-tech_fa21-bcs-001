@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Title Page</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".navbar-burger").click(function (event) {
+          $(".navbar-burger").toggleClass("is-active");
+          $(".navbar-menu").toggleClass("is-active");
+        });
+      });
+    </script>
+  </head>
+  <body class="has-navbar-fixed-top">
+    <nav class="navbar is-primary has-shadow is-fixed-top">
+      <div class="navbar-brand">
+        <div class="navbar-item">MyCommerce</div>
+        <a class="navbar-burger" data-target="#my-nav">
+          <span></span><span></span><span></span>
+        </a>
+      </div>
+
+      <div id="my-nav" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">Home</a>
+          <a class="navbar-item">About</a>
+          <a class="navbar-item">Contact</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link is-arrowless">Go To Products</a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item">Latest</a>
+              <a class="navbar-item">Trending</a>
+              <hr class="navbar-divider"></hr>
+              <a class="navbar-item">New</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <a href="" class="navbar-item">Sign Up</a>
+          <a href="" class="navbar-item">Log In</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="box">
+      <h1 class="title">Need help?</h1>
+      <h2 class="subtitle">Send us a message</h2>
+      <form action="" class="bg-primary is-light">
+        <input type="submit" class="button is-success is-rounded" />
+      </form>
+    </div>
+  </body>
+</html>
