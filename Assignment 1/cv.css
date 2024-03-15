@@ -90,6 +90,7 @@ nav > ul > li#name:hover {
   position: relative;
 
   box-shadow: 0em 0.15em 0.3em 0em #1e3067;
+  z-index: -1;
 }
 
 #statement > img {
