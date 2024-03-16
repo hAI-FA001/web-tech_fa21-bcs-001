@@ -19,6 +19,11 @@
 
     <link rel="stylesheet" href="styles.css" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script>
@@ -45,30 +50,48 @@
   </head>
 
   <body class="light-color">
-    <nav
-      class="navbar navbar-expand-sm shadow position-sticky top-0 white-color"
+    <header
+      id="header"
+      class="text-center py-4 position-relative overflow-hidden"
     >
-      <div class="container-fluid">
-        <div class="navbar-brand mx-2">
-          <img src="./logo.png" alt="" class="navbar-logo" />
-        </div>
+      <h1 class="display-1">MyCommerce</h1>
+      <div class="rotating-box box1"></div>
+      <div class="rotating-box box2"></div>
+      <div class="rotating-box box3"></div>
+    </header>
+
+    <nav
+      class="container-fluid navbar navbar-expand-sm position-sticky top-0 shadow z-3 bg-light1"
+    >
+      <div class="navbar-brand">
+        <img src="./logo.png" alt="" />
+      </div>
+      <div class="container-fluid d-sm-none w-25">
         <button
-          class="navbar-toggler"
+          class="navbar-toggler m-0"
           data-bs-toggle="collapse"
           data-bs-target="#my-nav"
         >
-          <span class="navbar-toggler-icon"></span>
+          <div class="navbar-toggler-icon"></div>
         </button>
-        <div id="my-nav" class="collapse navbar-collapse ms-5">
-          <ul class="navbar-nav my-nav-style">
-            <li class="nav-item px-2">
-              <a class="nav-link active dark-text" href="">Home</a>
+      </div>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <div class="container ms-0">
+          <ul class="navbar-nav fw-semibold">
+            <li class="nav-item">
+              <a href="" class="nav-link active fw-bold">Home</a>
             </li>
-            <li class="nav-item px-2 dark-text">
-              <a class="nav-link" href="">About</a>
+            <li class="nav-item">
+              <a href="" class="nav-link">Products</a>
             </li>
-            <li class="nav-item px-2 dark-text">
-              <a class="nav-link" href="">Contact</a>
+            <li class="nav-item">
+              <a href="" class="nav-link">Customer Support</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Policy</a>
+            </li>
+            <li class="nav-item ms-sm-auto col-3 col-md-2">
+              <a href="" class="btn btn-primary w-100"> Log In </a>
             </li>
           </ul>
         </div>
@@ -82,19 +105,20 @@
     </div>
 
     <div
-      class="container rounded shadow col-12 col-sm-12 col-md-8 bg-body-tertiary pt-5 pb-4 my-5 px-5 dark-color"
+      id="form-container"
+      class="container rounded shadow col-12 col-sm-12 col-md-8 bg-body-tertiary pt-5 pb-4 my-5 px-5"
     >
-      <h1 class="fs-5 fw-semi-bold mb-4 mt-2 light-text">Reach out to us</h1>
+      <h1 class="fs-5 fw-semi-bold mb-4 mt-2">Reach out to us</h1>
 
       <form id="contact-form" action="" class="form">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" placeholder="" />
-          <label for="name" class="form-label blue-text">Name</label>
+          <input type="text" class="form-control" placeholder="" name="name" />
+          <label for="name" class="form-label">Name</label>
           <div class="invalid-feedback">Name is required</div>
         </div>
         <div class="form-floating my-3">
-          <input type="text" class="form-control" placeholder="" />
-          <label for="email" class="form-label blue-text">Email</label>
+          <input type="text" class="form-control" placeholder="" name="email" />
+          <label for="email" class="form-label">Email</label>
           <div class="invalid-feedback">
             Email is required. Your Email will not be shared with anyone
           </div>
@@ -105,10 +129,9 @@
             type="text"
             class="form-control"
             placeholder=""
+            name="description"
           />
-          <label for="description" class="form-label blue-text"
-            >Description</label
-          >
+          <label for="description" class="form-label">Description</label>
           <div class="invalid-feedback">Please write a description</div>
         </div>
         <input
@@ -121,21 +144,38 @@
 
     <div id="bottom-gap"></div>
 
-    <footer
-      class="container-fluid position-fixed bottom-0 py-2 bg-body-secondary mt-5 dark-color"
-    >
-      <ul class="row text-center pt-2 m-0">
-        <li class="col-12 col-sm-4 col-md-4 nav-link">
-          <a class="nav-link light-text" href="">Facebook</a>
-        </li>
-        <li class="col-12 col-sm-4 col-md-4 nav-link">
-          <a class="nav-link light-text" href="">GitHub</a>
-        </li>
-        <li class="col-12 col-sm-4 col-md-4 nav-link">
-          <a class="nav-link light-text" href="">Whatsapp</a>
-          <div class="small text-secondary text-end pe-3">Made in 2024</div>
-        </li>
-      </ul>
+    <footer>
+      <div class="container-fluid text-bg-dark p-5">
+        <div class="row gy-5 justify-content-start">
+          <div class="col-12 col-md-4 text-center">
+            <h1 class="fs-5 w-100 mb-4">Our Policy</h1>
+            <a href="" class="nav-link small d-inline"> <p>View Policy</p></a>
+          </div>
+          <div class="col-12 col-md-8 col-lg-4 text-center">
+            <h1 class="fs-5 mx-auto mb-3">Find Us</h1>
+            <div class="row">
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-facebook text-white"></i>
+                  <p class="small">Facebook</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-github text-white"></i>
+                  <p class="small">GitHub</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-twitter text-white"></i>
+                  <p class="small">Twitter</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Bootstrap JavaScript Libraries -->
