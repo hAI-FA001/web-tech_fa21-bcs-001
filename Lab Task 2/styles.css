@@ -198,6 +198,7 @@ nav a.btn {
 
 #stories .card {
   transition: transform 0.5s;
+  z-index: 0;
 }
 
 #stories .card-header {
@@ -256,6 +257,7 @@ body {
 
 #stories .card:hover {
   transform: scale(1.05);
+  z-index: 1;
 }
 
 #stories .btn-edit:hover {
