@@ -1,0 +1,28 @@
+:root {
+  --dark-color: #1a2440;
+  --blue-color: #5576d9;
+  --light-blue-color: #a0bbf2;
+  --white-blue-color: #d5e2f2;
+  --green-color: #25d952;
+  --white-color: white;
+  --black-color: black;
+
+  --lighter-blue-color: #eaf0fc;
+  --error-color: #d95581;
+  --grey-blue-color: #808cb1;
+}
+
+.my-primary-bg {
+  background-color: var(--blue-color) !important;
+  color: var(--white-color) !important;
+}
+
+.my-secondary-bg {
+  background-color: var(--dark-color) !important;
+  color: var(--white-blue-color) !important;
+}
+
+.my-tertiary-bg {
+  background-color: var(--light-blue-color) !important;
+  color: var(--white-color) !important;
+}

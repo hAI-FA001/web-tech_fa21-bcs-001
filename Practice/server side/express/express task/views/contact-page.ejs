@@ -17,6 +17,9 @@
       crossorigin="anonymous"
     />
 
+    <link rel="stylesheet" href="/css/common/global_common.css" />
+    <link rel="stylesheet" href="/css/common/page_common.css" />
+    <link rel="stylesheet" href="/css/common/my_color_vars.css" />
     <link rel="stylesheet" href="/css/contact_styles.css" />
 
     <link
@@ -26,27 +29,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <script>
-      function checkValidForm(event) {
-        $("#contact-form .form-floating input").each(function (idx, elem) {
-          if ($(this).val()) {
-            $(this).removeClass("is-invalid");
-            $(this).addClass("is-valid");
-          } else {
-            $(this).addClass("is-invalid");
-            $(this).removeClass("is-valid");
-
-            event.preventDefault();
-          }
-        });
-      }
-
-      function doBindings() {
-        $("#contact-form input[type=Submit]").on("click", checkValidForm);
-      }
-
-      $(document).ready(doBindings);
-    </script>
+    <script src="/js/contact_page_logic.js"></script>
   </head>
 
   <body class="light-color">
@@ -108,39 +91,7 @@
 
     <div id="bottom-gap"></div>
 
-    <footer>
-      <div class="container-fluid text-bg-dark p-5">
-        <div class="row gy-5 justify-content-start">
-          <div class="col-12 col-md-4 text-center">
-            <h1 class="fs-5 w-100 mb-4">Our Policy</h1>
-            <a href="" class="nav-link small d-inline"> <p>View Policy</p></a>
-          </div>
-          <div class="col-12 col-md-8 col-lg-4 text-center">
-            <h1 class="fs-5 mx-auto mb-3">Find Us</h1>
-            <div class="row">
-              <div class="col text-center">
-                <a href="" class="nav-link">
-                  <i class="fa fa-facebook text-white"></i>
-                  <p class="small">Facebook</p>
-                </a>
-              </div>
-              <div class="col text-center">
-                <a href="" class="nav-link">
-                  <i class="fa fa-github text-white"></i>
-                  <p class="small">GitHub</p>
-                </a>
-              </div>
-              <div class="col text-center">
-                <a href="" class="nav-link">
-                  <i class="fa fa-twitter text-white"></i>
-                  <p class="small">Twitter</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%- include("./partials/my-footer.ejs") %>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script
