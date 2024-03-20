@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+
+    <link rel="stylesheet" href="/css/landing_page.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+  </head>
+  <body>
+    <a href="#header">
+      <div id="back-to-top">
+        <i class="fa fa-arrow-up fa-2x"></i>
+        <div class="outer-circle"></div>
+      </div>
+    </a>
+    <header
+      id="header"
+      class="text-center py-4 position-relative overflow-hidden"
+    >
+      <h1 class="display-1">MyCommerce</h1>
+      <div class="rotating-box box1"></div>
+      <div class="rotating-box box2"></div>
+      <div class="rotating-box box3"></div>
+    </header>
+
+    <%- include("./partials/my-navbar.ejs")%>
+
+    <div class="container mt-5 my-primary-bg p-5">
+      <h1 class="fs-4 fw-normal p-0 mb-3">Find what you're looking for</h1>
+      <div class="form mt-2">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control form-control-lg w-50"
+            placeholder="Search a Product"
+          />
+          <button id="search-icon" class="btn btn-secondary col-2 col-lg-1">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="products-section"
+      class="container-fluid mt-5 mb-4 my-secondary-bg p-5"
+    >
+      <h1 class="display-6 mb-4 text-center">
+        Check out our latest collections
+      </h1>
+      <div class="row gy-4">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Gaming</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-2">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Headsets</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Keyboards</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Computer mice</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Chairs</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Bedroom</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-2">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Beds</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Pillows</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Tables</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Lights</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Kitchen</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-4">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Utensils</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Fridge</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Ovens</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Stove</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Devices</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-2">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Mobile Phones</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Tablets</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Desktops</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Workstations</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Food</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-2">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Fruits</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Vegetables</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Spices</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Frozen</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Clothes</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-2">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">T-Shirts</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Jackets</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Sweaters</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Coats</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Music</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-2">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Headphones</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Guitars</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Microphones</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Pianos</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <div class="card-header"><h1 class="fs-5 p-0">Gaming</h1></div>
+            <div class="card-body">
+              <div class="row row-cols-2 gy-4 gx-2">
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Headsets</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Keyboards</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Computer mice</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col shadow">
+                  <div class="card border-1">
+                    <div class="card-img-overlay p-0 opacity-50">
+                      <img src="/images/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                    </div>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <h2 class="fs-6 fw-normal">Chairs</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5 my-tertiary-bg py-5">
+      <h1 class="display-5 p-0">Trending</h1>
+      <div
+        id="trending-carousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            data-bs-target="#trending-carousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="trending-item"
+          ></li>
+          <li
+            data-bs-target="#trending-carousel"
+            data-bs-slide-to="1"
+            aria-label="trending-item"
+          ></li>
+          <li
+            data-bs-target="#trending-carousel"
+            data-bs-slide-to="2"
+            aria-label="trending-item"
+          ></li>
+        </ol>
+        <div class="carousel-inner position-relative" role="listbox">
+          <div id="overlay" class="w-100 z-1 position-absolute left-0 right-0 top-0 bottom-0 bg-dark opacity-25"></div>
+      
+          <div class="carousel-item active">
+            <img src="/images/product.jpg" class="w-100 d-block" alt="Football" />
+            <div class="carousel-caption d-none d-sm-block z-2">
+              <h3>Trending Items</h3>
+              <p>Gaming PC</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/product.jpg" class="w-100 d-block" alt="Basketball" />
+            <div class="carousel-caption d-none d-sm-block z-2">
+              <h3>Trending Items</h3>
+              <p>Basketball</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/product.jpg" class="w-100 d-block" alt="Hockey" />
+            <div class="carousel-caption d-none d-sm-block z-2">
+              <h3>Trending Items</h3>
+              <p>Ronaldo Signed T-Shirt</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#trending-carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#trending-carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="quality-section" class="container my-5 px-5 py-5">
+      <div class="row justify-content-between text-center gx-5 gy-3 py-2">
+        <div class="col-12 col-sm-3 col-lg-3 col-xl-2 shadow py-3">
+          <i class="fa fa-clock-o fa-4x mb-3"></i>
+          <h2 class="fs-6">Fast Delivery</h2>
+        </div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-2 shadow py-3">
+          <i class="fa fa-shopping-bag fa-4x mb-3"></i>
+          <h2 class="fs-6">1M+ Products</h2>
+        </div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-2 shadow py-3">
+          <i class="fa fa-users fa-4x mb-3"></i>
+          <h2 class="fs-6">99% Customer Satisfaction Rate</h2>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container-fluid text-bg-dark p-5">
+        <div class="row gy-5 justify-content-start">
+          <div class="col-12 col-md-4 text-center">
+            <h1 class="fs-5 w-100 mb-4">Our Policy</h1>
+            <a href="" class="nav-link small d-inline">
+              <p>View Policy
+            </p></a>
+          </div>
+          <div class="col-12 col-md-8 col-lg-4 text-center">
+            <h1 class="fs-5 mx-auto mb-3">Find Us</h1>
+            <div class="row">
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-facebook text-white"></i>
+                  <p class="small">Facebook</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-github text-white"></i>
+                  <p class="small">GitHub</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-twitter text-white"></i>
+                  <p class="small">Twitter</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <footer id="contact">
+      <img src="wavesNegative-footer.svg" alt="" />
+      <ul>
+        <li>
+          <a href=""><i class="fa fa-facebook fa-2x text-white"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="fa fa-twitter fa-2x text-white"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="fa fa-github fa-2x text-white"></i></a>
+        </li>
+        <li>
+          <a href=""><i class="fa fa-instagram fa-2x text-white"></i></a>
+        </li>
+      </ul>
+      <p>Made in 2024</p>
+    </footer> -->
+  </body>
+</html>

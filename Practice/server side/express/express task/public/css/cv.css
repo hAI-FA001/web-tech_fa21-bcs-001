@@ -1,0 +1,382 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+
+  background-color: #f0fcf3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: #aaccbd;
+  position: sticky;
+  top: 0px;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1em 1em;
+  box-shadow: 0em 0.1em 1em 0em #234970;
+
+  overflow: hidden;
+}
+
+nav > ul > li {
+  display: inline;
+  float: right;
+  margin: 0em 0.75em;
+  background-color: #ecfec9;
+  border-radius: 1em;
+  padding: 0.25em 1em;
+}
+
+nav > ul > li:hover {
+  background-color: #caf279;
+}
+
+nav > ul > li > a {
+  color: #2b4d81;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+nav > ul > li#name {
+  background-color: #caefd4;
+  color: #4c8498;
+  float: left;
+}
+
+nav > ul > li#name:hover {
+  background-color: #caefd4;
+}
+
+@media screen and (max-width: 600px) {
+  nav > ul > li,
+  nav > ul > li#name {
+    display: block;
+    float: none;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+
+  nav > ul > li#name {
+    display: block;
+    float: none;
+    width: 100%;
+    padding: 1em 0em;
+    margin: auto;
+    margin-bottom: 2em;
+    text-align: center;
+  }
+}
+
+#statement {
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+  margin-top: 5em;
+  padding: 1em 2em;
+  border-radius: 1em;
+  background-color: #e4e7c3;
+
+  position: relative;
+
+  box-shadow: 0em 0.15em 0.3em 0em #1e3067;
+  z-index: -1;
+}
+
+#statement > img {
+  width: 7em;
+  height: 7em;
+  border-radius: 100%;
+  float: right;
+}
+
+#rotating-div {
+  width: 7em;
+  height: 7em;
+  border-radius: 100%;
+  border-top: 5px solid #07119c;
+  position: absolute;
+  right: 1.8em;
+  animation: rotating-border 5s infinite linear;
+}
+
+@keyframes rotating-border {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#statement > p {
+  font-size: 1.1em;
+}
+
+#experience {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 80%;
+  margin: auto;
+  margin-top: 3em;
+}
+
+#experience > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0.5em 3em;
+  border-radius: 0.5em;
+  margin: 0.1em 0em;
+}
+
+#experience > div:hover {
+  background-color: #5e607a;
+  color: white;
+}
+
+#experience > div > span {
+  width: 5em;
+  overflow: hidden;
+  font-size: 1.5em;
+  text-align: end;
+}
+
+.progress {
+  width: 5em;
+  height: 0.5em;
+  border-radius: 1em;
+  margin-left: 1em;
+}
+
+#html {
+  color: #f22c0e;
+  background-color: #f4ebb5;
+}
+
+#css {
+  color: #07119c;
+  background-color: #cbc3f6;
+}
+
+#js {
+  color: #089874;
+  background-color: #f1feba;
+}
+
+#html .progress {
+  width: 50%;
+  background-color: #f6642b;
+}
+
+#css .progress {
+  width: 30%;
+  background-color: #ad46fc;
+}
+
+#js .progress {
+  width: 45%;
+  background-color: #62f75d;
+}
+
+#experience p {
+  text-align: end;
+  flex-grow: 1;
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 400px) {
+  #experience > div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  #html .progress {
+    width: 90%;
+  }
+
+  #css .progress {
+    width: 70%;
+  }
+
+  #js .progress {
+    width: 80%;
+  }
+}
+
+#work {
+  margin: 5em 0em;
+  margin-bottom: 0;
+  padding: 0.5em 1em;
+  background-color: #f3f9d6;
+}
+
+#work > h1 {
+  border-bottom: 3px solid #0c5082;
+  width: 7em;
+  color: #0c5082;
+}
+
+.my-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  border-bottom: 1px solid black;
+}
+
+.my-row:last-child {
+  border-bottom: none;
+}
+
+.my-cell {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0em 1em;
+
+  border: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+  border-collapse: collapse;
+
+  background-color: #cbf5df;
+  color: #305d6b;
+}
+
+.my-cell:nth-child(even) {
+  background-color: #cbf5d6;
+  color: #306b4f;
+}
+
+.my-cell:hover {
+  background-color: #305d6b;
+  color: #ddf0e6;
+}
+
+@media screen and (max-width: 600px) {
+  .my-row {
+    flex-direction: column;
+  }
+  .my-cell {
+    border-bottom: 1px solid black;
+  }
+  .my-cell:last-child {
+    border-bottom: none;
+  }
+}
+
+#other-people-said {
+  padding: 1em;
+  overflow: hidden;
+  background-color: #e0f4f5;
+}
+
+#other-people-said h1 {
+  border-bottom: 3px solid #0c8220;
+  width: 15em;
+  color: #0c8220;
+}
+
+.people-said {
+  float: left;
+  margin: 0em 0.5em;
+  padding: 0.5em;
+  width: 31%;
+  font-size: 1.05em;
+  background-color: #d0fbe5;
+  color: #035f62;
+  border-radius: 1em;
+  border: 1px solid #8fb105;
+}
+
+.people-said:hover {
+  box-shadow: 0.15em 0.25em 0.5em 0em #827258;
+  background-color: #bff4b1;
+}
+
+@media screen and (max-width: 800px) {
+  .people-said {
+    width: 47%;
+    margin: 0.25em 0.1em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .people-said {
+    width: 100%;
+    margin: 0.25em 0em;
+  }
+}
+
+#footer {
+  /* background-image: linear-gradient(#e0f4f5, #526269); */
+  background-color: #526269;
+  margin: 0;
+  padding: 0;
+}
+
+#contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5em;
+}
+
+#contact a {
+  text-decoration: none;
+  margin: 0em 1em;
+  background-color: #f8de80;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  border-bottom: 4px solid #fa810f;
+  color: #a6510c;
+}
+
+#contact a:hover {
+  color: #c5fad6;
+  border-bottom: 4px solid #094c82;
+  background-color: #599c98;
+}
+
+@media screen and (max-width: 600px) {
+  #contact {
+    flex-direction: column;
+  }
+
+  #contact a {
+    width: 7em;
+    text-align: center;
+    margin: 0.1em 0em;
+  }
+}
+
+#footer p {
+  text-align: end;
+  color: white;
+  padding: 0em 1em;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+#footer p:last-child {
+  padding-bottom: 1em;
+}
