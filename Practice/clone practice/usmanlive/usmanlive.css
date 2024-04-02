@@ -1,0 +1,52 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#main-back-img {
+  background-image: url("https://usmanlive.com/wp-content/uploads/2024/03/main-1.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.back-img {
+  background-image: url("https://usmanlive.com/wp-content/uploads/2024/03/1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header > .container:first-child {
+  color: white;
+}
+
+nav div,
+nav a {
+  color: white !important;
+}
+
+@keyframes arrow-animation {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 9px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+#down-arrow {
+  position: relative;
+  animation: arrow-animation 1s infinite ease-in-out;
+}
+
+#sticky-nav ul ul li {
+  font-size: 0.9em;
+  font-weight: bold;
+}
