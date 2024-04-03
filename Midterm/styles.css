@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+.my-section-divider a {
+  border-right: 1px solid;
+}
+.my-section-divider a:last-child {
+  border-right: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.my-vertical-section-divider li {
+  border-bottom: 1px solid;
+}
+
+.my-vertical-section-divider li:last-child {
+  border-bottom: none;
+}
+
+.my-vertical-section-divider-with-img li {
+  border-bottom: 1px solid;
+  padding: 25px 0px;
+}
+
+.my-vertical-section-divider-with-img li:last-child {
+  border-bottom: none;
+}
+
+.progress {
+  height: 5px;
+}
+.progress > progress-bar {
+  background-color: red !important;
+  color: red !important;
+}
