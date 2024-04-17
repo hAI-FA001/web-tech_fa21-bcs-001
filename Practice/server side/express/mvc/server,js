@@ -1,0 +1,89 @@
+// whatever sir does, add to project (api, auth -> log in form, etc etc)
+// why express? need to impl whole MVC in 1 function of http, can distribute/segregate but difficult code
+// why mongoose? data access functions/wrapper classes (else need to use queries), AKA ORM
+
+const express = require("express");
+const mongoose = require("mongoose");
+
+let server = express();
+server.use(express.json());
+
+let Student = require("./models/Student");
+
+// decide where to send request using URL structure + method, we don't use data inside request
+// in automata, we have regex (describes "[all string] that xyz")
+//          v this url is a regex, "all routes that start with this"
+// server.post("/api/students", function (req, res) {
+// we don't want to write queries, give that task to model (we concerned with web dev, not DB)
+// if DB changes tomorrow, only need to change our classes (no headache of updating queries)
+// we here to learn MVC
+// here, we have 1-tier (only models)
+//   let data = req.params;
+// });
+// all urls that start with this and end at some string, ":id" is regex
+// server.get("/api/students/:id", function (req, res) {});
+
+// all above = work on /api/students URL
+
+// now we slowly shift to MVC arch
+// normally, sir makes folder hierarchy a/c to url
+// e.g. routes -> /api/students
+
+// after moving to routes folder, sir got 404 error
+// request went to all "departments"/routes, but could not find required one
+// so server sent 404
+// add this 1 statement to fix it
+// required it as a "guard"
+let studentsApiRouter = require("./routes/api/students");
+server.use(studentsApiRouter);
+// benefit: plug and play, can add/remove APIs whenever we want like this
+
+// to solve below problem
+server.set("view engine", "ejs");
+server.get("/", async (req, res) => {
+  // issue with below: we sent string but browser added html
+  //   res.send("hello world"); // this is request from router (no View involved)
+
+  // we say "go to my printer"
+  // error: no default view engine ( we didn't specify our "printer")
+  // solution: install ejs, create views/homepage.ejs
+  res.send("homepage");
+});
+
+// in react, vue, node, etc, there is always a folder which is publicly accessible -> like putting books at gate, anyone can access
+// server.use(...) = our guards, built-in guards
+// this makes "public" folder public, tells to not apply any check (give it to anyone)
+// can access it as localhost:1234/styles.css => we did not make this router + no "public" in url either
+server.use(express.static("public"));
+
+// for each .ejs in views, need to write a router for it to be accessible
+server.get("/contact-us", async (req, res) => {
+  res.render("contact-us");
+});
+
+// above == overhead (1 html file, changed its name, its extension + also making its route now)
+// benefit: partials/reuse parts of html
+// RULE: if, for 1 change, need to change at multiple locations, then your design is flawed/bad
+// SE gives names (coupling, etc)
+// have <%- include('./partials/my-menu.ejs')>
+// => not html tag, ejs knows this (takes them all from file, processes them)
+// => can have javascript inside this?
+// => this stuff done on server, not browser => for browser, it is just a simple 1 page html
+
+// still issue: if want to attach another css file, and if 100 pages, need to add to all 100 => design problem again
+// only thing different is content, all else is same
+// remember inheritance: parent's props go in child too, "is-a" => we put common stuff in parent
+// here, we have inheritance but it's called master-slave arch, parent page-child, or called layouts (create layout file separately)
+// layouts support, by default, is not in ejs
+// => install express-ejs-layouts
+let ejsLayouts = require("express-ejs-layouts");
+server.use(ejsLayouts);
+// will now give error, that there is no layouts file in views folder
+// but now all views will render layout.ejs, not their actual .ejs
+// => clean out our other ejs files, only add that page's specific content (didn't bother w/ footer, menu, etc)
+// => didn't render actual ejs cuz we did not tell parent (layout file) where to embed child page
+
+// beauty of our app: each page has own stuff (login page will only have login form/login related work)
+// altcabs.com also uses this same technique
+// same concept in frameworks, different names (master-slave, parent-child, layouts)
+// concept: no repetition
