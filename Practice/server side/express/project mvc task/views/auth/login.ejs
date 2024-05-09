@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="text-center display-6 mt-5">Log In to MyCommerce</h1>
+  <h2 class="text-center fs-6 mt-2">
+    Don't have an account?
+    <a
+      href="/register"
+      class="nav-link text-decoration-underline text-secondary"
+      >Click here to register</a
+    >
+  </h2>
+</div>
+
+<div
+  id="form-container"
+  class="container rounded shadow col-12 col-sm-12 col-md-8 bg-body-tertiary pt-5 pb-4 my-5 px-5"
+>
+  <form id="contact-form" action="" method="POST" class="form">
+    <div class="form-floating my-3">
+      <input type="text" class="form-control" placeholder="" name="email" />
+      <label for="email" class="form-lable">Email</label>
+      <div class="invalid-feedback">Email is required</div>
+    </div>
+    <div class="form-floating mt-3">
+      <input
+        type="password"
+        class="form-control"
+        placeholder=""
+        name="password"
+      />
+      <label for="password" class="form-lable">Password</label>
+      <div class="invalid-feedback">Password is required</div>
+    </div>
+    <input
+      type="submit"
+      value="Log In"
+      class="btn btn-primary fw-semibold mt-3 w-100"
+    />
+  </form>
+</div>
