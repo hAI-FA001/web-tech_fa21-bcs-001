@@ -28,8 +28,22 @@
         <li class="nav-item">
           <a href="" class="nav-link">Policy</a>
         </li>
-        <li class="nav-item ms-sm-auto col-3 col-md-2">
-          <a href="" class="btn btn-primary w-100"> Log In </a>
+        <% if(user) { %>
+        <h1 class="mx-auto my-auto fs-4 fw-bold text-primary">
+          Welcome, <%= user.name %>!
+        </h1>
+        <% } %>
+        <li class="nav-item ms-sm-auto col-3 col-md-2 d-flex flex-row">
+          <% if(!user) { %>
+          <a href="/login" class="btn btn-primary w-50 me-2 d-inline-block">
+            Log In
+          </a>
+          <a href="/register" class="btn btn-primary w-50 d-inline-block">
+            Register
+          </a>
+          <% } else { %>
+          <a href="/logout" class="btn btn-primary w-100"> Log Out </a>
+          <% } %>
         </li>
       </ul>
     </div>
