@@ -1,9 +1,13 @@
 const express = require("express");
 let User = require("../models/User");
+let bcryptjs = require("bcryptjs");
+
+let checkSessAuth = require("../middlewares/checkSessAuth");
+let checkNotSessAuth = require("../middlewares/checkNotSessAuth");
 
 let router = express.Router();
 
-router.get("/login", async (req, res, next) => {
+router.get("/login", checkNotSessAuth, async (req, res, next) => {
   res.render("auth/login");
 });
 
@@ -15,7 +19,8 @@ router.post("/login", async (req, res, next) => {
 
   //   note to self: need to write "return" or it will redirect but execute next code too
   if (!user) return res.redirect("/register");
-  if (user.password == req.body.password) {
+
+  if (await bcryptjs.compare(req.body.password, user.password)) {
     req.session.user = user;
     return res.redirect("/");
   } else {
@@ -23,7 +28,7 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.get("/register", async (req, res, next) => {
+router.get("/register", checkNotSessAuth, async (req, res, next) => {
   res.render("auth/register");
 });
 
@@ -31,14 +36,18 @@ router.post("/register", async (req, res, next) => {
   let user = new User();
   user.name = req.body.name;
   user.email = req.body.email;
-  user.password = req.body.password;
+
+  let salt = await bcryptjs.genSalt(10);
+  let hashedPass = await bcryptjs.hash(req.body.password, salt);
+
+  user.password = hashedPass;
 
   await user.save();
 
   res.redirect("/login");
 });
 
-router.get("/logout", async (req, res, next) => {
+router.get("/logout", checkSessAuth, async (req, res, next) => {
   if (req.session.user) {
     req.session.user = null;
   }

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>About Us</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+      function checkValidForm(event) {
+        $("#contact-form .form-floating input").each(function (idx, elem) {
+          if ($(this).val()) {
+            $(this).removeClass("is-invalid");
+            $(this).addClass("is-valid");
+          } else {
+            $(this).addClass("is-invalid");
+            $(this).removeClass("is-valid");
+
+            event.preventDefault();
+          }
+        });
+      }
+
+      function doBindings() {
+        $("#contact-form input[type=Submit]").on("click", checkValidForm);
+      }
+
+      $(document).ready(doBindings);
+    </script>
+  </head>
+
+  <body class="light-color">
+    <header
+      id="header"
+      class="text-center py-4 position-relative overflow-hidden"
+    >
+      <h1 class="display-1">MyCommerce</h1>
+      <div class="rotating-box box1"></div>
+      <div class="rotating-box box2"></div>
+      <div class="rotating-box box3"></div>
+    </header>
+
+    <nav
+      class="container-fluid navbar navbar-expand-sm position-sticky top-0 shadow z-3 bg-light1"
+    >
+      <div class="navbar-brand">
+        <img src="./logo.png" alt="" />
+      </div>
+      <div class="container-fluid d-sm-none w-25">
+        <button
+          class="navbar-toggler m-0"
+          data-bs-toggle="collapse"
+          data-bs-target="#my-nav"
+        >
+          <div class="navbar-toggler-icon"></div>
+        </button>
+      </div>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <div class="container ms-0">
+          <ul class="navbar-nav fw-semibold">
+            <li class="nav-item">
+              <a href="" class="nav-link active fw-bold">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Customer Support</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Policy</a>
+            </li>
+            <li class="nav-item ms-sm-auto col-3 col-md-2">
+              <a href="" class="btn btn-primary w-100"> Log In </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="container my-secondary-bg w-75 fs-6 px-5 py-3 mt-5 rounded shadow-lg"
+    >
+      <h1 class="text-center display-6 mt-1 mb-5 my-tertiary-bg">
+        Our Mission
+      </h1>
+      <p>
+        MyCommerce, serving since 1999, is dedicated to bringing the best
+        products to our customers.
+        <br />Our mission is to provide top quality products and services at an
+        affordable price, to make sure everyone has their daily necessesities.
+      </p>
+      <p>
+        Please view our Terms and Conditions
+        <a href="" class="nav-link text-decoration-underline d-inline-block"
+          >here</a
+        >
+        before buying our products.
+        <br />We strictly enforce our Terms and Conditions. Any violations will
+        be handled, which may lead to a ban. <br />
+        If you find any violations, please report to us at
+        <a href="" class="nav-link text-decoration-underline d-inline-block"
+          >this link</a
+        >.
+      </p>
+    </div>
+
+    <div id="quality-section" class="container my-5 px-5 py-5 w-50">
+      <div class="row justify-content-start text-center gx-5 gy-3 py-2">
+        <div class="col-12 col-sm-8 col-lg-4 col-xl-4 shadow py-3">
+          <i class="fa fa-clock-o fa-4x mb-3"></i>
+          <h2 class="fs-5">Delivery within 3 Days Guarateed</h2>
+        </div>
+      </div>
+      <div class="row justify-content-end text-center gx-5 gy-3 py-2">
+        <div class="col-12 col-sm-8 col-lg-4 col-xl-4 shadow py-3">
+          <i class="fa fa-shopping-bag fa-4x mb-3"></i>
+          <h2 class="fs-5">More than 500 Million Products</h2>
+        </div>
+      </div>
+      <div class="row justify-content-start text-center gx-5 gy-3 py-2">
+        <div class="col-12 col-sm-8 col-lg-4 col-xl-4 shadow py-3">
+          <i class="fa fa-users fa-4x mb-3"></i>
+          <h2 class="fs-5">Served over 1 Million Customers since 1999</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="container w-75 my-5 py-5">
+      <h1 class="display-4 fw-bold text-center text-secondary">
+        <span class="text-warning">4.9 Stars</span> on FoodPanda
+      </h1>
+      <h1 class="display-4 fw-bold text-center text-secondary">
+        <span class="text-primary">1 Million+</span> Ratings
+      </h1>
+    </div>
+
+    <div id="browse-products" class="container w-50 my-5 text-center">
+      <a href="" class="ms-3 fs-2 nav-link text-decoration-none d-inline-block"
+        ><i class="fa fa-shopping-cart"></i> Browse our Products</a
+      >
+    </div>
+
+    <div id="bottom-gap"></div>
+
+    <footer>
+      <div class="container-fluid text-bg-dark p-5">
+        <div class="row gy-5 justify-content-start">
+          <div class="col-12 col-md-4 text-center">
+            <h1 class="fs-5 w-100 mb-4">Our Policy</h1>
+            <a href="" class="nav-link small d-inline"> <p>View Policy</p></a>
+          </div>
+          <div class="col-12 col-md-8 col-lg-4 text-center">
+            <h1 class="fs-5 mx-auto mb-3">Find Us</h1>
+            <div class="row">
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-facebook text-white"></i>
+                  <p class="small">Facebook</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-github text-white"></i>
+                  <p class="small">GitHub</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-twitter text-white"></i>
+                  <p class="small">Twitter</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
