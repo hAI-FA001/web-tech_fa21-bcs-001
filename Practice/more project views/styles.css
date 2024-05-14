@@ -195,3 +195,72 @@ footer a.nav-link:hover * {
   border-bottom-color: var(--white);
   transform: scaleX(1);
 }
+
+#form-container {
+  background-color: var(--dark-color) !important;
+}
+
+#form-container h1 {
+  color: var(--white-blue-color) !important;
+}
+
+#contact-form label {
+  color: var(--blue-color);
+}
+
+#contact-form .btn {
+  color: var(--white-color) !important;
+  background-color: var(--blue-color) !important;
+}
+
+#description-field {
+  height: 7em;
+}
+
+#bottom-gap {
+  height: 10em;
+}
+
+#contact-form .btn[type="Submit"]:hover {
+  color: var(--white-color) !important;
+  background-color: var(--green-color) !important;
+}
+
+#quality-section div div {
+  background-color: var(--blue-color);
+  color: var(--white-color) !important;
+  transition: background-color 0.6s, color 0.6s;
+}
+
+#quality-section div div:hover {
+  background-color: var(--white-color);
+  color: var(--dark-color) !important;
+}
+
+div#browse-products a:hover {
+  color: var(--light-blue-color) !important;
+  border-bottom: 1px solid !important;
+  border-bottom-color: var(--white);
+  transform: scaleX(1);
+}
+
+#categories-section a:hover {
+  background-color: var(--blue-color) !important;
+  color: var(--white-color) !important;
+}
+
+.my-danger-btn {
+  background-color: var(--error-color) !important;
+}
+
+.my-danger-btn:hover {
+  background-color: var(--dark-error-color) !important;
+}
+
+.my-primary-btn {
+  background-color: var(--blue-color) !important;
+}
+
+.my-primary-btn:hover {
+  background-color: var(--light-blue-color) !important;
+}

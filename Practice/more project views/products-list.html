@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Products</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+      function doBindings() {
+        $("#filters i.fa").click(function (event) {
+          $(this).toggleClass("fa-angle-up");
+          $(this).toggleClass("fa-angle-down");
+        });
+
+        $("#rating-section input").on("click", function (event) {
+          let checkedRadio = event.target;
+          let radios = $("#rating-section input");
+
+          for (let i = 0; i < radios.length; i++) {
+            let radio = radios[i];
+            let jqueryRadio = $("#" + radio.getAttribute("id"));
+
+            if (radio == checkedRadio) {
+              jqueryRadio.closest("div").addClass("my-primary-bg");
+            } else {
+              jqueryRadio.closest("div").removeClass("my-primary-bg");
+            }
+          }
+        });
+      }
+
+      $(document).ready(doBindings);
+    </script>
+  </head>
+
+  <body class="light-color">
+    <header
+      id="header"
+      class="text-center py-4 position-relative overflow-hidden"
+    >
+      <h1 class="display-1">MyCommerce</h1>
+      <div class="rotating-box box1"></div>
+      <div class="rotating-box box2"></div>
+      <div class="rotating-box box3"></div>
+    </header>
+
+    <nav
+      class="container-fluid navbar navbar-expand-sm position-sticky top-0 shadow z-3 bg-light"
+    >
+      <div class="navbar-brand">
+        <img src="./logo.png" alt="" />
+      </div>
+      <div class="container-fluid d-sm-none w-25">
+        <button
+          class="navbar-toggler m-0"
+          data-bs-toggle="collapse"
+          data-bs-target="#my-nav"
+        >
+          <div class="navbar-toggler-icon"></div>
+        </button>
+      </div>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <div class="container ms-0">
+          <ul class="navbar-nav fw-semibold">
+            <li class="nav-item">
+              <a href="" class="nav-link active fw-bold">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Customer Support</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Policy</a>
+            </li>
+            <li class="nav-item ms-sm-auto col-3 col-md-2">
+              <a href="" class="btn btn-primary w-100"> Log In </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 my-primary-bg p-5">
+      <h1 class="fs-4 fw-normal p-0 mb-3">Find what you're looking for</h1>
+      <form action="" method="" class="form mt-2">
+        <div class="input-group">
+          <input
+            type="text"
+            name="product"
+            class="form-control form-control-lg w-50"
+            placeholder="Search a Product"
+          />
+          <button id="search-icon" class="btn btn-secondary col-2 col-lg-1">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="container-fluid row my-tertiary-bg py-5 px-2 mt-5">
+      <div
+        id="filters"
+        class="col-12 col-md-12 col-lg-3 col-xl-2 my-primary-bg rounded shadow me-3 ms-0 h-100 py-3"
+      >
+        <form action="" class="form">
+          <ul class="list-group p-2 rounded">
+            <h1 class="fs-4 fw-bold mt-3">Filters</h1>
+            <li class="list-group-item bg-light rounded my-1">
+              <div
+                class="container-fluid d-flex flex-row justify-content-between p-0"
+              >
+                <h2 class="fs-6 d-inline-block">All categories</h2>
+                <button class="btn btn-sm">
+                  <i
+                    class="fa fa-2x fa-angle-up"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#categories-section"
+                  ></i>
+                </button>
+              </div>
+              <ul id="categories-section" class="navbar-nav small">
+                <li class="nav-item">
+                  <div class="form-check rounded">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="gamingCategory"
+                      id="gaming-category"
+                    />
+                    <label class="form-check-label" for="gaming-category">
+                      Gaming
+                    </label>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="form-check rounded">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="bedroomCategory"
+                      id="bedroom-category"
+                    />
+                    <label class="form-check-label" for="bedroom-category">
+                      Bedroom
+                    </label>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="form-check rounded">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="kitchenCategory"
+                      id="kitchen-category"
+                    />
+                    <label class="form-check-label" for="kitchen-category">
+                      Kitchen
+                    </label>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="form-check rounded">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="foodCategory"
+                      id="food-category"
+                    />
+                    <label class="form-check-label" for="food-category">
+                      Food
+                    </label>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="form-check rounded">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="electronicsCategory"
+                      id="electronics-category"
+                    />
+                    <label class="form-check-label" for="electronics-category">
+                      Electronics
+                    </label>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="form-check rounded">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="miscCategory"
+                      id="misc-category"
+                    />
+                    <label class="form-check-label" for="misc-category">
+                      Misc
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="list-group-item bg-light rounded my-1">
+              <div
+                class="container-fluid d-flex flex-row justify-content-between p-0"
+              >
+                <h2 class="fs-6 d-inline-block">Price</h2>
+                <button class="btn btn-sm">
+                  <i
+                    class="fa fa-2x fa-angle-up"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#price-section"
+                  ></i>
+                </button>
+              </div>
+              <div id="price-section" class="shadow">
+                <p class="fs-6 fw-bold ms-2 mt-3 mb-0 text-secondary">From</p>
+                <div class="input-group">
+                  <span class="input-group-text my-primary-bg">$</span>
+                  <input
+                    type="number"
+                    name="startingPrice"
+                    class="form-control"
+                  />
+                </div>
+                <p class="fs-6 fw-bold ms-2 mt-3 mb-0 text-secondary">To</p>
+                <div class="input-group">
+                  <span class="input-group-text my-primary-bg">$</span>
+                  <input
+                    type="number"
+                    name="endingPrice"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item bg-light rounded my-1">
+              <div
+                class="container-fluid d-flex flex-row justify-content-between p-0"
+              >
+                <h2 class="fs-6 d-inline-block">On Sale</h2>
+                <button class="btn btn-sm">
+                  <i
+                    class="fa fa-2x fa-angle-up"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#sale-section"
+                  ></i>
+                </button>
+              </div>
+              <div id="sale-section">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input my-primary-bg shadow w-100 py-3"
+                    name="onSale"
+                    type="checkbox"
+                    role="switch"
+                    id="onSaleSwitchCheck"
+                  />
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item bg-light rounded my-1">
+              <div
+                class="container-fluid d-flex flex-row justify-content-between p-0"
+              >
+                <h2 class="fs-6 d-inline-block">Rating</h2>
+                <button class="btn btn-sm">
+                  <i
+                    class="fa fa-2x fa-angle-up"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#rating-section"
+                  ></i>
+                </button>
+              </div>
+              <div id="rating-section">
+                <div class="form-check rounded ps-5 my-primary-bg">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="productRating"
+                    value="1"
+                    id="productRating1Star"
+                    checked
+                  />
+                  <label
+                    class="form-check-label small"
+                    for="productRating1Star"
+                  >
+                    1 star and higher
+                  </label>
+                </div>
+                <div class="form-check rounded ps-5">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="productRating"
+                    value="2"
+                    id="productRating2Stars"
+                  />
+                  <label
+                    class="form-check-label small"
+                    for="productRating2Stars"
+                  >
+                    2 stars and higher
+                  </label>
+                </div>
+                <div class="form-check rounded ps-5">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="productRating"
+                    value="3"
+                    id="productRating3Stars"
+                  />
+                  <label
+                    class="form-check-label small"
+                    for="productRating3Stars"
+                  >
+                    3 stars and higher
+                  </label>
+                </div>
+                <div class="form-check rounded ps-5">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="productRating"
+                    value="4"
+                    id="productRating4Stars"
+                  />
+                  <label
+                    class="form-check-label small"
+                    for="productRating4Stars"
+                  >
+                    4 stars and higher
+                  </label>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <input
+            type="submit"
+            value="Apply Changes"
+            class="btn btn-lg btn-secondary w-100"
+          />
+        </form>
+      </div>
+
+      <div
+        class="col-12 mt-5 mt-lg-0 col-md col-lg col-xl me-2 my-secondary-bg p-3 rounded shadow"
+      >
+        <ul
+          class="pagination pagination-lg justify-content-center rounded my-5"
+        >
+          <li class="page-item disabled">
+            <a href="" class="page-link bg-secondary"
+              ><i class="fa fa fa fa-backward"></i
+            ></a>
+          </li>
+          <li class="page-item active">
+            <a href="" class="page-link text-bg-primary">1</a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link">2</a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link">3</a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link">4</a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link">5</a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link text-bg-primary my-primary-btn"
+              ><i class="fa fa fa-forward"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="row gy-3" data-masonry='{"percentPosition": true }'>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+                alt=""
+                class="card-image-top"
+              />
+              <div class="card-body">
+                <span class="p-2">
+                  <h2 class="card-title fw-bold fs-5 d-inline">
+                    Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080
+                    Ti
+                  </h2>
+                  <span
+                    class="card-title fw-bold small text-bg-secondary text-end badge"
+                    >Gaming</span
+                  >
+                  <span class="badge text-bg-success">On Sale</span>
+                  <span class="badge text-bg-danger">Out of Stock</span>
+                  <span class="badge text-bg-primary"
+                    >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                  </span>
+                  <span class="badge text-bg-dark"
+                    >Trending <i class="ms-1 fa fa-line-chart"></i>
+                  </span>
+                </span>
+                <span
+                  class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                  >$100,000.00</span
+                >
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col ms-auto">
+                    <p class="card-text m-0">
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa fa fa-star-half-o"></i>
+                    </p>
+                    <p class="card-text small m-0">1M+ Ratings</p>
+                  </div>
+                  <div class="col">
+                    <button class="w-100 btn btn-warning">
+                      <i class="fa fa-cart-plus"></i>
+                    </button>
+                    <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                      <i class="fa fa-cart-arrow-down"></i>
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+                alt=""
+                class="card-image-top"
+              />
+              <div class="card-body">
+                <span class="p-2">
+                  <h2 class="card-title fw-bold fs-5 d-inline">
+                    Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080
+                    Ti
+                  </h2>
+                  <span
+                    class="card-title fw-bold small text-bg-secondary text-end badge"
+                    >Gaming</span
+                  >
+                  <span class="badge text-bg-success">On Sale</span>
+                  <span class="badge text-bg-danger">Out of Stock</span>
+                  <span class="badge text-bg-primary"
+                    >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                  </span>
+                  <span class="badge text-bg-dark"
+                    >Trending <i class="ms-1 fa fa-line-chart"></i>
+                  </span>
+                </span>
+                <span
+                  class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                  >$100,000.00</span
+                >
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col ms-auto">
+                    <p class="card-text m-0">
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa fa fa-star-half-o"></i>
+                    </p>
+                    <p class="card-text small m-0">1M+ Ratings</p>
+                  </div>
+                  <div class="col">
+                    <button class="w-100 btn btn-warning">
+                      <i class="fa fa-cart-plus"></i>
+                    </button>
+                    <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                      <i class="fa fa-cart-arrow-down"></i>
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+                alt=""
+                class="card-image-top"
+              />
+              <div class="card-body">
+                <span class="p-2">
+                  <h2 class="card-title fw-bold fs-5 d-inline">
+                    Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080
+                    Ti
+                  </h2>
+                  <span
+                    class="card-title fw-bold small text-bg-secondary text-end badge"
+                    >Gaming</span
+                  >
+                  <span class="badge text-bg-success">On Sale</span>
+                  <span class="badge text-bg-danger">Out of Stock</span>
+                  <span class="badge text-bg-primary"
+                    >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                  </span>
+                  <span class="badge text-bg-dark"
+                    >Trending <i class="ms-1 fa fa-line-chart"></i>
+                  </span>
+                </span>
+                <span
+                  class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                  >$100,000.00</span
+                >
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col ms-auto">
+                    <p class="card-text m-0">
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa fa fa-star-half-o"></i>
+                    </p>
+                    <p class="card-text small m-0">1M+ Ratings</p>
+                  </div>
+                  <div class="col">
+                    <button class="w-100 btn btn-warning">
+                      <i class="fa fa-cart-plus"></i>
+                    </button>
+                    <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                      <i class="fa fa-cart-arrow-down"></i>
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+                alt=""
+                class="card-image-top"
+              />
+              <div class="card-body">
+                <span class="p-2">
+                  <h2 class="card-title fw-bold fs-5 d-inline">
+                    Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080
+                    Ti Pre-Built High-End Gaming Computer, NVIDIA GeForce GT
+                    4080 Ti Pre-Built High-End Gaming Computer, NVIDIA GeForce
+                    GT 4080 Ti Pre-Built High-End Gaming Computer, NVIDIA
+                    GeForce GT 4080 Ti Pre-Built High-End Gaming Computer,
+                    NVIDIA GeForce GT 4080 Ti
+                  </h2>
+                  <span
+                    class="card-title fw-bold small text-bg-secondary text-end badge"
+                    >Gaming</span
+                  >
+                  <span class="badge text-bg-success">On Sale</span>
+                  <span class="badge text-bg-danger">Out of Stock</span>
+                  <span class="badge text-bg-primary"
+                    >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                  </span>
+                  <span class="badge text-bg-dark"
+                    >Trending <i class="ms-1 fa fa-line-chart"></i>
+                  </span>
+                </span>
+                <span
+                  class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                  >$100,000.00</span
+                >
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col ms-auto">
+                    <p class="card-text m-0">
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa fa fa-star-half-o"></i>
+                    </p>
+                    <p class="card-text small m-0">1M+ Ratings</p>
+                  </div>
+                  <div class="col">
+                    <button class="w-100 btn btn-warning">
+                      <i class="fa fa-cart-plus"></i>
+                    </button>
+                    <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                      <i class="fa fa-cart-arrow-down"></i>
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+                alt=""
+                class="card-image-top"
+              />
+              <div class="card-body">
+                <span class="p-2">
+                  <h2 class="card-title fw-bold fs-5 d-inline">
+                    Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080
+                    Ti
+                  </h2>
+                  <span
+                    class="card-title fw-bold small text-bg-secondary text-end badge"
+                    >Gaming</span
+                  >
+                  <span class="badge text-bg-success">On Sale</span>
+                  <span class="badge text-bg-danger">Out of Stock</span>
+                  <span class="badge text-bg-primary"
+                    >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                  </span>
+                  <span class="badge text-bg-dark"
+                    >Trending <i class="ms-1 fa fa-line-chart"></i>
+                  </span>
+                </span>
+                <span
+                  class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                  >$100,000.00</span
+                >
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col ms-auto">
+                    <p class="card-text m-0">
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa fa fa-star-half-o"></i>
+                    </p>
+                    <p class="card-text small m-0">1M+ Ratings</p>
+                  </div>
+                  <div class="col">
+                    <button class="w-100 btn btn-warning">
+                      <i class="fa fa-cart-plus"></i>
+                    </button>
+                    <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                      <i class="fa fa-cart-arrow-down"></i>
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+                alt=""
+                class="card-image-top"
+              />
+              <div class="card-body">
+                <span class="p-2">
+                  <h2 class="card-title fw-bold fs-5 d-inline">
+                    Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080
+                    Ti
+                  </h2>
+                  <span
+                    class="card-title fw-bold small text-bg-secondary text-end badge"
+                    >Gaming</span
+                  >
+                  <span class="badge text-bg-success">On Sale</span>
+                  <span class="badge text-bg-danger">Out of Stock</span>
+                  <span class="badge text-bg-primary"
+                    >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                  </span>
+                  <span class="badge text-bg-dark"
+                    >Trending <i class="ms-1 fa fa-line-chart"></i>
+                  </span>
+                </span>
+                <span
+                  class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                  >$100,000.00</span
+                >
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col ms-auto">
+                    <p class="card-text m-0">
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star"></i>
+                      <i class="text-warning fa fa-star-half-o"></i>
+                    </p>
+                    <p class="card-text small m-0">1M+ Ratings</p>
+                  </div>
+                  <div class="col">
+                    <button class="w-100 btn btn-warning">
+                      <i class="fa fa-cart-plus"></i>
+                    </button>
+                    <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                      <i class="fa fa-cart-arrow-down"></i>
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container-fluid text-bg-dark p-5">
+        <div class="row gy-5 justify-content-start">
+          <div class="col-12 col-md-4 text-center">
+            <h1 class="fs-5 w-100 mb-4">Our Policy</h1>
+            <a href="" class="nav-link small d-inline"> <p>View Policy</p></a>
+          </div>
+          <div class="col-12 col-md-8 col-lg-4 text-center">
+            <h1 class="fs-5 mx-auto mb-3">Find Us</h1>
+            <div class="row">
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-facebook text-white"></i>
+                  <p class="small">Facebook</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-github text-white"></i>
+                  <p class="small">GitHub</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-twitter text-white"></i>
+                  <p class="small">Twitter</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+      async
+    ></script>
+  </body>
+</html>

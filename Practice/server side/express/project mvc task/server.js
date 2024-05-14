@@ -12,7 +12,7 @@ let server = express();
 server.use(express.static("public"));
 server.use(ejsLayouts);
 server.use(express.json());
-server.use(express.urlencoded());
+server.use(express.urlencoded({ extended: true }));
 server.use(
   expressSession({
     secret: process.env.SESSION_SECRET,
@@ -32,6 +32,12 @@ server.use("/contact-us", contactUsRouter);
 
 const authRouter = require("./routes/auth");
 server.use(authRouter);
+
+const productsRouter = require("./routes/products");
+server.use("/products", productsRouter);
+
+const aboutUsRouter = require("./routes/about-us");
+server.use("/about-us", aboutUsRouter);
 
 server.use("/api/products", require("./routes/api/products"));
 

@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/contact-us.css" />
     <link rel="stylesheet" href="/css/landing-page.css" />
+    <link rel="stylesheet" href="/css/about-us.css" />
+    <link rel="stylesheet" href="/css/products-list.css" />
 
     <script>
       function checkValidForm(event) {
@@ -49,6 +51,27 @@
 
       function doBindings() {
         $("#contact-form input[type=Submit]").on("click", checkValidForm);
+
+        $("#filters i.fa").click(function (event) {
+          $(this).toggleClass("fa-angle-up");
+          $(this).toggleClass("fa-angle-down");
+        });
+
+        $("#rating-section input").on("click", function (event) {
+          let checkedRadio = event.target;
+          let radios = $("#rating-section input");
+
+          for (let i = 0; i < radios.length; i++) {
+            let radio = radios[i];
+            let jqueryRadio = $("#" + radio.getAttribute("id"));
+
+            if (radio == checkedRadio) {
+              jqueryRadio.closest("div").addClass("my-primary-bg");
+            } else {
+              jqueryRadio.closest("div").removeClass("my-primary-bg");
+            }
+          }
+        });
       }
 
       $(document).ready(doBindings);
@@ -79,6 +102,13 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+      async
     ></script>
   </body>
 </html>
