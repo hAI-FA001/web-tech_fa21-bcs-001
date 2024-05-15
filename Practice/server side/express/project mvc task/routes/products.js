@@ -1,8 +1,5 @@
 let express = require("express");
 let Product = require("../models/Product");
-
-let User = require("../models/User");
-
 let checkSessionAuth = require("../middlewares/checkSessAuth");
 
 let router = express.Router();
