@@ -269,7 +269,7 @@
       <li class="page-item <% if(pageNumber == 1) { %> disabled <% } %>">
         <a
           href="<% if(pageNumber > 1) { %> /products/<%= pageNumber-1 %> <% } %>"
-          class="page-link <% if(pageNumber == 1) { %> bg-secondary <% } else { %> text-bg-primary my-primary-btn <% } %>"
+          class="page-link <% if(pageNumber == 1) { %> text-bg-secondary <% } else { %> text-bg-primary my-primary-btn <% } %>"
           ><i class="fa fa-backward"></i
         ></a>
       </li>
@@ -292,11 +292,11 @@
       </li>
       <% } %>
       <li
-        href="<% if(pageNumber < totalPages) { %> /products/<%= pageNumber+1 %> <% } %>"
+        class="page-item <% if(pageNumber == totalPages) { %> disabled <% } %>"
       >
         <a
-          href="/products/<%= pageNumber+1 %>"
-          class="page-link rounded <% if(pageNumber == totalPages) { %> bg-secondary <% } else { %> text-bg-primary my-primary-btn <% } %>"
+          href="<% if(pageNumber < totalPages) { %> /products/<%= pageNumber+1 %> <% } %>"
+          class="page-link <% if(pageNumber == totalPages) { %> text-bg-secondary <% } else { %> text-bg-primary my-primary-btn <% } %>"
           ><i class="fa fa-forward"></i
         ></a>
       </li>
