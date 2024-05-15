@@ -45,7 +45,7 @@
       class="container col-12 col-lg-6 my-secondary-bg rounded p-2 p-sm-5 shadow-lg d-inline-block"
     >
       <form action="">
-        <div id="form-carousel" class="carousel">
+        <div id="form-carousel" class="carousel slide">
           <div class="carousel-inner text-start">
             <div id="first-carousel-item" class="carousel-item active">
               <h1 class="fs-3 fw-bold">Ship To</h1>
@@ -245,19 +245,25 @@
       <ul class="list-group text-start">
         <li class="list-group-item text-bg-light">
           <h3 class="fw-bold fs-6 mb-0">SUBTOTAL</h3>
-          <p class="fs-6 text-end">$100.00</p>
+          <p class="fs-6 text-end">
+            <% let totalPrice = cart.reduce((total, curProduct, curIdx, cart) =>
+            { %> <% return total + curProduct.price; %> <% }, 0) %> $<%=
+            totalPrice %>
+          </p>
         </li>
         <li class="list-group-item text-bg-light">
           <h3 class="fw-bold fs-6">SHIPPING</h3>
           <p class="fs-6 text-end">FREE</p>
         </li>
         <li class="list-group-item text-bg-light">
-          <h3 class="fw-bold fs-6">TAXES</h3>
-          <p class="fs-6 text-end">$10.00</p>
+          <h3 class="fw-bold fs-6">TAXES (10%)</h3>
+          <p class="fs-6 text-end">
+            <% let tax = totalPrice * 0.01; %> $<%= tax %>
+          </p>
         </li>
         <li class="list-group-item my-primary-bg">
           <h3 class="fw-bold fs-5">TOTAL</h3>
-          <p class="fs-5 text-end">$110.00</p>
+          <p class="fs-5 text-end">$<%= totalPrice + tax %></p>
         </li>
       </ul>
     </div>
