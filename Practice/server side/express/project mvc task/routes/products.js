@@ -1,7 +1,21 @@
 let express = require("express");
 let Product = require("../models/Product");
 
+let User = require("../models/User");
+
+let checkSessionAuth = require("../middlewares/checkSessAuth");
+
 let router = express.Router();
+
+// reminder/important: put this before /:pageNumber?, otherwise /:pageNumber? will handle /checkout
+router.get("/checkout", checkSessionAuth, async (req, res) => {
+  let cart = req.session.cart;
+  if (!cart) {
+    cart = [];
+  }
+  cart = await Product.find({ _id: { $in: cart } });
+  res.render("checkout", { cart });
+});
 
 router.get("/:pageNumber?", async (req, res) => {
   let pageNumber = req.params.pageNumber ? req.params.pageNumber : 1;
@@ -36,12 +50,10 @@ router.get("/:pageNumber?", async (req, res) => {
   }
 
   let cart = req.session.cart ? req.session.cart : [];
-  console.log(cart);
 
   res.render("products", {
     products,
     cart,
-    loggedIn: req.session.user ? true : false,
     totalPages,
     pageNumber,
   });
@@ -52,7 +64,7 @@ router.post("/:pageNumber?", async (req, res) => {
   res.redirect("/products" + req.params.pageNumber ? req.params.pageNumber : 1);
 });
 
-router.get("/addToCart/:id", async (req, res) => {
+router.get("/addToCart/:id", checkSessionAuth, async (req, res) => {
   let cart = req.session.cart;
   if (!cart) {
     cart = [];
@@ -63,7 +75,7 @@ router.get("/addToCart/:id", async (req, res) => {
   res.redirect("/products");
 });
 
-router.get("/removeFromCart/:id", async (req, res) => {
+router.get("/removeFromCart/:id", checkSessionAuth, async (req, res) => {
   let cart = req.session.cart;
   if (!cart) {
     cart = [];
@@ -75,14 +87,6 @@ router.get("/removeFromCart/:id", async (req, res) => {
 
   req.session.cart = cart;
   res.redirect("/products");
-});
-
-router.get("/checkout", async (req, res) => {
-  let cart = req.session.cart;
-
-  res.render("checkout", {
-    cart,
-  });
 });
 
 module.exports = router;

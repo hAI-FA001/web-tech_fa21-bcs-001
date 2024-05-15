@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Checkout</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+      function doBindings() {
+        $("#form-carousel").on("slide.bs.carousel", (event) => {
+          let myCarousel = bootstrap.Carousel.getInstance($("#form-carousel"));
+
+          if (event.direction == "left") {
+            $("form").addClass("was-validated");
+
+            let activeCarouselItemId = $("#form-carousel .active").attr("id");
+            if ($("#" + activeCarouselItemId + " input:invalid").length > 0) {
+              event.preventDefault();
+            } else {
+              $("form").removeClass("was-validated");
+            }
+          }
+        });
+
+        $("#form-carousel").on("click", "button", (event) => {
+          let activeItemId = $("#form-carousel .carousel-item.active").attr(
+            "id"
+          );
+
+          if (activeItemId == "first-carousel-item") {
+            $("#carousel-prev-btn").addClass("d-none");
+
+            $("#payment-stepper").removeClass("text-bg-primary");
+            $("#payment-stepper").addClass("text-bg-secondary");
+          } else {
+            $("#carousel-prev-btn").removeClass("d-none");
+
+            $("#payment-stepper").addClass("text-bg-primary");
+            $("#payment-stepper").removeClass("text-bg-secondary");
+          }
+
+          if (activeItemId == "third-carousel-item") {
+            $("#carousel-next-btn").addClass("d-none");
+            $("#confirm-btn").removeClass("d-none");
+
+            $("#finalize-stepper").addClass("text-bg-primary");
+            $("#finalize-stepper").removeClass("text-bg-secondary");
+          } else {
+            $("#carousel-next-btn").removeClass("d-none");
+            $("#confirm-btn").addClass("d-none");
+
+            $("#finalize-stepper").removeClass("text-bg-primary");
+            $("#finalize-stepper").addClass("text-bg-secondary");
+          }
+
+          if (activeItemId == "first-carousel-item") {
+            $(".progress-bar").css("width", "0%");
+          } else if (activeItemId == "second-carousel-item") {
+            $(".progress-bar").css("width", "50%");
+          } else {
+            $(".progress-bar").css("width", "100%");
+          }
+        });
+      }
+
+      $(doBindings);
+    </script>
+  </head>
+
+  <body class="light-color">
+    <header
+      id="header"
+      class="text-center py-4 position-relative overflow-hidden"
+    >
+      <h1 class="display-1">MyCommerce</h1>
+      <div class="rotating-box box1"></div>
+      <div class="rotating-box box2"></div>
+      <div class="rotating-box box3"></div>
+    </header>
+
+    <nav
+      class="container-fluid navbar navbar-expand-sm position-sticky top-0 shadow z-3 bg-light1"
+    >
+      <div class="navbar-brand">
+        <img src="./logo.png" alt="" />
+      </div>
+      <div class="container-fluid d-sm-none w-25">
+        <button
+          class="navbar-toggler m-0"
+          data-bs-toggle="collapse"
+          data-bs-target="#my-nav"
+        >
+          <div class="navbar-toggler-icon"></div>
+        </button>
+      </div>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <div class="container ms-0">
+          <ul class="navbar-nav fw-semibold">
+            <li class="nav-item">
+              <a href="" class="nav-link active fw-bold">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Products</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Customer Support</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Policy</a>
+            </li>
+            <li class="nav-item ms-sm-auto col-3 col-md-2">
+              <a href="" class="btn btn-primary w-100"> Log In </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-5">
+      <div class="container">
+        <div class="position-relative m-4 fw-bold small my-stepper">
+          <div class="progress bg-secondary my-bar">
+            <div class="progress-bar" style="width: 0%"></div>
+          </div>
+          <p
+            id="shipping-stepper"
+            class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill my-stepper-number"
+          >
+            1
+          </p>
+          <p
+            class="position-absolute top-50 start-0 translate-middle text-secondary my-stepper-label text-nowrap"
+          >
+            Shipping Info
+          </p>
+          <p
+            id="payment-stepper"
+            class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill my-stepper-number"
+          >
+            2
+          </p>
+          <p
+            class="position-absolute top-50 start-50 translate-middle text-secondary my-stepper-label text-nowrap"
+          >
+            Payment Details
+          </p>
+          <p
+            id="finalize-stepper"
+            class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill my-stepper-number"
+          >
+            3
+          </p>
+          <p
+            class="position-absolute top-50 start-100 translate-middle text-secondary my-stepper-label text-nowrap"
+          >
+            Finalize Order
+          </p>
+        </div>
+      </div>
+
+      <div class="container-fluid col-12 col-xl-9 mx-auto m-0">
+        <div
+          class="container col-12 col-lg-6 my-secondary-bg rounded p-2 p-sm-5 shadow-lg d-inline-block"
+        >
+          <form action="">
+            <div id="form-carousel" class="carousel">
+              <div class="carousel-inner text-start">
+                <div id="first-carousel-item" class="carousel-item active">
+                  <h1 class="fs-3 fw-bold">Ship To</h1>
+
+                  <div class="input-group mt-5">
+                    <span class="input-group-text my-primary-bg col-12 col-sm"
+                      >First and Last Name</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control py-3 z-0"
+                      name="firstName"
+                      required
+                    />
+                    <input
+                      type="text"
+                      class="form-control py-3 z-0"
+                      name="lastName"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      First and last name are required
+                    </div>
+                  </div>
+                  <div class="input-group mt-3">
+                    <span class="input-group-text my-primary-bg col-12 col-sm"
+                      >Address</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control py-3 z-0"
+                      name="address"
+                      required
+                    />
+                    <div class="invalid-feedback">Address is required</div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      <div class="input-group">
+                        <span
+                          class="input-group-text my-primary-bg col-12 col-sm"
+                          >Postal Code</span
+                        >
+                        <input
+                          type="text"
+                          class="form-control py-3 z-0"
+                          name="postalCode"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Postal Code is required
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="input-group">
+                        <span
+                          class="input-group-text my-primary-bg col-12 col-sm"
+                          >Town/City</span
+                        >
+                        <input
+                          type="text"
+                          class="form-control py-3 z-0"
+                          name="city"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Town/City is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="second-carousel-item" class="carousel-item">
+                  <h1 class="fs-3 fw-bold">Payment Details</h1>
+                  <div class="input-group mt-5 justify-content-center">
+                    <div class="input-group-text my-primary-bg col-12 col-sm">
+                      <input
+                        class="form-check-input mt-0 me-2"
+                        type="radio"
+                        name="paymentMethod"
+                        value="credit"
+                        id="creditPayment"
+                        required
+                      />
+                      <label
+                        for="creditPayment"
+                        class="form-check-label py-3 my-primary-bg"
+                        >Credit or Debit Card</label
+                      >
+                    </div>
+                    <div class="input-group-text my-primary-bg col-12 col-sm">
+                      <input
+                        class="form-check-input mt-0 me-2"
+                        type="radio"
+                        name="paymentMethod"
+                        value="paypal"
+                        id="paypalPayment"
+                        required
+                      />
+                      <label
+                        for="paypalPayment"
+                        class="form-check-label py-3 my-primary-bg"
+                        >Paypal</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col-12 col-sm-6">
+                      <div class="input-group">
+                        <label
+                          for="cardNumber"
+                          class="input-group-text my-primary-bg col-12 col-sm"
+                          >Card Number</label
+                        >
+                        <input
+                          id="cardNumber"
+                          type="text"
+                          class="form-control py-3"
+                          name="cardNumber"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Card number is required
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="input-group">
+                        <label
+                          for="securityCode"
+                          class="input-group-text my-primary-bg col-12 col-sm"
+                          >Security Code</label
+                        >
+                        <input
+                          id="securityCode"
+                          type="text"
+                          class="form-control py-3"
+                          name="securityCode"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Security code is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mt-3">
+                    <label
+                      for="expiryDate"
+                      class="input-group-text my-primary-bg col-12 col-sm"
+                      >Expiration Date</label
+                    >
+                    <input
+                      id="expiryDate"
+                      type="date"
+                      class="form-control py-3"
+                      name="cardExpiry"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Expiration date is required
+                    </div>
+                  </div>
+                </div>
+                <div id="third-carousel-item" class="carousel-item">
+                  <h1 class="fs-3 fw-bold">Finalize Order</h1>
+                  <p class="fs-6">
+                    Please check your order's details on this page and continue
+                  </p>
+                </div>
+              </div>
+
+              <button
+                id="carousel-prev-btn"
+                class="btn btn-primary btn-lg w-25 mt-5 float-start d-none"
+                data-bs-target="#form-carousel"
+                data-bs-slide="prev"
+              >
+                Previous
+              </button>
+              <button
+                id="carousel-next-btn"
+                class="btn btn-primary btn-lg w-25 mt-5 float-end"
+                data-bs-target="#form-carousel"
+                data-bs-slide="next"
+              >
+                Next
+              </button>
+
+              <input
+                type="submit"
+                id="confirm-btn"
+                value="Confirm"
+                class="btn btn-primary btn-lg w-25 mt-5 float-end d-none"
+              />
+            </div>
+          </form>
+        </div>
+        <div
+          class="container col-12 col-lg-4 my-tertiary-bg rounded p-5 mt-3 mt-lg-0 shadow float-end d-inline-block"
+        >
+          <h2 class="fs-3 fw-bold">Summary</h2>
+          <hr />
+          <ul class="list-group text-start">
+            <li class="list-group-item text-bg-light">
+              <h3 class="fw-bold fs-6 mb-0">SUBTOTAL</h3>
+              <p class="fs-6 text-end">$100.00</p>
+            </li>
+            <li class="list-group-item text-bg-light">
+              <h3 class="fw-bold fs-6">SHIPPING</h3>
+              <p class="fs-6 text-end">FREE</p>
+            </li>
+            <li class="list-group-item text-bg-light">
+              <h3 class="fw-bold fs-6">TAXES</h3>
+              <p class="fs-6 text-end">$10.00</p>
+            </li>
+            <li class="list-group-item my-primary-bg">
+              <h3 class="fw-bold fs-5">TOTAL</h3>
+              <p class="fs-5 text-end">$110.00</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5 my-tertiary-bg rounded py-5">
+      <div class="mb-5 fw-bold text-center rounded">
+        <h1 class="display-4 d-inline-block">Your Cart</h1>
+        <i class="fa fa-5x fa-shopping-cart"></i>
+      </div>
+
+      <div class="row gy-3" data-masonry='{"percentPosition": true }'>
+        <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+              alt=""
+              class="card-image-top"
+            />
+            <div class="card-body">
+              <span class="p-2">
+                <h2 class="card-title fw-bold fs-5 d-inline">
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                </h2>
+                <span
+                  class="card-title fw-bold small text-bg-secondary text-end badge"
+                  >Gaming</span
+                >
+                <span class="badge text-bg-success">On Sale</span>
+                <span class="badge text-bg-danger">Out of Stock</span>
+                <span class="badge text-bg-primary"
+                  >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                </span>
+                <span class="badge text-bg-dark"
+                  >Trending <i class="ms-1 fa fa-line-chart"></i>
+                </span>
+              </span>
+              <span
+                class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                >$100,000.00</span
+              >
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col ms-auto">
+                  <p class="card-text m-0">
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa fa fa-star-half-o"></i>
+                  </p>
+                  <p class="card-text small m-0">1M+ Ratings</p>
+                </div>
+                <div class="col">
+                  <button class="w-100 btn btn-warning">
+                    <i class="fa fa-cart-plus"></i>
+                  </button>
+                  <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+              alt=""
+              class="card-image-top"
+            />
+            <div class="card-body">
+              <span class="p-2">
+                <h2 class="card-title fw-bold fs-5 d-inline">
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                </h2>
+                <span
+                  class="card-title fw-bold small text-bg-secondary text-end badge"
+                  >Gaming</span
+                >
+                <span class="badge text-bg-success">On Sale</span>
+                <span class="badge text-bg-danger">Out of Stock</span>
+                <span class="badge text-bg-primary"
+                  >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                </span>
+                <span class="badge text-bg-dark"
+                  >Trending <i class="ms-1 fa fa-line-chart"></i>
+                </span>
+              </span>
+              <span
+                class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                >$100,000.00</span
+              >
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col ms-auto">
+                  <p class="card-text m-0">
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa fa fa-star-half-o"></i>
+                  </p>
+                  <p class="card-text small m-0">1M+ Ratings</p>
+                </div>
+                <div class="col">
+                  <button class="w-100 btn btn-warning">
+                    <i class="fa fa-cart-plus"></i>
+                  </button>
+                  <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+              alt=""
+              class="card-image-top"
+            />
+            <div class="card-body">
+              <span class="p-2">
+                <h2 class="card-title fw-bold fs-5 d-inline">
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                </h2>
+                <span
+                  class="card-title fw-bold small text-bg-secondary text-end badge"
+                  >Gaming</span
+                >
+                <span class="badge text-bg-success">On Sale</span>
+                <span class="badge text-bg-danger">Out of Stock</span>
+                <span class="badge text-bg-primary"
+                  >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                </span>
+                <span class="badge text-bg-dark"
+                  >Trending <i class="ms-1 fa fa-line-chart"></i>
+                </span>
+              </span>
+              <span
+                class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                >$100,000.00</span
+              >
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col ms-auto">
+                  <p class="card-text m-0">
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa fa fa-star-half-o"></i>
+                  </p>
+                  <p class="card-text small m-0">1M+ Ratings</p>
+                </div>
+                <div class="col">
+                  <button class="w-100 btn btn-warning">
+                    <i class="fa fa-cart-plus"></i>
+                  </button>
+                  <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+              alt=""
+              class="card-image-top"
+            />
+            <div class="card-body">
+              <span class="p-2">
+                <h2 class="card-title fw-bold fs-5 d-inline">
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                </h2>
+                <span
+                  class="card-title fw-bold small text-bg-secondary text-end badge"
+                  >Gaming</span
+                >
+                <span class="badge text-bg-success">On Sale</span>
+                <span class="badge text-bg-danger">Out of Stock</span>
+                <span class="badge text-bg-primary"
+                  >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                </span>
+                <span class="badge text-bg-dark"
+                  >Trending <i class="ms-1 fa fa-line-chart"></i>
+                </span>
+              </span>
+              <span
+                class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                >$100,000.00</span
+              >
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col ms-auto">
+                  <p class="card-text m-0">
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa fa fa-star-half-o"></i>
+                  </p>
+                  <p class="card-text small m-0">1M+ Ratings</p>
+                </div>
+                <div class="col">
+                  <button class="w-100 btn btn-warning">
+                    <i class="fa fa-cart-plus"></i>
+                  </button>
+                  <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+              alt=""
+              class="card-image-top"
+            />
+            <div class="card-body">
+              <span class="p-2">
+                <h2 class="card-title fw-bold fs-5 d-inline">
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                </h2>
+                <span
+                  class="card-title fw-bold small text-bg-secondary text-end badge"
+                  >Gaming</span
+                >
+                <span class="badge text-bg-success">On Sale</span>
+                <span class="badge text-bg-danger">Out of Stock</span>
+                <span class="badge text-bg-primary"
+                  >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                </span>
+                <span class="badge text-bg-dark"
+                  >Trending <i class="ms-1 fa fa-line-chart"></i>
+                </span>
+              </span>
+              <span
+                class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                >$100,000.00</span
+              >
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col ms-auto">
+                  <p class="card-text m-0">
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa fa fa-star-half-o"></i>
+                  </p>
+                  <p class="card-text small m-0">1M+ Ratings</p>
+                </div>
+                <div class="col">
+                  <button class="w-100 btn btn-warning">
+                    <i class="fa fa-cart-plus"></i>
+                  </button>
+                  <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR-fA0cULds_dBQLMWK1VbpuflWqaOSsz9jFbbBZgE2g&s"
+              alt=""
+              class="card-image-top"
+            />
+            <div class="card-body">
+              <span class="p-2">
+                <h2 class="card-title fw-bold fs-5 d-inline">
+                  Pre-Built High-End Gaming Computer, NVIDIA GeForce GT 4080 Ti
+                </h2>
+                <span
+                  class="card-title fw-bold small text-bg-secondary text-end badge"
+                  >Gaming</span
+                >
+                <span class="badge text-bg-success">On Sale</span>
+                <span class="badge text-bg-danger">Out of Stock</span>
+                <span class="badge text-bg-primary"
+                  >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                </span>
+                <span class="badge text-bg-dark"
+                  >Trending <i class="ms-1 fa fa-line-chart"></i>
+                </span>
+              </span>
+              <span
+                class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                >$100,000.00</span
+              >
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col ms-auto">
+                  <p class="card-text m-0">
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star"></i>
+                    <i class="text-warning fa fa-star-half-o"></i>
+                  </p>
+                  <p class="card-text small m-0">1M+ Ratings</p>
+                </div>
+                <div class="col">
+                  <button class="w-100 btn btn-warning">
+                    <i class="fa fa-cart-plus"></i>
+                  </button>
+                  <!-- <button class="w-100 btn btn-danger my-danger-btn">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container-fluid text-bg-dark p-5">
+        <div class="row gy-5 justify-content-start">
+          <div class="col-12 col-md-4 text-center">
+            <h1 class="fs-5 w-100 mb-4">Our Policy</h1>
+            <a href="" class="nav-link small d-inline"> <p>View Policy</p></a>
+          </div>
+          <div class="col-12 col-md-8 col-lg-4 text-center">
+            <h1 class="fs-5 mx-auto mb-3">Find Us</h1>
+            <div class="row">
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-facebook text-white"></i>
+                  <p class="small">Facebook</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-github text-white"></i>
+                  <p class="small">GitHub</p>
+                </a>
+              </div>
+              <div class="col text-center">
+                <a href="" class="nav-link">
+                  <i class="fa fa-twitter text-white"></i>
+                  <p class="small">Twitter</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+      async
+    ></script>
+  </body>
+</html>

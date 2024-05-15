@@ -362,14 +362,14 @@
                 j++) { %> <% if(products[i]._id == cart[j]) { %> <% isInCart =
                 true; %> <% } %> <% } %> <% if(!isInCart) { %>
                 <a
-                  href="<% if(loggedIn) { %>  /products/addToCart/<%= products[i]._id %>  <% } else { %> /login <% } %>"
+                  href="/products/addToCart/<%= products[i]._id %>"
                   class="w-100 btn btn-warning"
                 >
                   <i class="fa fa-cart-plus"></i>
                 </a>
                 <% } else { %>
                 <a
-                  href=" <% if(loggedIn) { %> /products/removeFromCart/<%= products[i]._id %> <% } else { %> /login <% } %>"
+                  href="/products/removeFromCart/<%= products[i]._id %>"
                   class="w-100 btn btn-danger my-danger-btn"
                 >
                   <i class="fa fa-cart-arrow-down"></i>
