@@ -27,21 +27,22 @@ router.get("/:pageNumber?", async (req, res) => {
   let products = await Product.find().limit(numberToShow).skip(skip);
 
   if (req.session.filters) {
-    let productName = req.session.filters.product;
+    let productName = req.session.product;
+
     let startingPrice = req.session.filters.startingPrice;
     let endingPrice = req.session.filters.endingPrice;
     let onSale = req.session.filters.onSale;
     let rating = req.session.filters.productRating;
 
-    if (startingPrice && endingPrice) {
-      products = products.filter(
-        (p) => p.price >= startingPrice && p.price <= endingPrice
-      );
-    }
-
     if (productName) {
       products = products.filter((p) =>
         p.name.toLowerCase().includes(productName.toLowerCase())
+      );
+    }
+
+    if (startingPrice && endingPrice) {
+      products = products.filter(
+        (p) => p.price >= startingPrice && p.price <= endingPrice
       );
     }
   }
@@ -57,8 +58,15 @@ router.get("/:pageNumber?", async (req, res) => {
 });
 
 router.post("/:pageNumber?", async (req, res) => {
-  req.session.filters = req.body;
-  res.redirect("/products" + req.params.pageNumber ? req.params.pageNumber : 1);
+  if (typeof req.body.product == "string") {
+    req.session.product = req.body.product;
+  } else if (typeof req.body != typeof undefined) {
+    req.session.filters = req.body;
+  }
+
+  res.redirect(
+    "/products/" + (req.params?.pageNumber ? req.params.pageNumber : 1)
+  );
 });
 
 router.get("/addToCart/:id", checkSessionAuth, async (req, res) => {
