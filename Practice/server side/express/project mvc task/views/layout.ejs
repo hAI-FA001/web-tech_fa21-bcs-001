@@ -49,124 +49,21 @@
     <link rel="stylesheet" href="/css/checkout.css" />
     <link rel="stylesheet" href="/css/user-profile.css" />
 
+    <script src="/js/contact-us.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/checkout.js"></script>
+    <script src="/js/user-profile.js"></script>
+
     <script>
-      function checkValidForm(event) {
-        $("#contact-form .form-floating input").each(function (idx, elem) {
-          if ($(this).val()) {
-            $(this).removeClass("is-invalid");
-            $(this).addClass("is-valid");
-          } else {
-            $(this).addClass("is-invalid");
-            $(this).removeClass("is-valid");
-
-            event.preventDefault();
-          }
-        });
-      }
-
       function doBindings() {
-        $("#contact-form input[type=Submit]").on("click", checkValidForm);
+        <% if(user) { %>
+          user = {
+          name: "<%= user.name %>",
+          email: "<%= user.email %>",
+        };
+        <% } %>
 
-        $("#filters i.fa").click(function (event) {
-          $(this).toggleClass("fa-angle-up");
-          $(this).toggleClass("fa-angle-down");
-        });
-
-        $("#rating-section input").on("click", function (event) {
-          let checkedRadio = event.target;
-          let radios = $("#rating-section input");
-
-          for (let i = 0; i < radios.length; i++) {
-            let radio = radios[i];
-            let jqueryRadio = $("#" + radio.getAttribute("id"));
-
-            if (radio == checkedRadio) {
-              jqueryRadio.closest("div").addClass("my-primary-bg");
-            } else {
-              jqueryRadio.closest("div").removeClass("my-primary-bg");
-            }
-          }
-        });
-
-        $("#form-carousel").carousel();
-
-        $("#form-carousel").on("slide.bs.carousel", (event) => {
-          if (event.direction == "left") {
-            $("form").addClass("was-validated");
-            let activeCarouselItemId = $("#form-carousel .active").attr("id");
-            if ($("#" + activeCarouselItemId + " input:invalid").length > 0) {
-              event.preventDefault();
-            } else {
-              $("form").removeClass("was-validated");
-            }
-          }
-        });
-
-        $("#form-carousel").on("slid.bs.carousel", (event) => {
-          let activeItemId = $("#form-carousel .carousel-item.active").attr(
-            "id"
-          );
-
-          if (activeItemId == "first-carousel-item") {
-            $("#carousel-prev-btn").addClass("d-none");
-
-            $("#payment-stepper").removeClass("text-bg-primary");
-            $("#payment-stepper").addClass("text-bg-secondary");
-          } else {
-            $("#carousel-prev-btn").removeClass("d-none");
-
-            $("#payment-stepper").addClass("text-bg-primary");
-            $("#payment-stepper").removeClass("text-bg-secondary");
-          }
-
-          if (activeItemId == "third-carousel-item") {
-            $("#carousel-next-btn").addClass("d-none");
-            $("#confirm-btn").removeClass("d-none");
-
-            $("#finalize-stepper").addClass("text-bg-primary");
-            $("#finalize-stepper").removeClass("text-bg-secondary");
-          } else {
-            $("#carousel-next-btn").removeClass("d-none");
-            $("#confirm-btn").addClass("d-none");
-
-            $("#finalize-stepper").removeClass("text-bg-primary");
-            $("#finalize-stepper").addClass("text-bg-secondary");
-          }
-
-          if (activeItemId == "first-carousel-item") {
-            $(".progress-bar").css("width", "0%");
-          } else if (activeItemId == "second-carousel-item") {
-            $(".progress-bar").css("width", "50%");
-          } else {
-            $(".progress-bar").css("width", "100%");
-          }
-        });
-
-        $("div#my-profile-info form input").on("input", (event) => {
-          let whatUserTyped = event.target.value;
-          let typeOfInput = event.target.getAttribute("type");
-          let originalValue = "";
-
-          if (typeOfInput == "text") {
-            originalValue = "<%= user.name %>";
-          } else if (typeOfInput == "email") {
-            originalValue = "<%= user.email %>";
-          } else {
-            originalValue = "<%= user.password %>";
-          }
-
-          if (
-            whatUserTyped &&
-            whatUserTyped.trim() &&
-            whatUserTyped != originalValue
-          ) {
-            $("form input.btn").removeClass("disabled");
-            $("form a.btn-danger").removeClass("d-none");
-          } else {
-            $("form input.btn").addClass("disabled");
-            $("form a.btn-danger").addClass("d-none");
-          }
-        });
+        $("div.toast").toast("show");
       }
 
       $(document).ready(doBindings);
@@ -174,7 +71,8 @@
   </head>
 
   <body class="light-color">
-    <%- include('./partials/hero-section.ejs')%>
+    <%- include('./partials/notification.ejs') %> <%-
+    include('./partials/hero-section.ejs')%>
 
     <a href="#header">
       <div id="back-to-top">

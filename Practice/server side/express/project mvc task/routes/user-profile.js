@@ -30,16 +30,33 @@ router.post("/", async (req, res) => {
 
     // note/reminder: don't forget "await" for bcryptjs functions, else illegal arguments error
     if (await bcryptjs.compare(req.body.oldPass, userPassObj.password)) {
-      userPassObj.password = await bcryptjs.hash(
+      let hashedPass = await bcryptjs.hash(
         req.body.newPass,
         await bcryptjs.genSalt(10)
       );
+      userPassObj.password = hashedPass;
       await userPassObj.save();
+
+      req.session.user.password = hashedPass;
+
+      req.flash("success", "Successfully updated password");
+    } else {
+      req.flash("danger", "Password does not match");
     }
   } else {
     await User.find({
       _id: req.session.user._id,
     }).updateOne(req.body);
+
+    if (req.body.name) {
+      req.session.user.name = req.body.name;
+    }
+
+    if (req.body.email) {
+      req.session.user.email = req.body.email;
+    }
+
+    req.flash("success", "Successfully updated details");
   }
 
   res.redirect("/user-profile");
