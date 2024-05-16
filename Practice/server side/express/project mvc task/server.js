@@ -24,6 +24,19 @@ server.use(
 
 server.set("view engine", "ejs");
 
+// add user + cart for testing
+let User = require("./models/User");
+server.use(async (req, res, next) => {
+  req.session.user = await User.findOne({ email: "admin@admin.com" });
+  req.session.cart = await Product.find({
+    price: {
+      $gte: 100,
+    },
+  });
+
+  next();
+});
+
 server.use(require("./middlewares/main-site"));
 
 // reminder/important: put this after setting view engine, else it won't render page correctly
@@ -38,6 +51,9 @@ server.use("/products", productsRouter);
 
 const aboutUsRouter = require("./routes/about-us");
 server.use("/about-us", aboutUsRouter);
+
+const userProfileRouter = require("./routes/user-profile");
+server.use("/user-profile", userProfileRouter);
 
 server.use("/api/products", require("./routes/api/products"));
 
