@@ -281,3 +281,15 @@ div#browse-products a:hover {
 .my-stepper-label {
   transform: translate(-50%, 1px) !important;
 }
+
+img#user-profile {
+  width: 15em;
+  height: 15em;
+}
+
+@media screen and (max-width: 500px) {
+  img#user-profile {
+    width: 8em;
+    height: 8em;
+  }
+}

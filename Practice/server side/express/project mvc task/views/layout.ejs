@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="/css/about-us.css" />
     <link rel="stylesheet" href="/css/products-list.css" />
     <link rel="stylesheet" href="/css/checkout.css" />
+    <link rel="stylesheet" href="/css/user-profile.css" />
 
     <script>
       function checkValidForm(event) {
@@ -138,6 +139,32 @@
             $(".progress-bar").css("width", "50%");
           } else {
             $(".progress-bar").css("width", "100%");
+          }
+        });
+
+        $("div#my-profile-info form input").on("input", (event) => {
+          let whatUserTyped = event.target.value;
+          let typeOfInput = event.target.getAttribute("type");
+          let originalValue = "";
+
+          if (typeOfInput == "text") {
+            originalValue = "<%= user.name %>";
+          } else if (typeOfInput == "email") {
+            originalValue = "<%= user.email %>";
+          } else {
+            originalValue = "<%= user.password %>";
+          }
+
+          if (
+            whatUserTyped &&
+            whatUserTyped.trim() &&
+            whatUserTyped != originalValue
+          ) {
+            $("form input.btn").removeClass("disabled");
+            $("form a.btn-danger").removeClass("d-none");
+          } else {
+            $("form input.btn").addClass("disabled");
+            $("form a.btn-danger").addClass("d-none");
           }
         });
       }

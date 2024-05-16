@@ -11,7 +11,7 @@ router.get("/checkout", checkSessionAuth, async (req, res) => {
     cart = [];
   }
   cart = await Product.find({ _id: { $in: cart } });
-  res.render("checkout", { cart });
+  res.render("products/checkout", { cart });
 });
 
 router.get("/:pageNumber?", async (req, res) => {
@@ -51,7 +51,7 @@ router.get("/:pageNumber?", async (req, res) => {
 
   let cart = req.session.cart ? req.session.cart : [];
 
-  res.render("products", {
+  res.render("products/products", {
     products,
     cart,
     totalPages,
