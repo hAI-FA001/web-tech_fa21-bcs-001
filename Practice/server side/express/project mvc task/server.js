@@ -3,7 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
+const expressFlash = require("express-flash");
 
 const Product = require("./models/Product");
 
@@ -13,6 +15,7 @@ server.use(express.static("public"));
 server.use(ejsLayouts);
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(cookieParser());
 server.use(
   expressSession({
     secret: process.env.SESSION_SECRET,
@@ -21,21 +24,22 @@ server.use(
     saveUninitialized: true,
   })
 );
+server.use(expressFlash());
 
 server.set("view engine", "ejs");
 
 // add user + cart for testing
-let User = require("./models/User");
-server.use(async (req, res, next) => {
-  req.session.user = await User.findOne({ email: "admin@admin.com" });
-  req.session.cart = await Product.find({
-    price: {
-      $gte: 100,
-    },
-  });
+// let User = require("./models/User");
+// server.use(async (req, res, next) => {
+//   req.session.user = await User.findOne({ email: "admin@admin.com" });
+//   req.session.cart = await Product.find({
+//     price: {
+//       $gte: 100,
+//     },
+//   });
 
-  next();
-});
+//   next();
+// });
 
 server.use(require("./middlewares/main-site"));
 

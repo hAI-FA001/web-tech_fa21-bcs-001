@@ -67,9 +67,7 @@ router.post("/:pageNumber?", async (req, res) => {
     req.session.filters = req.body;
   }
 
-  res.redirect(
-    "/products/" + (req.params?.pageNumber ? req.params.pageNumber : 1)
-  );
+  res.redirect("/products");
 });
 
 router.get("/addToCart/:id", checkSessionAuth, async (req, res) => {
@@ -80,6 +78,7 @@ router.get("/addToCart/:id", checkSessionAuth, async (req, res) => {
   cart.push(req.params.id);
 
   req.session.cart = cart;
+  req.flash("info", "Added to cart");
   res.redirect("/products");
 });
 
@@ -91,6 +90,7 @@ router.get("/removeFromCart/:id", checkSessionAuth, async (req, res) => {
   let idx = cart.indexOf(req.params.id);
   if (idx != -1) {
     cart.splice(idx, 1);
+    req.flash("info", "Removed from cart");
   }
 
   req.session.cart = cart;

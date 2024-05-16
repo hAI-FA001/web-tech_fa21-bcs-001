@@ -18,13 +18,20 @@ router.post("/login", async (req, res, next) => {
   let user = await User.findOne({ email: req.body.email });
 
   //   note to self: need to write "return" or it will redirect but execute next code too
-  if (!user) return res.redirect("/register");
+  if (!user) {
+    req.flash(
+      "danger",
+      'Account not registered with email "' + req.body.email + '"'
+    );
+    return res.redirect("/register");
+  }
 
   if (await bcryptjs.compare(req.body.password, user.password)) {
     req.session.user = user;
     return res.redirect("/");
   } else {
-    //need to tell user password is wrong
+    req.flash("danger", "Invalid password");
+    return res.redirect("/login");
   }
 });
 
@@ -33,6 +40,15 @@ router.get("/register", checkNotSessAuth, async (req, res, next) => {
 });
 
 router.post("/register", async (req, res, next) => {
+  let existingUser = await User.findOne({ email: req.body.email });
+  if (existingUser) {
+    req.flash(
+      "warning",
+      'You already have an account with email "' + req.body.email + '"'
+    );
+    return res.redirect("/login");
+  }
+
   let user = new User();
   user.name = req.body.name;
   user.email = req.body.email;
@@ -51,6 +67,7 @@ router.get("/logout", checkSessAuth, async (req, res, next) => {
   if (req.session.user) {
     req.session.user = null;
   }
+  req.flash("info", "Logged out");
   res.redirect("/");
 });
 
