@@ -247,8 +247,8 @@
           <h3 class="fw-bold fs-6 mb-0">SUBTOTAL</h3>
           <p class="fs-6 text-end">
             <% let totalPrice = cart.reduce((total, curProduct, curIdx, cart) =>
-            { %> <% return total + curProduct.price; %> <% }, 0) %> $<%=
-            totalPrice %>
+            { %> <% return total + curProduct.price - curProduct.price *
+            curProduct.discount; %> <% }, 0) %> $<%= totalPrice %>
           </p>
         </li>
         <li class="list-group-item text-bg-light">
@@ -280,8 +280,8 @@
     <% for(let i=0; i < cart.length; i++) { %>
     <div class="col-md-6 col-lg-6 col-xl-3">
       <div class="card">
-        <% if(cart[i].image) { %>
-        <img src="<%= cart[i].image %>" alt="" class="card-image-top" />
+        <% if(cart[i].imageUrl) { %>
+        <img src="<%= cart[i].imageUrl %>" alt="" class="card-image-top" />
         <% } else { %>
         <i class="fa fa-image fa-5x mt-5 text-center"></i>
         <% } %>
@@ -294,15 +294,15 @@
               class="card-title fw-bold small text-bg-secondary text-end badge"
               ><%= cart[i].category %></span
             >
-            <% if(cart[i].onSale) { %>
+            <% if(cart[i].isOnSale) { %>
             <span class="badge text-bg-success">On Sale</span>
-            <% } %> <% if(cart[i].outOfStock) { %>
+            <% } %> <% if(cart[i].isOutOfStock) { %>
             <span class="badge text-bg-danger">Out of Stock</span>
-            <% } %> <% if(cart[i].topRated) { %>
+            <% } %> <% if(cart[i].isTopRated) { %>
             <span class="badge text-bg-primary"
               >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
             </span>
-            <% } %> <% if(cart[i].trending) { %>
+            <% } %> <% if(cart[i].isTrending) { %>
             <span class="badge text-bg-dark"
               >Trending <i class="ms-1 fa fa-line-chart"></i>
             </span>
