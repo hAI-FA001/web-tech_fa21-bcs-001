@@ -120,8 +120,10 @@
 </div>
 
 <div class="container col-11 col-12 my-secondary-bg mt-5 rounded shadow-lg p-3">
-  <h1 class="fs-3 fw-bold text-center py-4 mb-4 border-bottom border-secondary">
-    Your Purchases
+  <h1 class="fs-3 fw-bold text-center py-3">Your Purchases</h1>
+  <h1 class="fs-4 text-start py-4 ps-5 mb-4 border-bottom border-secondary">
+    You have spent $<%= products.reduce((totalPrice, curProduct) => totalPrice +
+    curProduct.price, 0) %>
   </h1>
 
   <div class="container mt-5 mb-4 rounded shadow-lg">
@@ -159,62 +161,11 @@
               class="card-title fw-bold small text-bg-secondary text-end badge"
               ><%= products[i].category %></span
             >
-            <% if(products[i].isOnSale) { %>
-            <span class="badge text-bg-success">On Sale</span>
-            <% } %> <% if(products[i].isTopRated) { %>
-            <span class="badge text-bg-primary"
-              >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
-            </span>
-            <% } %> <% if(products[i].isTrending) { %>
-            <span class="badge text-bg-dark"
-              >Trending <i class="ms-1 fa fa-line-chart"></i>
-            </span>
-            <% } %>
           </span>
           <span
             class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
             >$<%= products[i].price %></span
           >
-        </div>
-        <div class="card-footer">
-          <div class="row">
-            <div class="col ms-auto">
-              <p class="card-text m-0">
-                <% let wholeNumberRating = Math.floor(products[i].rating); %> <%
-                let remainingRating = Math.floor(5 - products[i].rating); %> <%
-                let fractionRating = (products[i].rating * 10) % 10; %> <%
-                for(let j=0; j < wholeNumberRating; j++) { %>
-                <i class="text-warning fa fa-star"></i>
-                <% } %> <% if(fractionRating) { %>
-                <i class="text-warning fa fa fa fa-star-half-o"></i>
-                <% } %> <% for(let j=0; j < remainingRating; j++) { %>
-                <i class="text-secondary fa fa-star-o"></i>
-                <% } %>
-              </p>
-              <p class="card-text small m-0">
-                <%= products[i].rating %> Ratings
-              </p>
-            </div>
-            <div class="col">
-              <% let isInCart = false; %> <% for(let j=0; j < cart.length; j++)
-              { %> <% if(products[i]._id == cart[j]) { %> <% isInCart = true; %>
-              <% } %> <% } %> <% if(!isInCart) { %>
-              <a
-                href="/products/addToCart/<%= products[i]._id %>"
-                class="w-100 btn btn-warning"
-              >
-                <i class="fa fa-cart-plus"></i>
-              </a>
-              <% } else { %>
-              <a
-                href="/products/removeFromCart/<%= products[i]._id %>"
-                class="w-100 btn btn-danger my-danger-btn"
-              >
-                <i class="fa fa-cart-arrow-down"></i>
-              </a>
-              <% } %>
-            </div>
-          </div>
         </div>
       </div>
     </div>

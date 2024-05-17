@@ -3,7 +3,12 @@ const mongoose = require("mongoose");
 let productSchema = mongoose.Schema(
   {
     name: String,
-    price: Number,
+    price: {
+      type: Number,
+      get: function (price) {
+        return price - price * this.discount;
+      },
+    },
     stock: Number,
     category: String,
 
@@ -14,7 +19,10 @@ let productSchema = mongoose.Schema(
     dateAdded: Date,
   },
   // note/reminder: add this otherwise mongoose will not add virtuals when it converts document to JSON
-  { toJSON: { virtuals: true }, toObject: { virtuals: true } }
+  {
+    toJSON: { virtuals: true, getters: true },
+    toObject: { virtuals: true, getters: true },
+  }
 );
 
 // note/reminder: don't use arrow functions because "this" keyword won't work

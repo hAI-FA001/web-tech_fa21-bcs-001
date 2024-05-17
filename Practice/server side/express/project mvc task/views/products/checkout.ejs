@@ -44,7 +44,7 @@
     <div
       class="container col-12 col-lg-6 my-secondary-bg rounded p-2 p-sm-5 shadow-lg d-inline-block"
     >
-      <form action="">
+      <form action="" method="POST">
         <div id="form-carousel" class="carousel slide">
           <div class="carousel-inner text-start">
             <div id="first-carousel-item" class="carousel-item active">
@@ -139,6 +139,7 @@
                     value="paypal"
                     id="paypalPayment"
                     required
+                    disabled
                   />
                   <label
                     for="paypalPayment"
@@ -246,9 +247,8 @@
         <li class="list-group-item text-bg-light">
           <h3 class="fw-bold fs-6 mb-0">SUBTOTAL</h3>
           <p class="fs-6 text-end">
-            <% let totalPrice = cart.reduce((total, curProduct, curIdx, cart) =>
-            { %> <% return total + curProduct.price - curProduct.price *
-            curProduct.discount; %> <% }, 0) %> $<%= totalPrice %>
+            <% let totalPrice = cart.reduce((total, curProduct) => total +
+            curProduct.price, 0) %> $<%= totalPrice %>
           </p>
         </li>
         <li class="list-group-item text-bg-light">
