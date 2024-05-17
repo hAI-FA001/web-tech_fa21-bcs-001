@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 
 let Product = require("../../models/Product");
 
@@ -16,11 +15,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  let product = new Product();
-  product.name = req.body.name;
-  product.price = req.body.price;
-  product.stock = req.body.stock;
-  product.category = req.body.category;
+  let product = new Product(req.body);
 
   await product.save();
 
@@ -28,13 +23,9 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  let product = await Product.findById(req.params.id);
-  product.name = req.body.name;
-  product.price = req.body.price;
-  product.stock = req.body.stock;
-  product.category = req.body.category;
-
-  await product.save();
+  let product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
 
   res.send(product);
 });

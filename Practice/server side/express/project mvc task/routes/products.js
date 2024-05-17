@@ -42,12 +42,10 @@ router.get("/:pageNumber?", async (req, res) => {
   let totalPages = await Product.find(filters).count();
   totalPages = Math.ceil(parseInt(totalPages) / numProductsToShow);
 
-  // a/c to docs, lean = faster, but cannot do these: change tracking, casting & validation, getter/setter, virtuals, save()
   products = await Product.find(filters)
     .sort({ name: 1 })
     .limit(numProductsToShow)
-    .skip(numProductsToSkip)
-    .lean();
+    .skip(numProductsToSkip);
 
   let cart = req.session.cart ? req.session.cart : [];
 

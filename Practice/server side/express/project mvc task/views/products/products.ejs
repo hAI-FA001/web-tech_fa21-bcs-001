@@ -305,8 +305,12 @@
       <% for(let i=0; i < products.length; i++) { %>
       <div class="col-md-6 col-lg-6 col-xl-3">
         <div class="card">
-          <% if(products[i].image) { %>
-          <img src="<%= products[i].image %>" alt="" class="card-image-top" />
+          <% if(products[i].imageUrl) { %>
+          <img
+            src="<%= products[i].imageUrl %>"
+            alt=""
+            class="card-image-top"
+          />
           <% } else { %>
           <i class="fa fa-image fa-5x mt-5 text-center"></i>
           <% } %>
@@ -319,15 +323,15 @@
                 class="card-title fw-bold small text-bg-secondary text-end badge"
                 ><%= products[i].category %></span
               >
-              <% if(products[i].onSale) { %>
+              <% if(products[i].isOnSale) { %>
               <span class="badge text-bg-success">On Sale</span>
-              <% } %> <% if(products[i].outOfStock) { %>
+              <% } %> <% if(products[i].isOutOfStock) { %>
               <span class="badge text-bg-danger">Out of Stock</span>
-              <% } %> <% if(products[i].topRated) { %>
+              <% } %> <% if(products[i].isTopRated) { %>
               <span class="badge text-bg-primary"
                 >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
               </span>
-              <% } %> <% if(products[i].trending) { %>
+              <% } %> <% if(products[i].isTrending) { %>
               <span class="badge text-bg-dark"
                 >Trending <i class="ms-1 fa fa-line-chart"></i>
               </span>
@@ -354,7 +358,7 @@
                   <% } %>
                 </p>
                 <p class="card-text small m-0">
-                  <%= products[i].rating %> Ratings
+                  <%= products[i].totalRatings %> Ratings
                 </p>
               </div>
               <div class="col">
