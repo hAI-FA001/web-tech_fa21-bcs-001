@@ -20,7 +20,7 @@
                   <div class="col shadow">
                     <div class="card border-1">
                       <div class="card-img-overlay p-0 opacity-50">
-                        <img src="/imgs/product.jpg" class="position-absolute translate-middle top-50 start-50" alt="">
+                        <img src="<%= products[j].imageUrl %>" class="position-absolute translate-middle top-50 start-50" alt="">
                       </div>
                       <div class="card-body">
                         <div class="card-title">
@@ -32,7 +32,7 @@
                   <% } %>
                 </div>
               </div>
-              <div class="card-footer"><a href="" class="text-decoration-none"">See more</a></div>
+              <div class="card-footer"><a href="/products" class="text-decoration-none"">See more</a></div>
               <% } %>
             </div>
             <% if (categories[i] != category) { %>

@@ -361,6 +361,7 @@
                   <%= products[i].totalRatings %> Ratings
                 </p>
               </div>
+              <% if(!products[i].isOutOfStock) { %>
               <div class="col">
                 <% let isInCart = false; %> <% for(let j=0; j < cart.length;
                 j++) { %> <% if(products[i]._id == cart[j]) { %> <% isInCart =
@@ -380,6 +381,7 @@
                 </a>
                 <% } %>
               </div>
+              <% } %>
             </div>
           </div>
         </div>

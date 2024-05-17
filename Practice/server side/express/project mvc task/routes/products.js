@@ -1,5 +1,6 @@
 let express = require("express");
 let Product = require("../models/Product");
+let User = require("../models/User");
 let checkSessionAuth = require("../middlewares/checkSessAuth");
 
 let router = express.Router();
@@ -12,6 +13,39 @@ router.get("/checkout", checkSessionAuth, async (req, res) => {
   }
   cart = await Product.find({ _id: { $in: cart } });
   res.render("products/checkout", { cart });
+});
+
+router.post("/checkout", checkSessionAuth, async (req, res) => {
+  let cart = req.session.cart;
+  req.session.cart = null;
+
+  await Product.updateMany({ _id: { $in: cart } }, { $inc: { stock: -1 } });
+
+  let products = await Product.find({ _id: { $in: cart } });
+  products = products.map((p) => {
+    return {
+      _id: p._id,
+      name: p.name,
+      price: p.price,
+      category: p.category,
+      imageUrl: p.imageUrl,
+    };
+  });
+
+  let user = await User.findById(req.session.user._id).select({
+    myPurchases: 1,
+  });
+  if (!user.myPurchases) {
+    user.myPurchases = products;
+  } else {
+    user.myPurchases = [...products, ...user.myPurchases];
+  }
+
+  await user.save();
+
+  req.flash("success", "You bought " + cart.length + " items.");
+
+  res.redirect("/");
 });
 
 router.get("/:pageNumber?", async (req, res) => {
@@ -28,8 +62,19 @@ router.get("/:pageNumber?", async (req, res) => {
     let onSale = req.session.filters.onSale;
     let rating = req.session.filters.productRating;
 
-    if (startingPrice && endingPrice) {
-      filters.price = { $gte: startingPrice, $lte: endingPrice };
+    filters.price = {};
+    if (startingPrice) {
+      filters.price.$gte = startingPrice;
+    }
+    if (endingPrice) {
+      filters.price.$lte = endingPrice;
+    }
+    if (onSale) {
+      // note/reminder: can't apply filter on virtual property/isOnSale
+      filters.discount = { $gt: 0.0 };
+    }
+    if (rating) {
+      filters.rating = { $gte: rating };
     }
   }
 
