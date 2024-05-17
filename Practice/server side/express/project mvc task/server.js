@@ -87,7 +87,7 @@ server.get("/:pageNumber?/:category?", async (req, res) => {
   });
 });
 
-server.listen(3000);
+server.listen(process.env.PORT_NUMBER);
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STR)
