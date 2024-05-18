@@ -60,6 +60,7 @@ const userProfileRouter = require("./routes/user-profile");
 server.use("/user-profile", userProfileRouter);
 
 server.use("/api/products", require("./routes/api/products"));
+server.use("/api/auth", require("./routes/api/auth"));
 
 server.get("/:pageNumber?/:category?", async (req, res) => {
   let categories = ["Gaming", "Bedroom", "Kitchen", "Computer Devices", "Food"];
