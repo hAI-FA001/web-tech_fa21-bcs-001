@@ -15,7 +15,6 @@ router.get("/login", checkNotSessAuth, async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   //   note to self: req.body is undefined if express.json() is not used
   //   note to self: req.body will not have variables from POST form if express.urlencoded() is not used
-  //   console.log(req.body);
   let user = await User.findOne({ email: req.body.email });
 
   //   note to self: need to write "return" or it will redirect but execute next code too
@@ -58,6 +57,7 @@ router.post("/register", async (req, res, next) => {
   let user = new User();
   user.name = req.body.name;
   user.email = req.body.email;
+  user.roles = [];
 
   let salt = await bcryptjs.genSalt(10);
   let hashedPass = await bcryptjs.hash(req.body.password, salt);

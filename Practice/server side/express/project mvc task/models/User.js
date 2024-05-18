@@ -16,6 +16,8 @@ let userSchema = mongoose.Schema({
       imageUrl: String,
     }),
   ],
+
+  roles: [String],
 });
 
 let userModel = mongoose.model("User", userSchema);
