@@ -62,6 +62,43 @@ router.get("/:pageNumber?", async (req, res) => {
     let onSale = req.session.filters.onSale;
     let rating = req.session.filters.productRating;
 
+    let gamingCategory = req.session.filters.gamingCategory;
+    let bedroomCategory = req.session.filters.bedroomCategory;
+    let kitchenCategory = req.session.filters.kitchenCategory;
+    let foodCategory = req.session.filters.foodCategory;
+    let computerDevicesCategory = req.session.filters.computerDevicesCategory;
+    let allCategory = req.session.filters.allCategory;
+
+    let categories = [];
+    if (gamingCategory) {
+      categories.push("Gaming");
+    }
+    if (bedroomCategory) {
+      categories.push("Bedroom");
+    }
+    if (kitchenCategory) {
+      categories.push("Kitchen");
+    }
+    if (foodCategory) {
+      categories.push("Food");
+    }
+    if (computerDevicesCategory) {
+      categories.push("Computer Devices");
+    }
+    if (allCategory) {
+      categories = [];
+      categories.push(
+        "Gaming",
+        "Bedroom",
+        "Kitchen",
+        "Food",
+        "Computer Devices"
+      );
+    }
+    if (categories.length > 0) {
+      filters.category = { $in: categories };
+    }
+
     filters.price = {};
     if (startingPrice) {
       filters.price.$gte = startingPrice;
@@ -84,7 +121,7 @@ router.get("/:pageNumber?", async (req, res) => {
   let numProductsToShow = 10;
   let numProductsToSkip = (pageNumber - 1) * numProductsToShow;
 
-  let totalPages = await Product.find(filters).count();
+  let totalPages = await Product.find(filters).countDocuments();
   totalPages = Math.ceil(parseInt(totalPages) / numProductsToShow);
 
   products = await Product.find(filters)

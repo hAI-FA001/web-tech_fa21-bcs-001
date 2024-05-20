@@ -6,20 +6,22 @@ let User = require("../models/User");
 let router = express.Router();
 
 router.get("/", checkSessAuth, async (req, res) => {
-  let regexFilter = {};
+  let regexFilter = { $regex: "", $options: "i" };
   if (req.session.product) {
-    regexFilter = { $regex: /req.session.product/, $options: "i" };
+    regexFilter.$regex = req.session.product;
   }
 
-  // note/reminder: use findOne instead of fine, else myPurchases becomes [Object, Object]
+  // note/reminder: use findOne instead of find, else myPurchases becomes [Object, Object]
   let user = await User.findOne({
     _id: req.session.user._id,
-    // myPurchases: { $elemMatch: { name: regexFilter } },
+    myPurchases: {
+      $elemMatch: { name: regexFilter },
+    },
   }).select({
     myPurchases: 1,
   });
 
-  let products = user.myPurchases;
+  let products = user?.myPurchases ? user.myPurchases : [];
 
   res.render("user-profile.ejs", {
     user: req.session.user,
@@ -28,8 +30,8 @@ router.get("/", checkSessAuth, async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  if (req.body.product) {
-    req.session.product = req.body;
+  if (typeof req.body.product == "string") {
+    req.session.product = req.body.product;
   } else if (req.body.oldPass) {
     // note/reminder: this returns password inside an obj, not password as string
     let userPassObj = await User.findOne({ _id: req.session.user._id }).select({
