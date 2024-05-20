@@ -29,6 +29,10 @@
           <a href="/about-us" class="nav-link">About</a>
         </li>
         <% if(user) { %>
+        <li class="nav-item">
+          <a href="/user-profile" class="nav-link">My Profile</a>
+        </li>
+        <% } %> <% if(user) { %>
         <h1 class="mx-auto my-auto fs-4 fw-bold text-primary">
           Welcome, <%= user.name %>!
         </h1>

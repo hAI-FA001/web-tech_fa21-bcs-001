@@ -112,11 +112,11 @@
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  name="electronicsCategory"
-                  id="electronics-category"
+                  name="computerDevicesCategory"
+                  id="computer-devices-category"
                 />
-                <label class="form-check-label" for="electronics-category">
-                  Electronics
+                <label class="form-check-label" for="computer-devices-category">
+                  Computer Devices
                 </label>
               </div>
             </li>
@@ -125,12 +125,10 @@
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  name="miscCategory"
-                  id="misc-category"
+                  name="allCategory"
+                  id="all-category"
                 />
-                <label class="form-check-label" for="misc-category">
-                  Misc
-                </label>
+                <label class="form-check-label" for="all-category"> All </label>
               </div>
             </li>
           </ul>
@@ -152,7 +150,12 @@
             <p class="fs-6 fw-bold ms-2 mt-3 mb-0 text-secondary">From</p>
             <div class="input-group">
               <span class="input-group-text my-primary-bg">$</span>
-              <input type="number" name="startingPrice" class="form-control" />
+              <input
+                type="number"
+                name="startingPrice"
+                value="0"
+                class="form-control"
+              />
             </div>
             <p class="fs-6 fw-bold ms-2 mt-3 mb-0 text-secondary">To</p>
             <div class="input-group">
@@ -279,7 +282,7 @@
         <i class="fa fa-ellipsis-h"></i>
       </li>
       <% } %> <% for(let i=startPage; i <= endPage; i++) { %>
-      <li class="page-item <% if(pageNumber == i) { %> active <% } %>">
+      <li class="page-item <% if(pageNumber == i) { %> active <% } %> z-0">
         <a
           href="/products/<%= i %>"
           class="page-link <% if(pageNumber == i) { %> text-bg-primary <% } %>"
@@ -303,7 +306,7 @@
     </ul>
     <div class="row gy-3" data-masonry='{"percentPosition": true }'>
       <% for(let i=0; i < products.length; i++) { %>
-      <div class="col-md-6 col-lg-6 col-xl-3">
+      <div class="col-md-6 col-lg-6 col-xl-3 my-1">
         <div class="card">
           <% if(products[i].imageUrl) { %>
           <img

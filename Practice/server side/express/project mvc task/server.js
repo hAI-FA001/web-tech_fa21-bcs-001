@@ -68,14 +68,19 @@ server.get("/:pageNumber?/:category?", async (req, res) => {
 
   let pageNumber = req.params.pageNumber ? req.params.pageNumber : 1;
   let pageSize = 2;
-  let totalProducts = (await Product.find({ category })).length;
+  let totalProducts = await Product.find({ category }).countDocuments();
 
   let totalPages = Math.ceil(totalProducts / pageSize);
+
+  if (pageNumber > totalPages) {
+    return res.redirect(`/${totalPages}/${category}`);
+  }
+
   let recordsToSkip = (pageNumber - 1) * pageSize;
 
   let products = await Product.find({ category })
-    .skip(recordsToSkip)
-    .limit(pageSize);
+    .limit(pageSize)
+    .skip(recordsToSkip);
 
   res.render("landing-page", {
     categories,
