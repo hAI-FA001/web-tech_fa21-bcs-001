@@ -6,22 +6,20 @@ let User = require("../models/User");
 let router = express.Router();
 
 router.get("/", checkSessAuth, async (req, res) => {
-  let regexFilter = { $regex: "", $options: "i" };
-  if (req.session.product) {
-    regexFilter.$regex = req.session.product;
-  }
-
   // note/reminder: use findOne instead of find, else myPurchases becomes [Object, Object]
   let user = await User.findOne({
     _id: req.session.user._id,
-    myPurchases: {
-      $elemMatch: { name: regexFilter },
-    },
   }).select({
     myPurchases: 1,
   });
 
   let products = user?.myPurchases ? user.myPurchases : [];
+
+  if (req.session.product) {
+    products = products.filter((p) =>
+      p.name.toLowerCase().includes(req.session.product.toLowerCase())
+    );
+  }
 
   res.render("user-profile.ejs", {
     user: req.session.user,
