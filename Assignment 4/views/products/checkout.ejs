@@ -1,0 +1,339 @@
+<div class="container-fluid mt-5">
+  <div class="container">
+    <div class="position-relative m-4 fw-bold small my-stepper">
+      <div class="progress bg-secondary my-bar">
+        <div class="progress-bar" style="width: 0%"></div>
+      </div>
+      <p
+        id="shipping-stepper"
+        class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill my-stepper-number"
+      >
+        1
+      </p>
+      <p
+        class="position-absolute top-50 start-0 translate-middle text-secondary my-stepper-label text-nowrap"
+      >
+        Shipping Info
+      </p>
+      <p
+        id="payment-stepper"
+        class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill my-stepper-number"
+      >
+        2
+      </p>
+      <p
+        class="position-absolute top-50 start-50 translate-middle text-secondary my-stepper-label text-nowrap"
+      >
+        Payment Details
+      </p>
+      <p
+        id="finalize-stepper"
+        class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill my-stepper-number"
+      >
+        3
+      </p>
+      <p
+        class="position-absolute top-50 start-100 translate-middle text-secondary my-stepper-label text-nowrap"
+      >
+        Finalize Order
+      </p>
+    </div>
+  </div>
+
+  <div class="container-fluid col-12 col-xl-9 mx-auto m-0">
+    <div
+      class="container col-12 col-lg-6 my-secondary-bg rounded p-2 p-sm-5 shadow-lg d-inline-block"
+    >
+      <form action="" method="POST">
+        <div id="form-carousel" class="carousel slide">
+          <div class="carousel-inner text-start">
+            <div id="first-carousel-item" class="carousel-item active">
+              <h1 class="fs-3 fw-bold">Ship To</h1>
+
+              <div class="input-group mt-5">
+                <span class="input-group-text my-primary-bg col-12 col-sm"
+                  >First and Last Name</span
+                >
+                <input
+                  type="text"
+                  class="form-control py-3 z-0"
+                  name="firstName"
+                  required
+                />
+                <input
+                  type="text"
+                  class="form-control py-3 z-0"
+                  name="lastName"
+                  required
+                />
+                <div class="invalid-feedback">
+                  First and last name are required
+                </div>
+              </div>
+              <div class="input-group mt-3">
+                <span class="input-group-text my-primary-bg col-12 col-sm"
+                  >Address</span
+                >
+                <input
+                  type="text"
+                  class="form-control py-3 z-0"
+                  name="address"
+                  required
+                />
+                <div class="invalid-feedback">Address is required</div>
+              </div>
+              <div class="row mt-3">
+                <div class="col">
+                  <div class="input-group">
+                    <span class="input-group-text my-primary-bg col-12 col-sm"
+                      >Postal Code</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control py-3 z-0"
+                      name="postalCode"
+                      required
+                    />
+                    <div class="invalid-feedback">Postal Code is required</div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="input-group">
+                    <span class="input-group-text my-primary-bg col-12 col-sm"
+                      >Town/City</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control py-3 z-0"
+                      name="city"
+                      required
+                    />
+                    <div class="invalid-feedback">Town/City is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="second-carousel-item" class="carousel-item">
+              <h1 class="fs-3 fw-bold">Payment Details</h1>
+              <div class="input-group mt-5 justify-content-center">
+                <div class="input-group-text my-primary-bg col-12 col-sm">
+                  <input
+                    class="form-check-input mt-0 me-2"
+                    type="radio"
+                    name="paymentMethod"
+                    value="credit"
+                    id="creditPayment"
+                    required
+                  />
+                  <label
+                    for="creditPayment"
+                    class="form-check-label py-3 my-primary-bg"
+                    >Credit or Debit Card</label
+                  >
+                </div>
+                <div class="input-group-text my-primary-bg col-12 col-sm">
+                  <input
+                    class="form-check-input mt-0 me-2"
+                    type="radio"
+                    name="paymentMethod"
+                    value="paypal"
+                    id="paypalPayment"
+                    required
+                    disabled
+                  />
+                  <label
+                    for="paypalPayment"
+                    class="form-check-label py-3 my-primary-bg"
+                    >Paypal</label
+                  >
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-12 col-sm-6">
+                  <div class="input-group">
+                    <label
+                      for="cardNumber"
+                      class="input-group-text my-primary-bg col-12 col-sm"
+                      >Card Number</label
+                    >
+                    <input
+                      id="cardNumber"
+                      type="text"
+                      class="form-control py-3"
+                      name="cardNumber"
+                      required
+                    />
+                    <div class="invalid-feedback">Card number is required</div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="input-group">
+                    <label
+                      for="securityCode"
+                      class="input-group-text my-primary-bg col-12 col-sm"
+                      >Security Code</label
+                    >
+                    <input
+                      id="securityCode"
+                      type="text"
+                      class="form-control py-3"
+                      name="securityCode"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Security code is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group mt-3">
+                <label
+                  for="expiryDate"
+                  class="input-group-text my-primary-bg col-12 col-sm"
+                  >Expiration Date</label
+                >
+                <input
+                  id="expiryDate"
+                  type="date"
+                  class="form-control py-3"
+                  name="cardExpiry"
+                  required
+                />
+                <div class="invalid-feedback">Expiration date is required</div>
+              </div>
+            </div>
+            <div id="third-carousel-item" class="carousel-item">
+              <h1 class="fs-3 fw-bold">Finalize Order</h1>
+              <p class="fs-6">
+                Please check your order's details on this page and continue
+              </p>
+            </div>
+          </div>
+
+          <button
+            id="carousel-prev-btn"
+            class="btn btn-primary btn-lg w-25 mt-5 float-start d-none"
+            data-bs-target="#form-carousel"
+            data-bs-slide="prev"
+          >
+            Previous
+          </button>
+          <button
+            id="carousel-next-btn"
+            class="btn btn-primary btn-lg w-25 mt-5 float-end"
+            data-bs-target="#form-carousel"
+            data-bs-slide="next"
+          >
+            Next
+          </button>
+
+          <input
+            type="submit"
+            id="confirm-btn"
+            value="Confirm"
+            class="btn btn-primary btn-lg w-25 mt-5 float-end d-none"
+          />
+        </div>
+      </form>
+    </div>
+    <div
+      class="container col-12 col-lg-4 my-tertiary-bg rounded p-5 mt-3 mt-lg-0 shadow float-end d-inline-block"
+    >
+      <h2 class="fs-3 fw-bold">Summary</h2>
+      <hr />
+      <ul class="list-group text-start">
+        <li class="list-group-item text-bg-light">
+          <h3 class="fw-bold fs-6 mb-0">SUBTOTAL</h3>
+          <p class="fs-6 text-end">
+            <% let totalPrice = cart.reduce((total, curProduct) => total +
+            curProduct.price, 0) %> $<%= totalPrice %>
+          </p>
+        </li>
+        <li class="list-group-item text-bg-light">
+          <h3 class="fw-bold fs-6">SHIPPING</h3>
+          <p class="fs-6 text-end">FREE</p>
+        </li>
+        <li class="list-group-item text-bg-light">
+          <h3 class="fw-bold fs-6">TAXES (10%)</h3>
+          <p class="fs-6 text-end">
+            <% let tax = totalPrice * 0.01; %> $<%= tax %>
+          </p>
+        </li>
+        <li class="list-group-item my-primary-bg">
+          <h3 class="fw-bold fs-5">TOTAL</h3>
+          <p class="fs-5 text-end">$<%= totalPrice + tax %></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5 my-tertiary-bg rounded py-5">
+  <div class="mb-5 fw-bold text-center rounded">
+    <h1 class="display-4 d-inline-block">Your Cart</h1>
+    <i class="fa fa-5x fa-shopping-cart"></i>
+  </div>
+
+  <div class="row gy-3" data-masonry='{"percentPosition": true }'>
+    <% for(let i=0; i < cart.length; i++) { %>
+    <div class="col-md-6 col-lg-6 col-xl-3">
+      <div class="card">
+        <% if(cart[i].imageUrl) { %>
+        <img src="<%= cart[i].imageUrl %>" alt="" class="card-image-top" />
+        <% } else { %>
+        <i class="fa fa-image fa-5x mt-5 text-center"></i>
+        <% } %>
+        <div class="card-body">
+          <span class="p-2">
+            <h2 class="card-title fw-bold fs-5 d-inline">
+              <%= cart[i].name %>
+            </h2>
+            <span
+              class="card-title fw-bold small text-bg-secondary text-end badge"
+              ><%= cart[i].category %></span
+            >
+            <% if(cart[i].isOnSale) { %>
+            <span class="badge text-bg-success">On Sale</span>
+            <% } %> <% if(cart[i].isOutOfStock) { %>
+            <span class="badge text-bg-danger">Out of Stock</span>
+            <% } %> <% if(cart[i].isTopRated) { %>
+            <span class="badge text-bg-primary"
+              >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+            </span>
+            <% } %> <% if(cart[i].isTrending) { %>
+            <span class="badge text-bg-dark"
+              >Trending <i class="ms-1 fa fa-line-chart"></i>
+            </span>
+            <% } %>
+          </span>
+          <span
+            class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+            >$<%= cart[i].price %></span
+          >
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col ms-auto">
+              <p class="card-text m-0">
+                <% let wholeNumberRating = Math.floor(cart[i].rating); %> <% let
+                remainingRating = Math.floor(5 - cart[i].rating); %> <% let
+                fractionRating = (cart[i].rating * 10) % 10; %> <% for(let j=0;
+                j < wholeNumberRating; j++) { %>
+                <i class="text-warning fa fa-star"></i>
+                <% } %> <% if(fractionRating) { %>
+                <i class="text-warning fa fa fa fa-star-half-o"></i>
+                <% } %> <% for(let j=0; j < remainingRating; j++) { %>
+                <i class="text-secondary fa fa-star-o"></i>
+                <% } %>
+              </p>
+              <p class="card-text small m-0"><%= cart[i].rating %> Ratings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

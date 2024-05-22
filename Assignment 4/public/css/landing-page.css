@@ -1,0 +1,82 @@
+#search-icon {
+  background-color: var(--light-blue-color) !important;
+  color: var(--white-color) !important;
+}
+
+#search-icon:hover {
+  background-color: var(--lighter-blue-color) !important;
+  color: var(--blue-color) !important;
+}
+
+#products-section .card *,
+#products-section .card {
+  transition: background-color 0.5s, transform 0.6s;
+}
+
+#products-section .card {
+  background-color: var(--light-blue-color);
+}
+
+#products-section .card-header {
+  background-color: var(--blue-color);
+  color: var(--white-color);
+}
+
+#products-section .card .card {
+  height: 8em;
+  z-index: 0;
+}
+
+#products-section .card .card-img-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#products-section .card-body {
+  background-color: var(--white-color);
+  color: var(--dark-color);
+}
+
+#products-section .card-footer {
+  background-color: var(--white-blue-color);
+  color: var(--white-color);
+}
+
+#products-section .card-footer a {
+  color: var(--blue-color);
+}
+
+#quality-section div div {
+  background-color: var(--blue-color);
+  color: var(--white-color) !important;
+  transition: background-color 0.6s, color 0.6s;
+}
+
+#products-section .card:hover {
+  transform: scale(1.05);
+}
+
+#products-section .card .card:hover {
+  z-index: 1;
+}
+
+#products-section .card:hover .card-header {
+  background-color: var(--light-blue-color);
+  color: var(--white-color);
+}
+
+#products-section .card:hover .card-body {
+  background-color: var(--lighter-blue-color);
+  color: var(--dark-color);
+}
+
+#products-section .card:hover .card-footer,
+#products-section .card:hover .card-footer a {
+  background-color: var(--lighter-blue-color);
+  color: var(--blue-color);
+}
+
+#quality-section div div:hover {
+  background-color: var(--white-color);
+  color: var(--dark-color) !important;
+}

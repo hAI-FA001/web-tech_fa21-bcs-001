@@ -1,0 +1,6 @@
+div#browse-products a:hover {
+  color: var(--light-blue-color) !important;
+  border-bottom: 1px solid !important;
+  border-bottom-color: var(--white);
+  transform: scaleX(1);
+}

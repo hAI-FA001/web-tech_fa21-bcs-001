@@ -1,0 +1,20 @@
+#categories-section a:hover {
+  background-color: var(--blue-color) !important;
+  color: var(--white-color) !important;
+}
+
+.my-danger-btn {
+  background-color: var(--error-color) !important;
+}
+
+.my-danger-btn:hover {
+  background-color: var(--dark-error-color) !important;
+}
+
+.my-primary-btn {
+  background-color: var(--blue-color) !important;
+}
+
+.my-primary-btn:hover {
+  background-color: var(--light-blue-color) !important;
+}

@@ -1,0 +1,395 @@
+<div class="container mt-5 my-primary-bg p-5">
+  <h1 class="fs-4 fw-normal p-0 mb-3">Find what you're looking for</h1>
+  <form action="" method="POST" class="form mt-2">
+    <div class="input-group">
+      <input
+        type="text"
+        name="product"
+        class="form-control form-control-lg w-50"
+        placeholder="Search a Product"
+      />
+      <button
+        type="submit"
+        id="search-icon"
+        class="btn btn-secondary col-2 col-lg-1"
+      >
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+<div
+  class="container-fluid row my-tertiary-bg py-5 px-2 mt-5 position-relative"
+>
+  <a
+    href="/products/checkout"
+    class="btn btn-lg <% if(cart.length == 0) { %> disabled <% } %> shadow btn-primary position-absolute top-0 end-0 translate-middle-y col-6 col-sm-3 col-lg-2 col-xl-2 me-5"
+  >
+    Checkout <i class="fa fa-shopping-cart"></i>
+    <% if(cart.length > 0) { %>
+    <span
+      class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-dark"
+      ><%= cart.length %>
+    </span>
+    <% } %>
+  </a>
+  <div
+    id="filters"
+    class="col-12 col-md-12 col-lg-3 col-xl-2 my-primary-bg rounded shadow me-3 ms-0 h-100 py-3"
+  >
+    <form action="" method="POST" class="form">
+      <ul class="list-group p-2 rounded">
+        <h1 class="fs-4 fw-bold mt-3">Filters</h1>
+        <li class="list-group-item bg-light rounded my-1">
+          <div
+            class="container-fluid d-flex flex-row justify-content-between p-0"
+          >
+            <h2 class="fs-6 d-inline-block">All categories</h2>
+            <button class="btn btn-sm">
+              <i
+                class="fa fa-2x fa-angle-up"
+                data-bs-toggle="collapse"
+                data-bs-target="#categories-section"
+              ></i>
+            </button>
+          </div>
+          <ul id="categories-section" class="navbar-nav small">
+            <li class="nav-item">
+              <div class="form-check rounded">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="gamingCategory"
+                  id="gaming-category"
+                />
+                <label class="form-check-label" for="gaming-category">
+                  Gaming
+                </label>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="form-check rounded">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="bedroomCategory"
+                  id="bedroom-category"
+                />
+                <label class="form-check-label" for="bedroom-category">
+                  Bedroom
+                </label>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="form-check rounded">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="kitchenCategory"
+                  id="kitchen-category"
+                />
+                <label class="form-check-label" for="kitchen-category">
+                  Kitchen
+                </label>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="form-check rounded">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="foodCategory"
+                  id="food-category"
+                />
+                <label class="form-check-label" for="food-category">
+                  Food
+                </label>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="form-check rounded">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="computerDevicesCategory"
+                  id="computer-devices-category"
+                />
+                <label class="form-check-label" for="computer-devices-category">
+                  Computer Devices
+                </label>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="form-check rounded">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="allCategory"
+                  id="all-category"
+                />
+                <label class="form-check-label" for="all-category"> All </label>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="list-group-item bg-light rounded my-1">
+          <div
+            class="container-fluid d-flex flex-row justify-content-between p-0"
+          >
+            <h2 class="fs-6 d-inline-block">Price</h2>
+            <button class="btn btn-sm">
+              <i
+                class="fa fa-2x fa-angle-up"
+                data-bs-toggle="collapse"
+                data-bs-target="#price-section"
+              ></i>
+            </button>
+          </div>
+          <div id="price-section" class="shadow">
+            <p class="fs-6 fw-bold ms-2 mt-3 mb-0 text-secondary">From</p>
+            <div class="input-group">
+              <span class="input-group-text my-primary-bg">$</span>
+              <input
+                type="number"
+                name="startingPrice"
+                value="0"
+                class="form-control"
+              />
+            </div>
+            <p class="fs-6 fw-bold ms-2 mt-3 mb-0 text-secondary">To</p>
+            <div class="input-group">
+              <span class="input-group-text my-primary-bg">$</span>
+              <input type="number" name="endingPrice" class="form-control" />
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item bg-light rounded my-1">
+          <div
+            class="container-fluid d-flex flex-row justify-content-between p-0"
+          >
+            <h2 class="fs-6 d-inline-block">On Sale</h2>
+            <button class="btn btn-sm">
+              <i
+                class="fa fa-2x fa-angle-up"
+                data-bs-toggle="collapse"
+                data-bs-target="#sale-section"
+              ></i>
+            </button>
+          </div>
+          <div id="sale-section">
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input my-primary-bg shadow w-100 py-3"
+                name="onSale"
+                type="checkbox"
+                role="switch"
+                id="onSaleSwitchCheck"
+              />
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item bg-light rounded my-1">
+          <div
+            class="container-fluid d-flex flex-row justify-content-between p-0"
+          >
+            <h2 class="fs-6 d-inline-block">Rating</h2>
+            <button class="btn btn-sm">
+              <i
+                class="fa fa-2x fa-angle-up"
+                data-bs-toggle="collapse"
+                data-bs-target="#rating-section"
+              ></i>
+            </button>
+          </div>
+          <div id="rating-section">
+            <div class="form-check rounded ps-5 my-primary-bg">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="productRating"
+                value="1"
+                id="productRating1Star"
+                checked
+              />
+              <label class="form-check-label small" for="productRating1Star">
+                1 star and higher
+              </label>
+            </div>
+            <div class="form-check rounded ps-5">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="productRating"
+                value="2"
+                id="productRating2Stars"
+              />
+              <label class="form-check-label small" for="productRating2Stars">
+                2 stars and higher
+              </label>
+            </div>
+            <div class="form-check rounded ps-5">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="productRating"
+                value="3"
+                id="productRating3Stars"
+              />
+              <label class="form-check-label small" for="productRating3Stars">
+                3 stars and higher
+              </label>
+            </div>
+            <div class="form-check rounded ps-5">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="productRating"
+                value="4"
+                id="productRating4Stars"
+              />
+              <label class="form-check-label small" for="productRating4Stars">
+                4 stars and higher
+              </label>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <input
+        type="submit"
+        value="Apply Changes"
+        class="btn btn-lg btn-secondary w-100"
+      />
+    </form>
+  </div>
+
+  <div
+    class="col-12 mt-5 mt-lg-0 col-md col-lg col-xl me-21 my-secondary-bg p-3 rounded shadow"
+  >
+    <ul
+      class="pagination pagination-lg flex-wrap justify-content-center rounded my-5"
+    >
+      <li class="page-item <% if(pageNumber == 1) { %> disabled <% } %>">
+        <a
+          href="<% if(pageNumber > 1) { %> /products/<%= pageNumber-1 %> <% } %>"
+          class="page-link <% if(pageNumber == 1) { %> text-bg-secondary <% } else { %> text-bg-primary my-primary-btn <% } %>"
+          ><i class="fa fa-backward"></i
+        ></a>
+      </li>
+      <% let startPage = Math.max(1, pageNumber - 3); %> <% let endPage =
+      Math.min(totalPages, pageNumber + 3); %> <% if(startPage > 1) { %>
+      <li class="page-item page-link">
+        <i class="fa fa-ellipsis-h"></i>
+      </li>
+      <% } %> <% for(let i=startPage; i <= endPage; i++) { %>
+      <li class="page-item <% if(pageNumber == i) { %> active <% } %> z-0">
+        <a
+          href="/products/<%= i %>"
+          class="page-link <% if(pageNumber == i) { %> text-bg-primary <% } %>"
+          ><%= i %></a
+        >
+      </li>
+      <% } %> <% if(endPage < totalPages) { %>
+      <li class="page-item page-link">
+        <i class="fa fa-ellipsis-h"></i>
+      </li>
+      <% } %>
+      <li
+        class="page-item <% if(pageNumber == totalPages) { %> disabled <% } %>"
+      >
+        <a
+          href="<% if(pageNumber < totalPages) { %> /products/<%= pageNumber+1 %> <% } %>"
+          class="page-link <% if(pageNumber == totalPages) { %> text-bg-secondary <% } else { %> text-bg-primary my-primary-btn <% } %>"
+          ><i class="fa fa-forward"></i
+        ></a>
+      </li>
+    </ul>
+    <div class="row gy-3" data-masonry='{"percentPosition": true }'>
+      <% for(let i=0; i < products.length; i++) { %>
+      <div class="col-md-6 col-lg-6 col-xl-3 my-1">
+        <div class="card">
+          <% if(products[i].imageUrl) { %>
+          <img
+            src="<%= products[i].imageUrl %>"
+            alt=""
+            class="card-image-top"
+          />
+          <% } else { %>
+          <i class="fa fa-image fa-5x mt-5 text-center"></i>
+          <% } %>
+          <div class="card-body">
+            <span class="p-2">
+              <h2 class="card-title fw-bold fs-5 d-inline">
+                <%= products[i].name %>
+              </h2>
+              <span
+                class="card-title fw-bold small text-bg-secondary text-end badge"
+                ><%= products[i].category %></span
+              >
+              <% if(products[i].isOnSale) { %>
+              <span class="badge text-bg-success">On Sale</span>
+              <% } %> <% if(products[i].isOutOfStock) { %>
+              <span class="badge text-bg-danger">Out of Stock</span>
+              <% } %> <% if(products[i].isTopRated) { %>
+              <span class="badge text-bg-primary"
+                >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+              </span>
+              <% } %> <% if(products[i].isTrending) { %>
+              <span class="badge text-bg-dark"
+                >Trending <i class="ms-1 fa fa-line-chart"></i>
+              </span>
+              <% } %>
+            </span>
+            <span
+              class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+              >$<%= products[i].price %></span
+            >
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col ms-auto">
+                <p class="card-text m-0">
+                  <% let wholeNumberRating = Math.floor(products[i].rating); %>
+                  <% let remainingRating = Math.floor(5 - products[i].rating);
+                  %> <% let fractionRating = (products[i].rating * 10) % 10; %>
+                  <% for(let j=0; j < wholeNumberRating; j++) { %>
+                  <i class="text-warning fa fa-star"></i>
+                  <% } %> <% if(fractionRating) { %>
+                  <i class="text-warning fa fa fa fa-star-half-o"></i>
+                  <% } %> <% for(let j=0; j < remainingRating; j++) { %>
+                  <i class="text-secondary fa fa-star-o"></i>
+                  <% } %>
+                </p>
+                <p class="card-text small m-0">
+                  <%= products[i].totalRatings %> Ratings
+                </p>
+              </div>
+              <% if(!products[i].isOutOfStock) { %>
+              <div class="col">
+                <% let isInCart = false; %> <% for(let j=0; j < cart.length;
+                j++) { %> <% if(products[i]._id == cart[j]) { %> <% isInCart =
+                true; %> <% } %> <% } %> <% if(!isInCart) { %>
+                <a
+                  href="/products/addToCart/<%= products[i]._id %>"
+                  class="w-100 btn btn-warning"
+                >
+                  <i class="fa fa-cart-plus"></i>
+                </a>
+                <% } else { %>
+                <a
+                  href="/products/removeFromCart/<%= products[i]._id %>"
+                  class="w-100 btn btn-danger my-danger-btn"
+                >
+                  <i class="fa fa-cart-arrow-down"></i>
+                </a>
+                <% } %>
+              </div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>

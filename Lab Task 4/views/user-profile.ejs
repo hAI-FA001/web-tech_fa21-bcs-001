@@ -1,0 +1,178 @@
+<div id="change-password-modal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content my-primary-bg">
+      <div class="modal-header">
+        <h1 class="fs-3 fw-bold">Change Password</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="form-floating my-3">
+            <input
+              id="old-pass"
+              type="password"
+              name="oldPass"
+              class="form-control"
+              placeholder=""
+            />
+            <label for="old-pass" class="form-label text-secondary"
+              >Old Password</label
+            >
+          </div>
+          <div class="form-floating my-3">
+            <input
+              id="new-pass"
+              type="password"
+              name="newPass"
+              class="form-control"
+              placeholder=""
+            />
+            <label for="new-pass" class="form-label text-secondary"
+              >New Password</label
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger my-danger-btn"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <input
+            type="submit"
+            class="btn btn-warning"
+            value="Update Password"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div
+  id="my-profile-info"
+  class="container col-11 col-sm-8 col-lg-6 my-secondary-bg mt-5 rounded shadow-lg p-3"
+>
+  <h1 class="fs-3 fw-bold text-center py-4 border-bottom border-secondary">
+    Your Profile
+  </h1>
+
+  <div class="py-4 mb-5 border-bottom border-secondary">
+    <img
+      id="user-profile"
+      src="/imgs/logo.png"
+      alt=""
+      class="img-thumbnail d-block mx-auto rounded-circle"
+    />
+  </div>
+
+  <form action="" method="POST" class="mb-3">
+    <div class="form-floating my-3">
+      <input
+        type="text"
+        id="username"
+        name="name"
+        class="form-control"
+        placeholder=""
+        value="<%= user.name %>"
+      />
+      <label for="username" class="form-label text-secondary">Username</label>
+    </div>
+    <div class="form-floating my-3">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        placeholder=""
+        value="<%= user.email %>"
+      />
+      <label for="email" class="form-label text-secondary">Email</label>
+    </div>
+    <div class="my-3">
+      <button
+        type="button"
+        class="btn btn-lg btn-warning w-100"
+        data-bs-toggle="modal"
+        data-bs-target="#change-password-modal"
+      >
+        Change Password
+      </button>
+    </div>
+    <input
+      type="submit"
+      value="Save"
+      class="disabled btn btn-lg btn-primary fw-semibold w-100 mt-3"
+    />
+    <a
+      href="/"
+      class="btn btn-lg btn-danger my-danger-btn fw-semibold w-100 mt-3 d-none"
+    >
+      Cancel
+    </a>
+  </form>
+</div>
+
+<div class="container col-11 col-12 my-secondary-bg mt-5 rounded shadow-lg p-3">
+  <h1 class="fs-3 fw-bold text-center py-3">Your Purchases</h1>
+  <h1 class="fs-4 text-start py-4 ps-5 mb-4 border-bottom border-secondary">
+    You have spent $<%= products.reduce((totalPrice, curProduct) => totalPrice +
+    curProduct.price, 0) %>
+  </h1>
+
+  <div class="container mt-5 mb-4 rounded shadow-lg">
+    <form action="" method="POST" class="form">
+      <div class="input-group">
+        <input
+          type="search"
+          name="product"
+          class="form-control form-control-lg w-50"
+          placeholder="Search a Product"
+        />
+        <button id="search-icon" class="btn btn-secondary col-2 col-lg-1">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row gy-3" data-masonry='{"percentPosition": true }'>
+    <% if(products.length > 0) { %> <% for(let i=0; i < products.length; i++) {
+    %>
+    <div class="col-md-6 col-lg-6 col-xl-3">
+      <div class="card">
+        <% if(products[i].imageUrl) { %>
+        <img src="<%= products[i].imageUrl %>" alt="" class="card-image-top" />
+        <% } else { %>
+        <i class="fa fa-image fa-5x mt-5 text-center"></i>
+        <% } %>
+        <div class="card-body">
+          <span class="p-2">
+            <h2 class="card-title fw-bold fs-5 d-inline">
+              <%= products[i].name %>
+            </h2>
+            <span
+              class="card-title fw-bold small text-bg-secondary text-end badge"
+              ><%= products[i].category %></span
+            >
+          </span>
+          <span
+            class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+            >$<%= products[i].price %></span
+          >
+        </div>
+      </div>
+    </div>
+    <% } %> <% } else { %>
+    <h1 class="fs-5 my-5 text-center">Your purchases will show here</h1>
+    <% } %>
+  </div>
+</div>
+
+<div id="bottom-gap"></div>

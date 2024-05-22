@@ -1,0 +1,16 @@
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <% for(let type in expressFlash) { %> <% for(let i=0; i <
+  expressFlash[type].length; i++) { %>
+  <div class="toast my-secondary-bg border-1 border-dark" role="alert">
+    <div class="toast-header text-bg-<%= type %>">
+      <strong class="me-auto">Message</strong>
+      <button
+        type="button"
+        class="btn-close btn-close-white"
+        data-bs-dismiss="toast"
+      ></button>
+    </div>
+    <div class="toast-body"><%= expressFlash[type][i] %></div>
+  </div>
+  <% } %> <% } %>
+</div>
