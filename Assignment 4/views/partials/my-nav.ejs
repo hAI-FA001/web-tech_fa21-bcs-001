@@ -1,0 +1,55 @@
+<nav
+  class="container-fluid navbar navbar-expand-sm position-sticky top-0 shadow z-3 bg-light1"
+>
+  <div class="navbar-brand">
+    <img src="/imgs/logo.png" alt="" />
+  </div>
+  <div class="container-fluid d-sm-none w-25">
+    <button
+      class="navbar-toggler m-0"
+      data-bs-toggle="collapse"
+      data-bs-target="#my-nav"
+    >
+      <div class="navbar-toggler-icon"></div>
+    </button>
+  </div>
+  <div id="my-nav" class="collapse navbar-collapse">
+    <div class="container ms-0">
+      <ul class="navbar-nav fw-semibold">
+        <li class="nav-item">
+          <a href="/" class="nav-link active fw-bold">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/products" class="nav-link">Products</a>
+        </li>
+        <li class="nav-item">
+          <a href="/contact-us" class="nav-link">Customer Support</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about-us" class="nav-link">About</a>
+        </li>
+        <% if(user) { %>
+        <li class="nav-item">
+          <a href="/user-profile" class="nav-link">My Profile</a>
+        </li>
+        <% } %> <% if(user) { %>
+        <h1 class="mx-auto my-auto fs-4 fw-bold text-primary">
+          Welcome, <%= user.name %>!
+        </h1>
+        <% } %>
+        <li class="nav-item ms-sm-auto col-3 col-md-2 d-flex flex-row">
+          <% if(!user) { %>
+          <a href="/login" class="btn btn-primary w-50 me-2 d-inline-block">
+            Log In
+          </a>
+          <a href="/register" class="btn btn-primary w-50 d-inline-block">
+            Register
+          </a>
+          <% } else { %>
+          <a href="/logout" class="btn btn-primary w-100"> Log Out </a>
+          <% } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

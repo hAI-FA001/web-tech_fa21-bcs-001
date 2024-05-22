@@ -1,0 +1,29 @@
+#form-container {
+  background-color: var(--dark-color) !important;
+}
+
+#form-container h1 {
+  color: var(--white-blue-color) !important;
+}
+
+#contact-form label {
+  color: var(--blue-color);
+}
+
+#contact-form .btn {
+  color: var(--white-color) !important;
+  background-color: var(--blue-color) !important;
+}
+
+#description-field {
+  height: 7em;
+}
+
+#bottom-gap {
+  height: 10em;
+}
+
+#contact-form .btn[type="Submit"]:hover {
+  color: var(--white-color) !important;
+  background-color: var(--green-color) !important;
+}
