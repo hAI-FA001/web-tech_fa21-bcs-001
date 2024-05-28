@@ -1,0 +1,16 @@
+.my-bar {
+  height: 0.25em !important;
+}
+
+.my-stepper {
+  height: 50px;
+}
+
+.my-stepper-number {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.my-stepper-label {
+  transform: translate(-50%, 1px) !important;
+}

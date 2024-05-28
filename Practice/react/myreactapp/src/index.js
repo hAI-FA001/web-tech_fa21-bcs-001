@@ -9,8 +9,11 @@ import SingleStudent from "./components/SingleStudent";
 import Counter from "./components/Counter";
 import Todos from "./components/Todos";
 
+import { BrowserRouter } from "react-router-dom";
+
 const root = ReactDOM.createRoot(document.getElementById("root")); // can use/possible to use any tag
 root.render(
+  // <BrowserRouter>
   <React.StrictMode>
     {/* <h1>ABC</h1>, can put any tag here */}
     <SingleStudent name="XYZ" address="LDA Lahore" onRegisterInCourse="" />
@@ -19,6 +22,7 @@ root.render(
     <Todos />
     <App />
   </React.StrictMode>
+  // </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
