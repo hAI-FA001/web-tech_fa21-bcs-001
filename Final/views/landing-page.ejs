@@ -1,0 +1,144 @@
+    <div
+      id="products-section"
+      class="container-fluid mt-5 mb-4 my-secondary-bg p-5"
+    >
+      <h1 class="display-6 mb-4 text-center">
+        Check out our latest collections
+      </h1>
+      <div class="row gy-4">
+        <% for(let i=0; i < categories.length; i++) { %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <% if(categories[i] != category) { %>
+          <a href="/<%= pageNumber %>/<%= categories[i] %>" class="nav-link d-inline">
+            <% } %>
+            <div class="card">
+              <div class="card-header"><h1 class="fs-5 p-0"><%= categories[i] %></h1></div>
+              <% if (categories[i] == category) { %>
+              <div class="card-body">
+                <div class="row row-cols-2 gy-4 gx-2">
+                  <% for(let j=0; j < products.length; j++) { %>
+                  <div class="col shadow">
+                    <div class="card border-1">
+                      <div class="card-img-overlay p-0 opacity-50">
+                        <img src="<%= products[j].imageUrl %>" class="position-absolute translate-middle top-50 start-50" alt="">
+                      </div>
+                      <div class="card-body">
+                        <div class="card-title">
+                          <h2 class="fs-6 fw-normal"><%= products[j].name %></h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+                </div>
+              </div>
+              <div class="card-footer"><a href="/products" class="text-decoration-none"">See more</a></div>
+              <% } %>
+            </div>
+            <% if (categories[i] != category) { %>
+          </a>
+          <% } %>
+          </div>
+          <% } %>
+      </div>
+      <div class="row gy-4 mt-4 mx-auto col-3">
+        <% for(let i=0; i < totalPages; i++) { %>
+          <div class="col">
+            <% if(pageNumber == i+1) { %>
+              <button class="btn btn-primary"><%= i+1 %></button>
+            <% } else  { %>
+              <a href="/<%= i+1 %>/<%= category %>" class="btn btn-secondary"><%= i+1 %></a>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5 my-tertiary-bg py-5">
+      <h1 class="display-5 p-0">Trending</h1>
+      <div
+        id="trending-carousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <ol class="carousel-indicators">
+          <li
+            data-bs-target="#trending-carousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="trending-item"
+          ></li>
+          <li
+            data-bs-target="#trending-carousel"
+            data-bs-slide-to="1"
+            aria-label="trending-item"
+          ></li>
+          <li
+            data-bs-target="#trending-carousel"
+            data-bs-slide-to="2"
+            aria-label="trending-item"
+          ></li>
+        </ol>
+        <div class="carousel-inner position-relative" role="listbox">
+          <div id="overlay" class="w-100 z-1 position-absolute left-0 right-0 top-0 bottom-0 bg-dark opacity-25"></div>
+      
+          <div class="carousel-item active">
+            <img src="/imgs/product.jpg" class="w-100 d-block" alt="Football" />
+            <div class="carousel-caption d-none d-sm-block z-2">
+              <h3>Trending Items</h3>
+              <p>Gaming PC</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/imgs/product.jpg" class="w-100 d-block" alt="Basketball" />
+            <div class="carousel-caption d-none d-sm-block z-2">
+              <h3>Trending Items</h3>
+              <p>Basketball</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/imgs/product.jpg" class="w-100 d-block" alt="Hockey" />
+            <div class="carousel-caption d-none d-sm-block z-2">
+              <h3>Trending Items</h3>
+              <p>Ronaldo Signed T-Shirt</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#trending-carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#trending-carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="quality-section" class="container my-5 px-5 py-5">
+      <div class="row justify-content-between text-center gx-5 gy-3 py-2">
+        <div class="col-12 col-sm-3 col-lg-3 col-xl-2 shadow py-3">
+          <i class="fa fa-clock-o fa-4x mb-3"></i>
+          <h2 class="fs-6">Fast Delivery</h2>
+        </div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-2 shadow py-3">
+          <i class="fa fa-shopping-bag fa-4x mb-3"></i>
+          <h2 class="fs-6">1M+ Products</h2>
+        </div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-2 shadow py-3">
+          <i class="fa fa-users fa-4x mb-3"></i>
+          <h2 class="fs-6">99% Customer Satisfaction Rate</h2>
+        </div>
+      </div>
+    </div>
