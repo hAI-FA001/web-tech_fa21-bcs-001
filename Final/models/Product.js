@@ -17,6 +17,12 @@ let productSchema = mongoose.Schema(
     imageUrl: String,
     discount: Number,
     dateAdded: Date,
+
+    // lab exam
+    isFeatured: {
+      type: Boolean,
+      default: false,
+    },
   },
   // note/reminder: add this otherwise mongoose will not add virtuals when it converts document to JSON
   {

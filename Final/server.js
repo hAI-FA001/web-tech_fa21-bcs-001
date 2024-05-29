@@ -64,6 +64,9 @@ server.use("/user-profile", userProfileRouter);
 server.use("/api/products", require("./routes/api/products"));
 server.use("/api/auth", require("./routes/api/auth"));
 
+// lab exam
+server.use("/visited-products", require("./routes/visited-products"));
+
 server.get("/:pageNumber?/:category?", async (req, res) => {
   let categories = ["Gaming", "Bedroom", "Kitchen", "Computer Devices", "Food"];
   let category = req.params.category ? req.params.category : "Gaming";
@@ -84,6 +87,9 @@ server.get("/:pageNumber?/:category?", async (req, res) => {
     .limit(pageSize)
     .skip(recordsToSkip);
 
+  // lab exam
+  let featuredProducts = await Product.find({ isFeatured: true }).limit(5);
+
   res.render("landing-page", {
     categories,
     category,
@@ -92,6 +98,7 @@ server.get("/:pageNumber?/:category?", async (req, res) => {
     pageSize,
     totalProducts,
     totalPages,
+    featuredProducts,
   });
 });
 

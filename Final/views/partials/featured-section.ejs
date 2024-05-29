@@ -1,0 +1,68 @@
+<div id="featured-section">
+  <a href="/visited-products" class="btn btn-primary mx-auto d-block my-4 w-25"
+    >View visited</a
+  >
+
+  <h1 class="display-6 mb-4 text-center">Featured Section</h1>
+  <div class="row gy-3" data-masonry='{"percentPosition": true }'>
+    <% for(let i=0; i < featuredProducts.length; i++) { %>
+    <div class="col-md-6 col-lg-6 col-xl-3 my-1">
+      <a href="/products/<%= featuredProducts[i]._id %>" class="nav-link">
+        <div class="card">
+          <% if(featuredProducts[i].imageUrl) { %>
+          <img
+            src="<%= featuredProducts[i].imageUrl %>"
+            alt=""
+            class="card-image-top"
+          />
+          <% } else { %>
+          <i class="fa fa-image fa-5x mt-5 text-center"></i>
+          <% } %>
+          <div class="card-body">
+            <span class="p-2">
+              <h2 class="card-title fw-bold fs-5 d-inline">
+                <%= featuredProducts[i].name %>
+              </h2>
+              <span
+                class="card-title fw-bold small text-bg-secondary text-end badge"
+                ><%= featuredProducts[i].category %></span
+              >
+              <% if(featuredProducts[i].isFeatured) { %>
+              <span class="badge text-bg-primary"
+                >Featured <i class="ms-1 fa fa fa-trophy"></i>
+              </span>
+              <% } %>
+            </span>
+            <span
+              class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+              >$<%= featuredProducts[i].price %></span
+            >
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col ms-auto">
+                <p class="card-text m-0">
+                  <% let wholeNumberRating =
+                  Math.floor(featuredProducts[i].rating); %> <% let
+                  remainingRating = Math.floor(5 - featuredProducts[i].rating);
+                  %> <% let fractionRating = (featuredProducts[i].rating * 10) %
+                  10; %> <% for(let j=0; j < wholeNumberRating; j++) { %>
+                  <i class="text-warning fa fa-star"></i>
+                  <% } %> <% if(fractionRating) { %>
+                  <i class="text-warning fa fa fa fa-star-half-o"></i>
+                  <% } %> <% for(let j=0; j < remainingRating; j++) { %>
+                  <i class="text-secondary fa fa-star-o"></i>
+                  <% } %>
+                </p>
+                <p class="card-text small m-0">
+                  <%= featuredProducts[i].totalRatings %> Ratings
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <% } %>
+  </div>
+</div>
