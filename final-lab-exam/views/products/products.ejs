@@ -317,34 +317,36 @@
           <% } else { %>
           <i class="fa fa-image fa-5x mt-5 text-center"></i>
           <% } %>
-          <div class="card-body">
-            <span class="p-2">
-              <h2 class="card-title fw-bold fs-5 d-inline">
-                <%= products[i].name %>
-              </h2>
+          <a href="/products/<%= products[i]._id %>" class="nav-link">
+            <div class="card-body">
+              <span class="p-2">
+                <h2 class="card-title fw-bold fs-5 d-inline">
+                  <%= products[i].name %>
+                </h2>
+                <span
+                  class="card-title fw-bold small text-bg-secondary text-end badge"
+                  ><%= products[i].category %></span
+                >
+                <% if(products[i].isOnSale) { %>
+                <span class="badge text-bg-success">On Sale</span>
+                <% } %> <% if(products[i].isOutOfStock) { %>
+                <span class="badge text-bg-danger">Out of Stock</span>
+                <% } %> <% if(products[i].isTopRated) { %>
+                <span class="badge text-bg-primary"
+                  >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
+                </span>
+                <% } %> <% if(products[i].isTrending) { %>
+                <span class="badge text-bg-dark"
+                  >Trending <i class="ms-1 fa fa-line-chart"></i>
+                </span>
+                <% } %>
+              </span>
               <span
-                class="card-title fw-bold small text-bg-secondary text-end badge"
-                ><%= products[i].category %></span
+                class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
+                >$<%= products[i].price %></span
               >
-              <% if(products[i].isOnSale) { %>
-              <span class="badge text-bg-success">On Sale</span>
-              <% } %> <% if(products[i].isOutOfStock) { %>
-              <span class="badge text-bg-danger">Out of Stock</span>
-              <% } %> <% if(products[i].isTopRated) { %>
-              <span class="badge text-bg-primary"
-                >Top Rated <i class="ms-1 fa fa fa-trophy"></i>
-              </span>
-              <% } %> <% if(products[i].isTrending) { %>
-              <span class="badge text-bg-dark"
-                >Trending <i class="ms-1 fa fa-line-chart"></i>
-              </span>
-              <% } %>
-            </span>
-            <span
-              class="w-100 text-secondary text-wrap fw-bold font-monospace fs-5 mt-3 d-inline-block"
-              >$<%= products[i].price %></span
-            >
-          </div>
+            </div>
+          </a>
           <div class="card-footer">
             <div class="row">
               <div class="col ms-auto">
