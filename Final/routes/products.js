@@ -5,6 +5,24 @@ let checkSessionAuth = require("../middlewares/checkSessAuth");
 
 let router = express.Router();
 
+// lab exam
+router.get("/:id", async (req, res, next) => {
+  let pid = req.params.id;
+  // i need to do this because i already made a /products/something parametrized route
+  let otherThanNumber = /[^0-9]/.exec(pid);
+  if (!otherThanNumber) {
+    return next();
+  }
+
+  let product = await Product.findById(pid);
+  if (!req.session.visitedProducts) {
+    req.session.visitedProducts = [];
+  }
+  req.session.visitedProducts.push(pid);
+
+  res.render("products/single-product", { product });
+});
+
 // reminder/important: put this before /:pageNumber?, otherwise /:pageNumber? will handle /checkout
 router.get("/checkout", checkSessionAuth, async (req, res) => {
   let cart = req.session.cart;
